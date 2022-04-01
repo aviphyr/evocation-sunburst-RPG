@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Player extends entity{
+public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
 
@@ -21,6 +21,13 @@ public class Player extends entity{
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2- (gp.tileSize/2);
+
+        hitbox = new Rectangle();
+        hitbox.x = 8;
+        hitbox.y = 16;
+        hitbox.width = 32;
+        hitbox.height = 32;
+
 
         setDefaultValues();
         getPlayerImage();
@@ -50,36 +57,41 @@ public class Player extends entity{
 
     public void update(){
 
-        if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
-            if (keyH.upPressed && keyH.downPressed)
-            {
+        //
 
-            }
-            else if (keyH.upPressed)
+        if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
+            // movement
+            if (keyH.upPressed)
             {
                 direction = "up";
-                worldY -= speed;
             }
             else if (keyH.downPressed)
             {
                 direction = "down";
-                worldY += speed;
-            }
-            else if (keyH.leftPressed && keyH.rightPressed)
-            {
-
             }
             else if (keyH.leftPressed)
             {
                 direction = "left";
-                worldX -= speed;
             }
             else if (keyH.rightPressed)
             {
                 direction = "right";
-                worldX += speed;
             }
 
+            // collision
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
+
+            if(collisionOn == false){
+                switch(direction){
+                    case "up": worldY -= speed; break;
+                    case "down": worldY += speed; break;
+                    case "left": worldX -= speed; break;
+                    case "right": worldX += speed; break;
+                }
+            }
+
+            // animation (walk cycle)
             spriteCounter++;
             if(spriteCounter > 10)
             {
