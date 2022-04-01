@@ -42,45 +42,48 @@ public class Player extends entity{
     }
 
     public void update(){
-        if (keyH.upPressed && keyH.downPressed)
-        {
 
-        }
-        else if (keyH.upPressed)
-        {
-            direction = "up";
-            y -= speed;
-        }
-        else if (keyH.downPressed)
-        {
-            direction = "down";
-            y += speed;
-        }
-        else if (keyH.leftPressed && keyH.rightPressed)
-        {
+        if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
+            if (keyH.upPressed && keyH.downPressed)
+            {
 
-        }
-        else if (keyH.leftPressed)
-        {
-            direction = "left";
-            x -= speed;
-        }
-        else if (keyH.rightPressed)
-        {
-            direction = "right";
-            x += speed;
-        }
-
-        spriteCounter++;
-        if(spriteCounter > 10)
-        {
-            if(spriteNum == 1) {
-                spriteNum = 2;
             }
-            else if(spriteNum == 2) {
-                spriteNum = 1;
+            else if (keyH.upPressed)
+            {
+                direction = "up";
+                y -= speed;
             }
-            spriteCounter = 0;
+            else if (keyH.downPressed)
+            {
+                direction = "down";
+                y += speed;
+            }
+            else if (keyH.leftPressed && keyH.rightPressed)
+            {
+
+            }
+            else if (keyH.leftPressed)
+            {
+                direction = "left";
+                x -= speed;
+            }
+            else if (keyH.rightPressed)
+            {
+                direction = "right";
+                x += speed;
+            }
+
+            spriteCounter++;
+            if(spriteCounter > 10)
+            {
+                if(spriteNum == 1) {
+                    spriteNum = 2;
+                }
+                else if(spriteNum == 2) {
+                    spriteNum = 1;
+                }
+                spriteCounter = 0;
+            }
         }
     }
 
