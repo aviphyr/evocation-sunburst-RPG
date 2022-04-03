@@ -15,6 +15,8 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    int hasKey = 0;
+
     public Player(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
@@ -25,6 +27,8 @@ public class Player extends Entity {
         hitbox = new Rectangle();
         hitbox.x = 8;
         hitbox.y = 16;
+        hitboxDefaultX = hitbox.x;
+        hitboxDefaultY = hitbox.y;
         hitbox.width = 32;
         hitbox.height = 32;
 
@@ -78,9 +82,13 @@ public class Player extends Entity {
                 direction = "right";
             }
 
-            // collision
+            //check tile collision
             collisionOn = false;
             gp.cChecker.checkTile(this);
+
+            //check object collision
+            int objIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
 
             if(collisionOn == false){
                 switch(direction){
@@ -102,6 +110,33 @@ public class Player extends Entity {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
+            }
+        }
+    }
+
+    public void pickUpObject(int index)
+    {
+        if(index != 999)
+        {
+            String objectName = gp.obj[index].name;
+
+            switch(objectName)
+            {
+                case "Key":
+                    hasKey++;
+                    gp.obj[index] = null;
+                    System.out.println("Key: " + hasKey);
+                    break;
+                case "Door":
+                    if(hasKey > 0)
+                    {
+                        hasKey--;
+                        gp.obj[index] = null;
+                    }
+                    System.out.println("Key: " + hasKey);
+                    break;
+                case "Chest":
+                    break;
             }
         }
     }

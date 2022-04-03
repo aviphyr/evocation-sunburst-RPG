@@ -58,4 +58,89 @@ public class CollisionChecker {
                 break;
         }
     }
+
+    public int checkObject(Entity entity, boolean player)
+    {
+        int index = 999;
+
+        for(int i = 0; i < gp.obj.length; i++)
+        {
+            if(gp.obj[i] != null)
+            {
+                //Get entity's hitbox position
+                entity.hitbox.x = entity.worldX + entity.hitbox.x;
+                entity.hitbox.y = entity.worldY + entity.hitbox.y;
+
+                //Get the object's hitbox position
+                gp.obj[i].hitbox.x = gp.obj[i].worldX + gp.obj[i].hitbox.x;
+                gp.obj[i].hitbox.y = gp.obj[i].worldY + gp.obj[i].hitbox.y;
+
+                switch(entity.direction)
+                {
+                    case "up":
+                        entity.hitbox.y -= entity.speed;
+                        if(entity.hitbox.intersects(gp.obj[i].hitbox))
+                        {
+                            if(gp.obj[i].collision == true)
+                            {
+                                entity.collisionOn = true;
+                            }
+                            if(player == true)
+                            {
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "down":
+                        entity.hitbox.y += entity.speed;
+                        if(entity.hitbox.intersects(gp.obj[i].hitbox))
+                        {
+                            if(gp.obj[i].collision == true)
+                            {
+                                entity.collisionOn = true;
+                            }
+                            if(player == true)
+                            {
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "left":
+                        entity.hitbox.x -= entity.speed;
+                        if(entity.hitbox.intersects(gp.obj[i].hitbox))
+                        {
+                            if(gp.obj[i].collision == true)
+                            {
+                                entity.collisionOn = true;
+                            }
+                            if(player == true)
+                            {
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "right":
+                        entity.hitbox.x += entity.speed;
+                        if(entity.hitbox.intersects(gp.obj[i].hitbox))
+                        {
+                            if(gp.obj[i].collision == true)
+                            {
+                                entity.collisionOn = true;
+                            }
+                            if(player == true)
+                            {
+                                index = i;
+                            }
+                        }
+                        break;
+                }
+                entity.hitbox.x = entity.hitboxDefaultX;
+                entity.hitbox.y = entity.hitboxDefaultY;
+                gp.obj[i].hitbox.x = gp.obj[i].hitboxDefaultX;
+                gp.obj[i].hitbox.y = gp.obj[i].hitboxDefaultY;
+            }
+        }
+
+        return index;
+    }
 }
