@@ -10,7 +10,7 @@ Please note that you need Java 17 SE installed to run this game.
 
 <img width="1423" alt="Screen Shot 2022-04-05 at 9 59 20 AM" src="https://user-images.githubusercontent.com/63444552/161784068-8722a1fe-5558-4012-a378-4a0e44d4a622.png">
 
-<img width="909" alt="Screen Shot 2022-04-05 at 10 02 45 AM" src="https://user-images.githubusercontent.com/63444552/161784571-b665e0f0-2bef-4d37-ae0e-d7266ea5c0d1.png">
+![image](https://user-images.githubusercontent.com/63444552/161785227-23874cf0-5cce-449e-bf73-c8e52cf86b97.png)
 
 
 
