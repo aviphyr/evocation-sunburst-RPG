@@ -18,7 +18,7 @@ public class Main extends JFrame {
         //Game Icon
         try
         {
-            URL resource = window.getClass().getResource("/icons/gameIcon.png");
+            URL resource = window.getClass().getResource("/icons/GameIcon.png");
             BufferedImage image = ImageIO.read(resource);
             window.setIconImage(image);
         }
