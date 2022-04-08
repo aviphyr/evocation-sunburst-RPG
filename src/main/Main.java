@@ -13,7 +13,7 @@ public class Main extends JFrame {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("2D RPG");
+        window.setTitle("Evocation: Sunburst");
 
         //Game Icon
         try
