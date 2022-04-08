@@ -49,8 +49,8 @@ public class Player extends Entity {
     {
         up1 = setup("RacoonWalkBack1");
         up2 = setup("RacoonWalkBack2");
-        down1 = setup("RacoonWalkFront1");
-        down2 = setup("RacoonWalkFront2");
+        down1 = setup("RaccoonWalkForward1");
+        down2 = setup("RaccoonWalkForward2");
         left1 = setup("RaccoonWalkLeft1");
         left2 = setup("RaccoonWalkLeft2");
         right1 = setup("RaccoonWalkRight1");
