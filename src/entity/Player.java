@@ -2,6 +2,7 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -44,19 +45,34 @@ public class Player extends Entity {
         direction = "down";
     }
 
-    public void getPlayerImage(){
-        try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/player/RacoonWalkBack1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/RacoonWalkBack2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/RacoonWalkFront1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/RacoonWalkFront2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/RaccoonWalkLeft1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/RaccoonWalkLeft2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/RaccoonWalkRight1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/RaccoonWalkRight2.png"));
-        }catch(IOException e){
+    public void getPlayerImage()
+    {
+        up1 = setup("RacoonWalkBack1");
+        up2 = setup("RacoonWalkBack2");
+        down1 = setup("RacoonWalkFront1");
+        down2 = setup("RacoonWalkFront2");
+        left1 = setup("RaccoonWalkLeft1");
+        left2 = setup("RaccoonWalkLeft2");
+        right1 = setup("RaccoonWalkRight1");
+        right2 = setup("RaccoonWalkRight2");
+    }
+
+    public BufferedImage setup(String image)
+    {
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage scaledImage = null;
+
+        try
+        {
+            scaledImage = ImageIO.read(getClass().getResourceAsStream("/player/" + image + ".png"));
+            scaledImage = uTool.scaleImage(scaledImage, gp.tileSize, gp.tileSize);
+
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
+
+        return scaledImage;
     }
 
     public void update(){
@@ -192,7 +208,7 @@ public class Player extends Entity {
                 image = null;
         };
 
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, null);
 
     }
 }
