@@ -20,14 +20,14 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow;
 
     // the world...settings
-    public final int maxWorldCol = 50;
-    public final int maxWorldRow = 50;
+    public final int maxWorldCol = 100;
+    public final int maxWorldRow = 100;
 
     int FPS = 60; // so that the game doesn't update a million times a second
 
     //System
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     Sound music = new Sound();
     Sound se = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
@@ -99,7 +99,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         //Debug
         long drawStart = 0;
-        if(keyH.checkDrawTime)
+        if(keyH.showDebug)
         {
             drawStart = System.nanoTime();
         }
@@ -123,13 +123,24 @@ public class GamePanel extends JPanel implements Runnable {
         ui.draw(g2);
 
         //Debug
-        if(keyH.checkDrawTime)
+        if(keyH.showDebug)
         {
             long drawEnd = System.nanoTime();
             long passed = drawEnd - drawStart;
+
+            g2.setFont(new Font("Arial", Font.PLAIN, 20));
             g2.setColor(Color.white);
-            g2.drawString("Draw Time: " + passed, 10, 400);
-            System.out.println("Draw Time: " + passed);
+            int x = 10;
+            int y = 400;
+            int lineHeight = 20;
+
+            g2.drawString("WorldX: " + player.worldX, x, y); y += lineHeight;
+            g2.drawString("WorldX: " + player.worldY, x, y); y += lineHeight;
+            g2.drawString("Col: " + (player.worldX + player.hitbox.x)/tileSize, x, y); y += lineHeight;
+            g2.drawString("Row: " + (player.worldY + player.hitbox.y)/tileSize, x, y); y += lineHeight;
+
+            g2.drawString("Draw Time: " + passed, x, y);
+            //System.out.println("Draw Time: " + passed);
         }
 
         g2.dispose();

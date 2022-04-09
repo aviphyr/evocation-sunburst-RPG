@@ -19,23 +19,97 @@ public class TileManager {
     public TileManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[10];
+        tile = new Tile[80];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/world1.txt");
+        loadMap("/maps/world2.txt");
     }
 
     public void getTileImage()
     {
 
-        setup(0, "grass", false);
-        setup(1, "wall", true);
-        setup(2, "water", true);
-        setup(3, "earth", false);
-        setup(4, "tree", true);
-        setup(5, "sand", false);
+        setup(0, "notexture", false);
+        setup(1, "notexture", false);
+        setup(2, "notexture", false);
+        setup(3, "notexture", false);
+        setup(4, "notexture", false);
+        setup(5, "notexture", false);
+        setup(6, "notexture", false);
+        setup(7, "notexture", false);
+        setup(8, "notexture", false);
+        setup(9, "notexture", false);
 
+        setup(10, "GrassS", false);
+        setup(11, "notexture", false);
+        setup(12, "GrassT", true);
+        setup(13, "GrassB", true);
+        setup(14, "GrassL", true);
+        setup(15, "GrassR", true);
+        setup(16, "GrassRTI", true);
+        setup(17, "GrassLTI", true);
+        setup(18, "GrassRBI", true);
+        setup(19, "GrassLBI", true);
+        setup(20, "GrassRTO", true);
+        setup(21, "GrassLTO", true);
+        setup(22, "GrassRBO", true);
+        setup(23, "GrassLBO", true);
+
+        setup(24, "RoadS", false);
+        setup(25, "RoadT", false);
+        setup(26, "RoadB", false);
+        setup(27, "RoadL", false);
+        setup(28, "RoadR", false);
+        setup(29, "RoadRTI", false);
+        setup(30, "RoadLTI", false);
+        setup(31, "RoadRBI", false);
+        setup(32, "RoadLBI", false);
+        setup(33, "RoadRTO", false);
+        setup(34, "RoadLTO", false);
+        setup(35, "RoadRBO", false);
+        setup(36, "RoadLBO", false);
+
+        setup(37, "SandS", false);
+        setup(38, "SandT_W", true);
+        setup(39, "SandB_W", true);
+        setup(40, "SandL_W", true);
+        setup(41, "SandR_W", true);
+        setup(42, "SandRTI_W", true);
+        setup(43, "SandLTI_W", true);
+        setup(44, "SandRBI_W", true);
+        setup(45, "SandLBI_W", true);
+        setup(46, "SandRTO_W", true);
+        setup(47, "SandLTO_W", true);
+        setup(48, "SandRBO_W", true);
+        setup(49, "SandLBO_W", true);
+
+        setup(50, "SandT_G", true);
+        setup(51, "SandB_G", true);
+        setup(52, "SandL_G", true);
+        setup(53, "SandR_G", true);
+        setup(54, "SandRTI_G", true);
+        setup(55, "SandLTI_G", true);
+        setup(56, "SandRBI_G", true);
+        setup(57, "SandLBI_G", true);
+        setup(58, "SandRTO_G", true);
+        setup(59, "SandLTO_G", true);
+        setup(60, "SandRBO_G", true);
+        setup(61, "SandLBO_G", true);
+
+        setup(62, "BridgeT", true);
+        setup(63, "BridgeB", true);
+        setup(64, "BridgeL", true);
+        setup(65, "BridgeR", true);
+        setup(66, "BridgeS_NS", false);
+        setup(67, "BridgeS_WE", false);
+
+        setup(68, "DirtS", false);
+        setup(69, "notexture", false);
+
+        setup(70, "WaterS", true);
+        setup(71, "WaterA", true);
+
+        setup(72, "WallS", true);
     }
 
     public void setup(int index, String image, boolean collision)
