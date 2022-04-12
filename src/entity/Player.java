@@ -45,6 +45,8 @@ public class Player extends Entity {
         direction = "down";
     }
 
+    //Walking Sprites
+
     public void getPlayerImage()
     {
         up1 = setup("RaccoonWalkBack1");
