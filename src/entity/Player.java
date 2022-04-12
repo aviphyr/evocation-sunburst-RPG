@@ -108,7 +108,7 @@ public class Player extends Entity {
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
 
-            if(collisionOn == false){
+            if(!collisionOn){
                 switch(direction){
                     case "up": worldY -= speed; break;
                     case "down": worldY += speed; break;
@@ -208,7 +208,7 @@ public class Player extends Entity {
                 break;
             default:
                 image = null;
-        };
+        }
 
         g2.drawImage(image, screenX, screenY, null);
 
