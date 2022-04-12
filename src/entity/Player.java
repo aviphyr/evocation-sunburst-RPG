@@ -47,8 +47,8 @@ public class Player extends Entity {
 
     public void getPlayerImage()
     {
-        up1 = setup("RacoonWalkBack1");
-        up2 = setup("RacoonWalkBack2");
+        up1 = setup("RaccoonWalkBack1");
+        up2 = setup("RaccoonWalkBack2");
         down1 = setup("RaccoonWalkForward1");
         down2 = setup("RaccoonWalkForward2");
         left1 = setup("RaccoonWalkLeft1");
