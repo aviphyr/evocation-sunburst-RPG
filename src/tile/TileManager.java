@@ -83,18 +83,18 @@ public class TileManager {
         setup(48, "SandRBO_W", true);
         setup(49, "SandLBO_W", true);
 
-        setup(50, "SandT_G", true);
-        setup(51, "SandB_G", true);
-        setup(52, "SandL_G", true);
-        setup(53, "SandR_G", true);
-        setup(54, "SandRTI_G", true);
-        setup(55, "SandLTI_G", true);
-        setup(56, "SandRBI_G", true);
-        setup(57, "SandLBI_G", true);
-        setup(58, "SandRTO_G", true);
-        setup(59, "SandLTO_G", true);
-        setup(60, "SandRBO_G", true);
-        setup(61, "SandLBO_G", true);
+        setup(50, "SandT_G", false);
+        setup(51, "SandB_G", false);
+        setup(52, "SandL_G", false);
+        setup(53, "SandR_G", false);
+        setup(54, "SandRTI_G", false);
+        setup(55, "SandLTI_G", false);
+        setup(56, "SandRBI_G", false);
+        setup(57, "SandLBI_G", false);
+        setup(58, "SandRTO_G", false);
+        setup(59, "SandLTO_G", false);
+        setup(60, "SandRBO_G", false);
+        setup(61, "SandLBO_G", false);
 
         setup(62, "BridgeT", true);
         setup(63, "BridgeB", true);
