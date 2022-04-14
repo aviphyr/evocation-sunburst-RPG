@@ -41,7 +41,7 @@ public class TileManager {
         setup(9, "notexture", false);
 
         setup(10, "GrassS", false);
-        setup(11, "notexture", false);
+        setup(11, "GrassA", false);
         setup(12, "GrassT", true);
         setup(13, "GrassB", true);
         setup(14, "GrassL", true);
