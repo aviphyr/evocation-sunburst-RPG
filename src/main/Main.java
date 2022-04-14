@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Main extends JFrame {
+public class Main {
     public static void main(String [] args){
 
         JFrame window = new JFrame();
@@ -15,17 +15,7 @@ public class Main extends JFrame {
         window.setResizable(false);
         window.setTitle("Evocation: Sunburst");
 
-        //Game Icon
-        try
-        {
-            URL resource = window.getClass().getResource("/icons/GameIcon.png");
-            BufferedImage image = ImageIO.read(resource);
-            window.setIconImage(image);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        //IconSetter.setIconImage(window);
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
