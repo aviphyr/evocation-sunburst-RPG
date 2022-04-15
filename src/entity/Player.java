@@ -175,7 +175,27 @@ public class Player extends Entity {
                 image = null;
         }
 
-        g2.drawImage(image, screenX, screenY, null);
+        int x = screenX;
+        int y = screenY;
+
+        if(screenX > worldX){
+            x = worldX;
+        }
+        if(screenY > worldY){
+            y = worldY;
+        }
+
+        int rightOffset = gp.screenWidth - screenX;
+        if(rightOffset > gp.worldWidth - worldX){
+            x = gp.screenWidth - (gp.worldWidth - worldX);
+        }
+        int bottomOffset = gp.screenHeight - screenY;
+        if(bottomOffset > gp.worldHeight - worldY){
+            y = gp.screenHeight - (gp.worldHeight - worldY);
+        }
+
+
+        g2.drawImage(image, x, y, null);
 
     }
 }
