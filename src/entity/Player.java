@@ -10,16 +10,17 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Player extends Entity {
-    GamePanel gp;
+
     KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
 
-    //public int hasKey = 0;
 
-    public Player(GamePanel gp, KeyHandler keyH){
-        this.gp = gp;
+    public Player(GamePanel gp, KeyHandler keyH)
+    {
+        super(gp);
+
         this.keyH = keyH;
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
@@ -49,37 +50,19 @@ public class Player extends Entity {
 
     public void getPlayerImage()
     {
-        up1 = setup("RaccoonWalkBack1");
-        up2 = setup("RaccoonWalkBack2");
-        down1 = setup("RaccoonWalkForward1");
-        down2 = setup("RaccoonWalkForward2");
-        left1 = setup("RaccoonWalkLeft1");
-        left2 = setup("RaccoonWalkLeft2");
-        right1 = setup("RaccoonWalkRight1");
-        right2 = setup("RaccoonWalkRight2");
-    }
-
-    public BufferedImage setup(String image)
-    {
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage scaledImage = null;
-
-        try
-        {
-            scaledImage = ImageIO.read(getClass().getResourceAsStream("/player/" + image + ".png"));
-            scaledImage = uTool.scaleImage(scaledImage, gp.tileSize, gp.tileSize);
-
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return scaledImage;
+        up1 = setup("/player/RaccoonWalkBack1");
+        up2 = setup("/player/RaccoonWalkBack2");
+        down1 = setup("/player/RaccoonWalkForward1");
+        down2 = setup("/player/RaccoonWalkForward2");
+        left1 = setup("/player/RaccoonWalkLeft1");
+        left2 = setup("/player/RaccoonWalkLeft2");
+        right1 = setup("/player/RaccoonWalkRight1");
+        right2 = setup("/player/RaccoonWalkRight2");
     }
 
     public void update(){
 
-        //
+        //update
 
         if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
             // movement
@@ -100,14 +83,19 @@ public class Player extends Entity {
                 direction = "right";
             }
 
-            //check tile collision
+            //Check Tile Collision
             collisionOn = false;
             gp.cChecker.checkTile(this);
 
-            //check object collision
+            //Check Object Collision
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
 
+            //Check NPC Collision
+            int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+            interactNPC(npcIndex);
+
+            //If Collision is False, Player Can Move
             if(!collisionOn){
                 switch(direction){
                     case "up": worldY -= speed; break;
@@ -137,6 +125,14 @@ public class Player extends Entity {
         if(index != 999)
         {
 
+        }
+    }
+
+    public void interactNPC(int index)
+    {
+        if(index != 999)
+        {
+            System.out.println("YOOOO MOVE IT!!!! I HAVE NO TEXTURE!!!");
         }
     }
 
