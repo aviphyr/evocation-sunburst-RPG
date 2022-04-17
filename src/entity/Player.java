@@ -16,6 +16,7 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    static int whichNPC = 0;
 
     public Player(GamePanel gp, KeyHandler keyH)
     {
@@ -27,13 +28,12 @@ public class Player extends Entity {
         screenY = gp.screenHeight/2- (gp.tileSize/2);
 
         hitbox = new Rectangle();
-        hitbox.x = 16;
+        hitbox.x = 0;
         hitbox.y = 16;
         hitboxDefaultX = hitbox.x;
         hitboxDefaultY = hitbox.y;
-        hitbox.width = 16;
+        hitbox.width = 48;
         hitbox.height = 32;
-
 
         setDefaultValues();
         getPlayerImage();
@@ -132,8 +132,14 @@ public class Player extends Entity {
     {
         if(index != 999)
         {
-            System.out.println("YOOOO MOVE IT!!!! I HAVE NO TEXTURE!!!");
+            gp.gameState = gp.dialogueState;
+            gp.npc[index].speak();
         }
+    }
+
+    public static int getNPC()
+    {
+        return whichNPC;
     }
 
     public void draw(Graphics2D g2){

@@ -2,10 +2,13 @@ package entity;
 
 import main.GamePanel;
 
+import java.awt.*;
 import java.util.Random;
 
 public class NPC_Frog extends Entity
 {
+
+
     public NPC_Frog(GamePanel gp)
     {
         super(gp);
@@ -13,8 +16,11 @@ public class NPC_Frog extends Entity
         direction = "down";
         speed = 1;
 
-        getImage();
+        entityColor = new Color(11, 218, 12);
+        //entityColor = new Color(255, 255, 255);
 
+        getImage();
+        setDialogue();
     }
 
     public void getImage()
@@ -28,6 +34,15 @@ public class NPC_Frog extends Entity
         left2 = setup("/npc/FrogLeft2");
         right1 = setup("/npc/FrogRight1");
         right2 = setup("/npc/FrogRight2");
+
+    }
+
+    public void setDialogue()
+    {
+        dialogues[0] = "Hello Rack.";
+        dialogues[1] = "How did can you see me?dgrdrgrdfrdrg\ndrdgf";
+        dialogues[2] = "I have no texture.";
+        dialogues[3] = "I am to become a Frog.";
     }
 
     public void setAction()
@@ -60,4 +75,10 @@ public class NPC_Frog extends Entity
         }
     }
 
+    public void speak()
+    {
+        //Do Character Specific Stuff
+
+        super.speak();
+    }
 }

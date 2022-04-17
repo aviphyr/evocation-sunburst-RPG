@@ -27,6 +27,11 @@ public class Entity
 
     public int actionLockCounter = 0;
 
+    String dialogues[] = new String[20];
+    int dialogueIndex = 0;
+    public Color entityColor;
+
+
     public Entity(GamePanel gp)
     {
         this.gp = gp;
@@ -35,6 +40,32 @@ public class Entity
     public void setAction()
     {
 
+    }
+
+    public void speak()
+    {
+        if(dialogues[dialogueIndex] == null)
+        {
+            dialogueIndex = 0;
+        }
+        gp.ui.currentDialogue = dialogues[dialogueIndex];
+        dialogueIndex++;
+
+        switch(gp.player.direction)
+        {
+            case "up":
+                direction = "down";
+                break;
+            case "down":
+                direction = "up";
+                break;
+            case "left":
+                direction = "right";
+                break;
+            case "right":
+                direction = "left";
+                break;
+        }
     }
 
     public void update()
@@ -132,4 +163,7 @@ public class Entity
 
         return scaledImage;
     }
+
+
+
 }
