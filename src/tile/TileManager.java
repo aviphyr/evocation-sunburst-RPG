@@ -42,18 +42,18 @@ public class TileManager {
 
         setup(10, "GrassS", false);
         setup(11, "GrassA", false);
-        setup(12, "GrassT", true);
-        setup(13, "GrassB", true);
-        setup(14, "GrassL", true);
-        setup(15, "GrassR", true);
-        setup(16, "GrassRTI", true);
-        setup(17, "GrassLTI", true);
-        setup(18, "GrassRBI", true);
-        setup(19, "GrassLBI", true);
-        setup(20, "GrassRTO", true);
-        setup(21, "GrassLTO", true);
-        setup(22, "GrassRBO", true);
-        setup(23, "GrassLBO", true);
+        setup(12, "GrassT", false);
+        setup(13, "GrassB", false);
+        setup(14, "GrassL", false);
+        setup(15, "GrassR", false);
+        setup(16, "GrassRTI", false);
+        setup(17, "GrassLTI", false);
+        setup(18, "GrassRBI", false);
+        setup(19, "GrassLBI", false);
+        setup(20, "GrassRTO", false);
+        setup(21, "GrassLTO", false);
+        setup(22, "GrassRBO", false);
+        setup(23, "GrassLBO", false);
 
         setup(24, "RoadS", false);
         setup(25, "RoadT", false);
@@ -70,18 +70,18 @@ public class TileManager {
         setup(36, "RoadLBO", false);
 
         setup(37, "SandS", false);
-        setup(38, "SandT_W", true);
-        setup(39, "SandB_W", true);
-        setup(40, "SandL_W", true);
-        setup(41, "SandR_W", true);
-        setup(42, "SandRTI_W", true);
-        setup(43, "SandLTI_W", true);
-        setup(44, "SandRBI_W", true);
-        setup(45, "SandLBI_W", true);
-        setup(46, "SandRTO_W", true);
-        setup(47, "SandLTO_W", true);
-        setup(48, "SandRBO_W", true);
-        setup(49, "SandLBO_W", true);
+        setup(38, "SandT_W", false);
+        setup(39, "SandB_W", false);
+        setup(40, "SandL_W", false);
+        setup(41, "SandR_W", false);
+        setup(42, "SandRTI_W", false);
+        setup(43, "SandLTI_W", false);
+        setup(44, "SandRBI_W", false);
+        setup(45, "SandLBI_W", false);
+        setup(46, "SandRTO_W", false);
+        setup(47, "SandLTO_W", false);
+        setup(48, "SandRBO_W", false);
+        setup(49, "SandLBO_W", false);
 
         setup(50, "SandT_G", false);
         setup(51, "SandB_G", false);
@@ -96,20 +96,23 @@ public class TileManager {
         setup(60, "SandRBO_G", false);
         setup(61, "SandLBO_G", false);
 
-        setup(62, "BridgeT", true);
-        setup(63, "BridgeB", true);
-        setup(64, "BridgeL", true);
-        setup(65, "BridgeR", true);
+        setup(62, "BridgeT", false);
+        setup(63, "BridgeB", false);
+        setup(64, "BridgeL", false);
+        setup(65, "BridgeR", false);
         setup(66, "BridgeS_NS", false);
         setup(67, "BridgeS_WE", false);
 
         setup(68, "DirtS", false);
-        setup(69, "notexture", false);
+        setup(69, "DirtA", false);
 
         setup(70, "WaterS", true);
         setup(71, "WaterA", true);
 
         setup(72, "WallS", true);
+
+        setup(73, "Tree1", true);
+        setup(74, "Tree2", true);
     }
 
     public void setup(int index, String image, boolean collision)
