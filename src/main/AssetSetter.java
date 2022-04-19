@@ -1,10 +1,7 @@
 package main;
 
-import entity.NPC_Frog;
-import object.OBJ_Boots;
-import object.OBJ_Chest;
-import object.OBJ_Door;
-import object.OBJ_Key;
+import entity.NPC_Froog;
+import entity.NPC_Foz;
 
 public class AssetSetter
 {
@@ -22,8 +19,11 @@ public class AssetSetter
 
     public void setNPC()
     {
-        gp.npc[0] = new NPC_Frog(gp);
+        gp.npc[0] = new NPC_Froog(gp);
         gp.npc[0].worldX = gp.tileSize * 31;
         gp.npc[0].worldY = gp.tileSize * 48;
+        gp.npc[1] = new NPC_Foz(gp);
+        gp.npc[1].worldX = gp.tileSize * 34;
+        gp.npc[1].worldY = gp.tileSize * 49;
     }
 }

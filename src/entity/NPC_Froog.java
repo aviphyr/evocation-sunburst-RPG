@@ -5,11 +5,11 @@ import main.GamePanel;
 import java.awt.*;
 import java.util.Random;
 
-public class NPC_Frog extends Entity
+public class NPC_Froog extends Entity
 {
 
 
-    public NPC_Frog(GamePanel gp)
+    public NPC_Froog(GamePanel gp)
     {
         super(gp);
 
@@ -26,22 +26,22 @@ public class NPC_Frog extends Entity
     public void getImage()
     {
 
-        up1 = setup("/npc/FrogUp1");
-        up2 = setup("/npc/FrogUp2");
-        down1 = setup("/npc/FrogDown1");
-        down2 = setup("/npc/FrogDown2");
-        left1 = setup("/npc/FrogLeft1");
-        left2 = setup("/npc/FrogLeft2");
-        right1 = setup("/npc/FrogRight1");
-        right2 = setup("/npc/FrogRight2");
+        up1 = setup("/npc/froog/FroogUp1");
+        up2 = setup("/npc/froog/FroogUp2");
+        down1 = setup("/npc/froog/FroogDown1");
+        down2 = setup("/npc/froog/FroogDown2");
+        left1 = setup("/npc/froog/FroogLeft1");
+        left2 = setup("/npc/froog/FroogLeft2");
+        right1 = setup("/npc/froog/FroogRight1");
+        right2 = setup("/npc/froog/FroogRight2");
 
     }
 
     public void setDialogue()
     {
-        dialogues[0] = "Hello Rack.";
-        dialogues[1] = "How did can you see me?dgrdrgrdfrdrg\ndrdgf";
-        dialogues[2] = "I have no texture.";
+        dialogues[0] = "Hello Racc! Me is Froog.";
+        dialogues[1] = "How did-... Can you see me!?";
+        dialogues[2] = "I use old player textures.\nThey're temporary, I promise.";
         dialogues[3] = "I am to become a Frog.";
     }
 
