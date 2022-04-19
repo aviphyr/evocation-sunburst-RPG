@@ -40,9 +40,9 @@ public class NPC_Froog extends Entity
     public void setDialogue()
     {
         dialogues[0] = "Hello Racc! Me is Froog.";
-        dialogues[1] = "How did-... Can you see me!?";
-        dialogues[2] = "I use old player textures.\nThey're temporary, I promise.";
-        dialogues[3] = "I am to become a Frog.";
+        dialogues[1] = "How did-... C-can you see me!?";
+        dialogues[2] = "They had to put transparent\npixels in my top right corner\nfor my sprites to load correctly";
+        dialogues[3] = "I'm a full Frog now.";
     }
 
     public void setAction()
@@ -66,7 +66,7 @@ public class NPC_Froog extends Entity
             {
                 direction = "left";
             }
-            if(i > 70 && i < 100)
+            if(i > 70)
             {
                 direction = "right";
             }

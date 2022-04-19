@@ -39,10 +39,10 @@ public class NPC_Foz extends Entity
 
     public void setDialogue()
     {
-        dialogues[0] = "Hello Racc. You may know me as Foz";
-        dialogues[1] = "How did-... Can you see me!?";
-        dialogues[2] = "I use old player textures.\nThey're temporary.";
-        dialogues[3] = "I am to become a FULL FOX.";
+        dialogues[0] = "Hello Racc. You may refer to\nme as Foz";
+        dialogues[1] = "I wonder where my house is?";
+        dialogues[2] = "I use some old player textures.\nThey're temporary.";
+        dialogues[3] = "My full model is still in the\nworks so this is all you get\nfor now.";
     }
 
     public void setAction()
@@ -66,7 +66,7 @@ public class NPC_Foz extends Entity
             {
                 direction = "left";
             }
-            if(i > 70 && i < 100)
+            if(i > 70)
             {
                 direction = "right";
             }
