@@ -141,7 +141,6 @@ public class Player extends Entity {
 
     public void interactNPC(int index)
     {
-        System.out.println(index);
         if(index != 999)
         {
             whichNPC = index;
