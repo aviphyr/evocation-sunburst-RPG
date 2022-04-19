@@ -16,6 +16,8 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    public BufferedImage idle;
+
     static int whichNPC = 0;
 
     public Player(GamePanel gp, KeyHandler keyH)
@@ -58,6 +60,7 @@ public class Player extends Entity {
         left2 = setup("/player/RaccoonWalkLeft2");
         right1 = setup("/player/RaccoonWalkRight1");
         right2 = setup("/player/RaccoonWalkRight2");
+        idle = setup("/player/RaccoonIdleFront");
     }
 
     public void update(){
