@@ -31,6 +31,10 @@ public class Entity
     int dialogueIndex = 0;
     public Color entityColor;
 
+    // Character Status
+    public int maxLife;
+    public int life;
+
 
     public Entity(GamePanel gp)
     {

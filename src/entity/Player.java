@@ -30,12 +30,12 @@ public class Player extends Entity {
         screenY = gp.screenHeight/2- (gp.tileSize/2);
 
         hitbox = new Rectangle();
-        hitbox.x = 0;
+        hitbox.x = 16;
         hitbox.y = 16;
         hitboxDefaultX = hitbox.x;
         hitboxDefaultY = hitbox.y;
-        hitbox.width = 48;
-        hitbox.height = 32;
+        hitbox.width = 22;
+        hitbox.height = 22;
 
         setDefaultValues();
         getPlayerImage();
@@ -46,6 +46,9 @@ public class Player extends Entity {
         worldY = gp.tileSize * 50;
         speed = 4;
         direction = "down";
+
+        maxLife = 6;
+        life = maxLife;
     }
 
     //Walking Sprites
