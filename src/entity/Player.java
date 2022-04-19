@@ -26,6 +26,8 @@ public class Player extends Entity {
 
         this.keyH = keyH;
 
+        entityColor = new Color(255, 255, 255);
+
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2- (gp.tileSize/2);
 
@@ -139,15 +141,20 @@ public class Player extends Entity {
 
     public void interactNPC(int index)
     {
+        System.out.println(index);
         if(index != 999)
         {
+            whichNPC = index;
             gp.gameState = gp.dialogueState;
             gp.npc[index].speak();
         }
+        else
+            whichNPC = index;
     }
 
     public static int getNPC()
     {
+        System.out.println(whichNPC);
         return whichNPC;
     }
 
