@@ -82,7 +82,10 @@ public class UI
         if(gp.gameState == gp.dialogueState)
         {
             drawPlayerLife();
-            drawDialogueScreen(gp.npc[Player.getNPC()]);
+            if(Player.getNPC() != 999)
+                drawDialogueScreen(gp.npc[Player.getNPC()]);
+            else
+                drawDialogueScreen(gp.player);
         }
     }
 

@@ -16,7 +16,7 @@ public class NPC_Foz extends Entity
         direction = "down";
         speed = 1;
 
-        entityColor = new Color(11, 218, 12);
+        entityColor = new Color(245, 133, 0);
         //entityColor = new Color(255, 255, 255);
 
         getImage();
