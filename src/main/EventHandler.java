@@ -4,57 +4,82 @@ import java.awt.*;
 
 public class EventHandler {
     GamePanel gp;
-    Rectangle eventRect;
-    int eventRectDefaultX, eventRectDefaultY;
+    EventRect eventRect[][];
+    int previousEventX, previousEventY;
+    boolean canTouchEvent = true;
 
     public EventHandler(GamePanel gp) {
         this.gp = gp;
 
-        eventRect = new Rectangle();
-        eventRect.x = 48;
-        eventRect.y = 48;
-        eventRect.width = 2;
-        eventRect.height = 2;
-        eventRectDefaultX = eventRect.x;
-        eventRectDefaultY = eventRect.y;
+        eventRect = new EventRect[gp.maxWorldCol][gp.maxWorldRow];
+
+        int col = 0;
+        int row = 0;
+        while (col < gp.maxWorldCol && row < gp.maxWorldRow){
+            eventRect[col][row] = new EventRect();
+            eventRect[col][row].y = 48;
+            eventRect[col][row].width = 2;
+            eventRect[col][row].height = 2;
+            eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
+            eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
+            col++;
+            if (col == gp.maxWorldCol){
+                col = 0;
+                row++;
+            }
+        }
+
     }
 
     public void checkEvent(){
-        if (hit(34, 43, "up")) {damagePit(gp.dialogueState);}
-        if (hit(50, 52, "right")) {healthRestore(gp.dialogueState);}
-        if (hit(24, 32, "up")) {teleport(gp.dialogueState, 44, 86);}
+        int xDistance = Math.abs(gp.player.worldX - previousEventX);
+        int yDistance = Math.abs(gp.player.worldY - previousEventY);
+
+        int distance = Math.max(xDistance, yDistance);
+        if (distance > gp.tileSize){
+            canTouchEvent = true;
+        }
+        if (canTouchEvent){
+            if (hit(34, 43, "any")) {damagePit(34, 43, gp.dialogueState);}
+            if (hit(50, 52, "any")) {healthRestore(50, 52, gp.dialogueState);}
+            if (hit(24, 32, "any")) {teleport(24, 32, gp.dialogueState, 44, 86);}
+        }
 
     }
 
-    public boolean hit(int eventCol, int eventRow, String reqDirection){
+    public boolean hit(int col, int row, String reqDirection){
         boolean hit = false;
         gp.player.hitbox.x = gp.player.worldX + gp.player.hitbox.x;
         gp.player.hitbox.y = gp.player.worldY + gp.player.hitbox.y;
-        eventRect.x = eventCol * gp.tileSize + eventRect.x;
-        eventRect.y = eventRow * gp.tileSize + eventRect.y;
+        eventRect[col][row].x = col * gp.tileSize + eventRect[col][row].x;
+        eventRect[col][row].y = row * gp.tileSize + eventRect[col][row].y;
 
-        if (gp.player.hitbox.intersects(eventRect)){
+        if (gp.player.hitbox.intersects(eventRect[col][row]) && !eventRect[col][row].eventDone){
             if (gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")){
                 hit = true;
+                previousEventX = gp.player.worldX;
+                previousEventY = gp.player.worldY;
             }
         }
 
         gp.player.hitbox.x = gp.player.hitboxDefaultX;
         gp.player.hitbox.y = gp.player.hitboxDefaultY;
-        eventRect.x = eventRectDefaultX;
-        eventRect.y = eventRectDefaultY;
+        eventRect[col][row].x = eventRect[col][row].eventRectDefaultX;
+        eventRect[col][row].y = eventRect[col][row].eventRectDefaultY;
 
         return hit;
 
     }
-    public void damagePit(int gameState){
+    public void damagePit(int col, int row, int gameState){
         gp.gameState = gameState;
         gp.ui.currentDialogue = "You fell into a pit";
         gp.player.life -= 1;
+        //eventRect[col][row].eventDone = true;
+        canTouchEvent = false;
 
     }
 
-    public void teleport(int gameState, int x, int y){
+    public void teleport(int col, int row, int gameState, int x, int y){
         gp.gameState = gameState;
         gp.ui.currentDialogue = "Wooosh!";
         gp.player.worldX = gp.tileSize*x;
@@ -62,7 +87,7 @@ public class EventHandler {
 
     }
 
-    public void healthRestore(int gameState){
+    public void healthRestore(int col, int row, int gameState){
         if(gp.keyH.enterPressed){
             gp.gameState = gameState;
             gp.ui.currentDialogue = "You magically become healed...";
