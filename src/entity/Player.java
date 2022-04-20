@@ -153,7 +153,7 @@ public class Player extends Entity {
 
     public static int getNPC()
     {
-        System.out.println(whichNPC);
+        //System.out.println(whichNPC);
         return whichNPC;
     }
 
