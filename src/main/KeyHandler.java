@@ -128,6 +128,47 @@ public class KeyHandler implements KeyListener {
                 pausing = false;
                 gp.gameState = gp.playState;
             }
+
+
+            //Menu Selections
+            if(code == KeyEvent.VK_UP)
+            {
+                gp.ui.pauseNum--;
+                if(gp.ui.pauseNum < 0)
+                {
+                    gp.ui.pauseNum = 2;
+                }
+            }
+            if(code == KeyEvent.VK_DOWN)
+            {
+                gp.ui.pauseNum++;
+                if(gp.ui.pauseNum > 2)
+                {
+                    gp.ui.pauseNum = 0;
+                }
+            }
+            if(code == KeyEvent.VK_ENTER)
+            {
+                //Resume
+                if(gp.ui.pauseNum == 0)
+                {
+                    gp.gameState = gp.playState;
+                    //gp.stopMusic();
+                    //gp.playMusic(5);
+                }
+                //Save
+                if(gp.ui.pauseNum == 1)
+                {
+                    Main.saving.save();
+                }
+                //Save and Quit
+                if(gp.ui.pauseNum == 2)
+                {
+                    Main.saving.save();
+                    gp.stopMusic();
+                    gp.gameState = gp.titleState;
+                }
+            }
         }
 
         //Dialogue State

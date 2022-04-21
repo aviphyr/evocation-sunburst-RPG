@@ -21,6 +21,7 @@ public class UI
     public boolean gameFinished = false;
     public String currentDialogue = "";
     public int commandNum = 0;
+    public int pauseNum = 0;
 
 
     public UI(GamePanel gp)
@@ -62,6 +63,8 @@ public class UI
         //Title State
         if(gp.gameState == gp.titleState)
         {
+            if(!gp.musicPlaying)
+                gp.playMusic(0);
             drawTitleScreen();
         }
         //Play State
@@ -203,12 +206,53 @@ public class UI
 
     public void drawPauseScreen()
     {
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F));
+        int x;
+        int y;
+        String text;
+        Color c;
 
-        String text = "PAUSED";
+        c = new Color(0, 0, 0, 75);
+        g2.setColor(c);
+        g2.fillRoundRect(0, 0, gp.screenWidth, gp.screenHeight, 0, 0);
 
-        int x = getXforCenteredText(text);
-        int y = gp.screenHeight/2;
+
+        c = new Color(255, 255, 255, 255);
+        g2.setColor(c);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 32F));
+
+        text = "PAUSED";
+        x = getXforCenteredText(text);
+        y = gp.tileSize * 4;
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 26F));
+
+        text = "RESUME";
+        x = getXforCenteredText(text);
+        y = gp.tileSize * 6;
+        g2.drawString(text, x, y);
+        if(pauseNum == 0)
+        {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "SAVE";
+        x = getXforCenteredText(text);
+        y = gp.tileSize * 7;
+        g2.drawString(text, x, y);
+        if(pauseNum == 1)
+        {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "SAVE AND QUIT";
+        x = getXforCenteredText(text);
+        y = gp.tileSize * 8;
+        g2.drawString(text, x, y);
+        if(pauseNum == 2)
+        {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
 
         g2.drawString(text, x, y);
     }

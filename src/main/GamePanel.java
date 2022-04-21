@@ -22,6 +22,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenWidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
 
+    public boolean musicPlaying = false;
+
     // the world...settings
     public final int maxWorldCol = 100;
     public final int maxWorldRow = 100;
@@ -68,7 +70,6 @@ public class GamePanel extends JPanel implements Runnable {
     {
         aSetter.setObject();
         aSetter.setNPC();
-        playMusic(0);
         gameState = titleState;
     }
 
@@ -213,12 +214,14 @@ public class GamePanel extends JPanel implements Runnable {
     {
         music.setFile(i);
         music.play();
+        musicPlaying = true;
         music.loop();
     }
 
     public void stopMusic()
     {
         music.stop();
+        musicPlaying = false;
     }
 
     public void playSE(int i)
