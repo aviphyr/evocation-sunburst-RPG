@@ -3,6 +3,7 @@ package entity;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
+import object.OBJ_Key;
 import object.OBJ_ShieldWood;
 import object.OBJ_SwordBasic;
 
@@ -10,6 +11,8 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
 
 public class Player extends Entity {
 
@@ -21,6 +24,8 @@ public class Player extends Entity {
     public BufferedImage idle;
 
     static int whichNPC = 0;
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int inventorySize = 20;
 
     public Player(GamePanel gp, KeyHandler keyH)
     {
@@ -41,12 +46,10 @@ public class Player extends Entity {
         hitbox.width = 22;
         hitbox.height = 22;
 
-        attackHitbox.width = 36;
-        attackHitbox.height = 36;
-
         setDefaultValues();
         getPlayerImage();
         getPlayerAttackImage();
+        setItems();
     }
 
     public void setDefaultValues(){
@@ -65,12 +68,15 @@ public class Player extends Entity {
         currentSecondary = new OBJ_ShieldWood(gp);
         attack = getAttack(); // Attack value is decided by strength and weapon damage.
         defense = getDefense(); // Defense value is decided by dexterity and shield.
-
     }
 
-    public int getAttack(){
-        return strength * currentPrimary.attackValue;
+    public void setItems(){
+        inventory.add(currentPrimary);
+        inventory.add(currentSecondary);
+        inventory.add(new OBJ_Key(gp));
     }
+
+    public int getAttack(){attackHitbox = currentPrimary.attackHitbox;return strength * currentPrimary.attackValue;}
     public int getDefense(){
         return dexterity * currentSecondary.defenseValue;
     }
@@ -89,14 +95,27 @@ public class Player extends Entity {
         idle = setup("/player/RaccoonIdleFront", gp.tileSize, gp.tileSize);
     }
     public void getPlayerAttackImage(){
-        attackUp1 = setup("/player/boy_attack_up_1", gp.tileSize, gp.tileSize*2);
-        attackUp2 = setup("/player/boy_attack_up_2", gp.tileSize, gp.tileSize*2);
-        attackDown1 = setup("/player/boy_attack_down_1", gp.tileSize, gp.tileSize*2);
-        attackDown2 = setup("/player/boy_attack_down_2", gp.tileSize, gp.tileSize*2);
-        attackLeft1 = setup("/player/RaccAttackLeft1", gp.tileSize*2, gp.tileSize);
-        attackLeft2 = setup("/player/RaccAttackLeft2", gp.tileSize*2, gp.tileSize);
-        attackRight1 = setup("/player/RaccAttackRight1", gp.tileSize*2, gp.tileSize);
-        attackRight2 = setup("/player/RaccAttackRight2", gp.tileSize*2, gp.tileSize);
+        if(currentPrimary.type == type_sword){
+            attackUp1 = setup("/player/boy_attack_up_1", gp.tileSize, gp.tileSize*2);
+            attackUp2 = setup("/player/boy_attack_up_2", gp.tileSize, gp.tileSize*2);
+            attackDown1 = setup("/player/boy_attack_down_1", gp.tileSize, gp.tileSize*2);
+            attackDown2 = setup("/player/boy_attack_down_2", gp.tileSize, gp.tileSize*2);
+            attackLeft1 = setup("/player/RaccAttackLeft1", gp.tileSize*2, gp.tileSize);
+            attackLeft2 = setup("/player/RaccAttackLeft2", gp.tileSize*2, gp.tileSize);
+            attackRight1 = setup("/player/RaccAttackRight1", gp.tileSize*2, gp.tileSize);
+            attackRight2 = setup("/player/RaccAttackRight2", gp.tileSize*2, gp.tileSize);
+        }
+        if(currentPrimary.type == type_axe){
+            attackUp1 = setup("/player/boy_axe_up_1", gp.tileSize, gp.tileSize*2);
+            attackUp2 = setup("/player/boy_axe_up_2", gp.tileSize, gp.tileSize*2);
+            attackDown1 = setup("/player/boy_axe_down_1", gp.tileSize, gp.tileSize*2);
+            attackDown2 = setup("/player/boy_axe_down_2", gp.tileSize, gp.tileSize*2);
+            attackLeft1 = setup("/player/boy_axe_left_1", gp.tileSize*2, gp.tileSize);
+            attackLeft2 = setup("/player/boy_axe_left_2", gp.tileSize*2, gp.tileSize);
+            attackRight1 = setup("/player/boy_axe_right_1", gp.tileSize*2, gp.tileSize);
+            attackRight2 = setup("/player/boy_axe_right_2", gp.tileSize*2, gp.tileSize);
+        }
+
     }
 
     public void update(){
@@ -231,7 +250,18 @@ public class Player extends Entity {
     {
         if(index != 999)
         {
+            String text;
 
+            if(inventory.size() != inventorySize)
+            {
+                inventory.add(gp.obj[index]);
+                text = "Picked up " + gp.obj[index].name + ".";
+                gp.playSE(9);
+            } else {
+                text = "Not enough space in inventory.";
+            }
+            gp.ui.addMessage(text);
+            gp.obj[index] = null;
         }
     }
 
@@ -310,6 +340,26 @@ public class Player extends Entity {
             gp.playSE(8);
             gp.gameState = gp.dialogueState;
             gp.ui.currentDialogue = "You are level " + level + " now!\n";
+        }
+    }
+
+    public void selectItem(){
+        int itemIndex = gp.ui.getItemIndexOnSlot();
+        if (itemIndex < inventory.size()){
+            Entity selectedItem = inventory.get(itemIndex);
+            if(selectedItem.type == type_sword || selectedItem.type == type_axe){
+                currentPrimary = selectedItem;
+                attack = getAttack();
+                getPlayerAttackImage();
+            }
+            if(selectedItem.type == type_shield){
+                currentSecondary = selectedItem;
+                defense = getDefense();
+            }
+            if(selectedItem.type == type_consumable){
+                selectedItem.use(this);
+                inventory.remove(itemIndex);
+            }
         }
     }
 
