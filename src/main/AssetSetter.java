@@ -2,6 +2,7 @@ package main;
 
 import entity.NPC_Froog;
 import entity.NPC_Foz;
+import monster.MON_GreenSlime;
 
 public class AssetSetter
 {
@@ -26,4 +27,11 @@ public class AssetSetter
         gp.npc[1].worldX = gp.tileSize * 34;
         gp.npc[1].worldY = gp.tileSize * 49;
     }
+
+    public void setMonster(){
+        gp.monster[1] = new MON_GreenSlime(gp);
+        gp.monster[1].worldX = gp.tileSize * 36;
+        gp.monster[1].worldY = gp.tileSize * 50;
+    }
+
 }

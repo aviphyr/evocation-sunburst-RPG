@@ -28,6 +28,7 @@ public class UI
         this.gp = gp;
 
         try {
+
             InputStream is = getClass().getResourceAsStream("/font/VCR.ttf");
             VCR = Font.createFont(Font.TRUETYPE_FONT, is);
         } catch (FontFormatException e) {
