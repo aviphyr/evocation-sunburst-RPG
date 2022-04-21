@@ -1,14 +1,18 @@
 package main;
 
+import save_load.Master;
+import save_load.Save;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, interact;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, pausing;
     //Debug
     boolean showDebug;
+
 
     public KeyHandler(GamePanel gp){
         this.gp = gp;
@@ -24,10 +28,11 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
+        pausing = false;
+
         //Title State
         if(gp.gameState == gp.titleState)
         {
-            System.out.println("Yo");
             if(code == KeyEvent.VK_UP)
             {
                 gp.ui.commandNum--;
@@ -46,16 +51,19 @@ public class KeyHandler implements KeyListener {
             }
             if(code == KeyEvent.VK_ENTER)
             {
+                //NEW GAME
                 if(gp.ui.commandNum == 0)
                 {
                     gp.gameState = gp.playState;
                     gp.stopMusic();
                     gp.playMusic(5);
                 }
+                //LOAD GAME
                 if(gp.ui.commandNum == 1)
                 {
-                    //Doesn't work yet
+                    Main.loading.load();
                 }
+                //EXIT
                 if(gp.ui.commandNum == 2)
                 {
                     System.exit(0);
@@ -66,11 +74,12 @@ public class KeyHandler implements KeyListener {
         //Play State
         if(gp.gameState == gp.playState)
         {
-            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
-                upPressed = true;
-            }
+
             if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
                 downPressed = true;
+            }
+            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+                upPressed = true;
             }
             if(code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){
                 leftPressed = true;
@@ -84,7 +93,11 @@ public class KeyHandler implements KeyListener {
 
             if(code == KeyEvent.VK_ESCAPE)
             {
-                gp.gameState = gp.pauseState;
+                pausing = true;
+            }
+            else
+            {
+                pausing = false;
             }
 
             //Debug
@@ -98,13 +111,21 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_F2){
                 gp.tileM.loadMap("/maps/world2.txt");
             }
+
+
         }
 
         //Pause State
         if(gp.gameState == gp.pauseState)
         {
+            if(code == KeyEvent.VK_S && e.isControlDown())
+            {
+                System.out.println("Saving...");
+                Main.saving.save();
+            }
             if(code == KeyEvent.VK_ESCAPE)
             {
+                pausing = false;
                 gp.gameState = gp.playState;
             }
         }
@@ -116,6 +137,12 @@ public class KeyHandler implements KeyListener {
             {
                 gp.gameState = gp.playState;
             }
+        }
+
+        if(pausing)
+        {
+            pausing = false;
+            gp.gameState = gp.pauseState;
         }
 
     }
@@ -136,6 +163,11 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
             rightPressed = false;
+        }
+
+        if(code == KeyEvent.VK_ESCAPE)
+        {
+            code = 0;
         }
     }
 }
