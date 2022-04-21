@@ -88,7 +88,10 @@ public class Player extends Entity {
         if (keyH.interact){
             attacking = true;
         }
-        if (attacking){ attacking();}
+        if (attacking){
+            //gp.playSE(6); //sound effect for swinging
+            attacking();
+        }
 
         //animation updates.
         else if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
@@ -248,11 +251,14 @@ public class Player extends Entity {
     public void damageMonster(int i){
         if (i != 999) {
             if (!gp.monster[i].invincible) {
+                gp.playSE(6);
                 gp.monster[i].life -= 1;
                 gp.monster[i].invincible = true;
+                gp.monster[i].damageReaction();
 
                 if (gp.monster[i].life <= 0) {
-                    gp.monster[i] = null;
+                    //gp.monster[i] = null;
+                    gp.monster[i].dying = true;
                 }
             }
         }
