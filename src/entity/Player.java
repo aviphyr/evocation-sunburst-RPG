@@ -39,8 +39,12 @@ public class Player extends Entity {
         hitbox.width = 22;
         hitbox.height = 22;
 
+        attackHitbox.width = 36;
+        attackHitbox.height = 36;
+
         setDefaultValues();
         getPlayerImage();
+        getPlayerAttackImage();
     }
 
     public void setDefaultValues(){
@@ -57,22 +61,37 @@ public class Player extends Entity {
 
     public void getPlayerImage()
     {
-        up1 = setup("/player/RaccoonWalkBack1");
-        up2 = setup("/player/RaccoonWalkBack2");
-        down1 = setup("/player/RaccoonWalkForward1");
-        down2 = setup("/player/RaccoonWalkForward2");
-        left1 = setup("/player/RaccoonWalkLeft1");
-        left2 = setup("/player/RaccoonWalkLeft2");
-        right1 = setup("/player/RaccoonWalkRight1");
-        right2 = setup("/player/RaccoonWalkRight2");
-        idle = setup("/player/RaccoonIdleFront");
+        up1 = setup("/player/RaccoonWalkBack1", gp.tileSize, gp.tileSize);
+        up2 = setup("/player/RaccoonWalkBack2", gp.tileSize, gp.tileSize);
+        down1 = setup("/player/RaccoonWalkForward1", gp.tileSize, gp.tileSize);
+        down2 = setup("/player/RaccoonWalkForward2", gp.tileSize, gp.tileSize);
+        left1 = setup("/player/RaccoonWalkLeft1", gp.tileSize, gp.tileSize);
+        left2 = setup("/player/RaccoonWalkLeft2", gp.tileSize, gp.tileSize);
+        right1 = setup("/player/RaccoonWalkRight1", gp.tileSize, gp.tileSize);
+        right2 = setup("/player/RaccoonWalkRight2", gp.tileSize, gp.tileSize);
+        idle = setup("/player/RaccoonIdleFront", gp.tileSize, gp.tileSize);
+    }
+    public void getPlayerAttackImage(){
+        attackUp1 = setup("/player/boy_attack_up_1", gp.tileSize, gp.tileSize*2);
+        attackUp2 = setup("/player/boy_attack_up_2", gp.tileSize, gp.tileSize*2);
+        attackDown1 = setup("/player/boy_attack_down_1", gp.tileSize, gp.tileSize*2);
+        attackDown2 = setup("/player/boy_attack_down_2", gp.tileSize, gp.tileSize*2);
+        attackLeft1 = setup("/player/boy_attack_left_1", gp.tileSize*2, gp.tileSize);
+        attackLeft2 = setup("/player/boy_attack_left_2", gp.tileSize*2, gp.tileSize);
+        attackRight1 = setup("/player/boy_attack_right_1", gp.tileSize*2, gp.tileSize);
+        attackRight2 = setup("/player/boy_attack_right_2", gp.tileSize*2, gp.tileSize);
     }
 
     public void update(){
 
-        //update
+        // if attacking then attacking, yes. don't ask me why it's like this.
+        if (keyH.interact){
+            attacking = true;
+        }
+        if (attacking){ attacking();}
 
-        if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
+        //animation updates.
+        else if (keyH.upPressed || keyH.downPressed|| keyH.leftPressed|| keyH.rightPressed){
             // movement
             if (keyH.upPressed)
             {
@@ -135,13 +154,56 @@ public class Player extends Entity {
             }
         }
 
-        if (invincible){
+        if(invincible){
             invincibleCounter++;
             if(invincibleCounter > 60){
                 invincible = false;
                 invincibleCounter = 0;
             }
 
+        }
+    }
+
+    public void attacking(){
+
+        spriteCounter++;
+
+        if (spriteCounter <= 5){
+            spriteNum = 1;
+        }
+        if (spriteCounter > 5 && spriteCounter <= 25){
+            spriteNum = 2;
+
+            // world location
+            int currentWorldX = worldX;
+            int currentWorldY = worldY;
+            int hitboxWidth = hitbox.width;
+            int hitboxHeight = hitbox.height;
+
+            //adjust
+            switch(direction){
+                case "up": worldY -= attackHitbox.height; break;
+                case "down": worldY += attackHitbox.height; break;
+                case "left": worldX -= attackHitbox.width; break;
+                case "right": worldX += attackHitbox.width; break;
+            }
+            // attackHitbox becomes hitbox
+            hitbox.width = attackHitbox.width;
+            hitbox.height = attackHitbox.height;
+            //check monster collision with the update
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            damageMonster(monsterIndex);
+
+            // reset
+            worldX = currentWorldX;
+            worldY = currentWorldY;
+            hitbox.height = hitboxHeight;
+            hitbox.width = hitboxWidth;
+        }
+        if (spriteCounter > 25){
+            spriteNum = 1;
+            spriteCounter = 0;
+            attacking = false;
         }
     }
 
@@ -163,6 +225,8 @@ public class Player extends Entity {
         }
         else
             whichNPC = index;
+
+
     }
 
     public static int getNPC()
@@ -181,72 +245,82 @@ public class Player extends Entity {
 
     }
 
+    public void damageMonster(int i){
+        if (i != 999) {
+            if (!gp.monster[i].invincible) {
+                gp.monster[i].life -= 1;
+                gp.monster[i].invincible = true;
+
+                if (gp.monster[i].life <= 0) {
+                    gp.monster[i] = null;
+                }
+            }
+        }
+
+    }
+
+
 
     public void draw(Graphics2D g2){
         //g2.setColor(Color.white);
         //g2.fillRect(x, y, gp.tileSize, gp.tileSize);
 
         BufferedImage image = null;
+        int tempScreenX = screenX;
+        int tempScreenY = screenY;
 
         switch (direction) {
             case "up":
-                if(spriteNum == 1)
-                    image = up1;
-                if(spriteNum == 2)
-                    image = up2;
+                if (!attacking){
+                    if (spriteNum == 1) image = up1;
+                    if (spriteNum == 2) image = up2;
+                }
+                if (attacking){
+                    tempScreenY = screenY - gp.tileSize;
+                    if (spriteNum == 1) image = attackUp1;
+                    if (spriteNum == 2) image = attackUp2;
+                }
                 break;
             case "down":
-                if(spriteNum == 1)
-                    image = down1;
-                if(spriteNum == 2)
-                    image = down2;
+                if (!attacking){
+                    if (spriteNum == 1) image = down1;
+                    if (spriteNum == 2) image = down2;
+                }
+                if (attacking){
+                    if (spriteNum == 1) image = attackDown1;
+                    if (spriteNum == 2) image = attackDown2;
+                }
                 break;
             case "left":
-                if(spriteNum == 1)
-                    image = left1;
-                if(spriteNum == 2)
-                    image = left2;
+                if (!attacking){
+                    if (spriteNum == 1) image = left1;
+                    if (spriteNum == 2) image = left2;
+                }
+                if (attacking){
+                    tempScreenX = screenX - gp.tileSize;
+                    if (spriteNum == 1) image = attackLeft1;
+                    if (spriteNum == 2) image = attackLeft2;
+                }
                 break;
             case "right":
-                if(spriteNum == 1)
-                    image = right1;
-                if(spriteNum == 2)
-                    image = right2;
+                if (!attacking){
+                    if(spriteNum == 1) image = right1;
+                    if(spriteNum == 2) image = right2;
+                }
+                if (attacking){
+                    if(spriteNum == 1) image = attackRight1;
+                    if(spriteNum == 2) image = attackRight2;
+                }
                 break;
-            default:
-                image = null;
         }
 
         // hit!
         if (invincible){
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         }
-        g2.drawImage(image,screenX, screenY, null);
+        g2.drawImage(image, tempScreenX, tempScreenY , null);
         // reset alpha
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
-
-
-        int x = screenX;
-        int y = screenY;
-
-        if(screenX > worldX){
-            x = worldX;
-        }
-        if(screenY > worldY){
-            y = worldY;
-        }
-
-        int rightOffset = gp.screenWidth - screenX;
-        if(rightOffset > gp.worldWidth - worldX){
-            x = gp.screenWidth - (gp.worldWidth - worldX);
-        }
-        int bottomOffset = gp.screenHeight - screenY;
-        if(bottomOffset > gp.worldHeight - worldY){
-            y = gp.screenHeight - (gp.worldHeight - worldY);
-        }
-
-
-        g2.drawImage(image, x, y, null);
 
         // debug
         //g2.setFont(new Font("Arial", Font.PLAIN, 26));

@@ -16,12 +16,14 @@ public class Entity
     public int speed;
 
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+    public BufferedImage attackUp1, attackUp2, attackDown1, attackDown2, attackLeft1, attackLeft2, attackRight1, attackRight2;
     public String direction = "down";
 
     public int spriteCounter = 0;
     public int spriteNum = 1;
 
     public Rectangle hitbox = new Rectangle(0, 0, 48, 48);
+    public Rectangle attackHitbox = new Rectangle(0,0,0,0);
     public int hitboxDefaultX, hitboxDefaultY;
     public boolean collisionOn = false;
 
@@ -32,6 +34,8 @@ public class Entity
     public int actionLockCounter = 0;
     public boolean invincible = false;
     public int invincibleCounter = 0;
+
+    public boolean attacking = false;
 
     String dialogues[] = new String[20];
     int dialogueIndex = 0;
@@ -119,6 +123,15 @@ public class Entity
             }
             spriteCounter = 0;
         }
+
+        if(invincible){
+            invincibleCounter++;
+            if(invincibleCounter > 60){
+                invincible = false;
+                invincibleCounter = 0;
+            }
+
+        }
     }
 
     public void draw(Graphics2D g2)
@@ -136,38 +149,34 @@ public class Entity
 
             switch (direction) {
                 case "up":
-                    if(spriteNum == 1)
-                        image = up1;
-                    if(spriteNum == 2)
-                        image = up2;
+                    if(spriteNum == 1) image = up1;
+                    if(spriteNum == 2) image = up2;
                     break;
                 case "down":
-                    if(spriteNum == 1)
-                        image = down1;
-                    if(spriteNum == 2)
-                        image = down2;
+                    if(spriteNum == 1) image = down1;
+                    if(spriteNum == 2) image = down2;
                     break;
                 case "left":
-                    if(spriteNum == 1)
-                        image = left1;
-                    if(spriteNum == 2)
-                        image = left2;
+                    if(spriteNum == 1) image = left1;
+                    if(spriteNum == 2) image = left2;
                     break;
                 case "right":
-                    if(spriteNum == 1)
-                        image = right1;
-                    if(spriteNum == 2)
-                        image = right2;
+                    if(spriteNum == 1) image = right1;
+                    if(spriteNum == 2) image = right2;
                     break;
-                default:
-                    image = null;
+            }
+
+            if (invincible){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
             }
 
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
         }
     }
 
-    public BufferedImage setup(String imagePath)
+    public BufferedImage setup(String imagePath, int width, int height)
     {
         UtilityTool uTool = new UtilityTool();
         BufferedImage scaledImage = null;
@@ -175,7 +184,7 @@ public class Entity
         try
         {
             scaledImage = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
-            scaledImage = uTool.scaleImage(scaledImage, gp.tileSize, gp.tileSize);
+            scaledImage = uTool.scaleImage(scaledImage, width, height);
 
         }
         catch (IOException e) {

@@ -26,14 +26,14 @@ public class NPC_Foz extends Entity
     public void getImage()
     {
 
-        up1 = setup("/npc/foz/FozUp1");
-        up2 = setup("/npc/foz/FozUp2");
-        down1 = setup("/npc/foz/FozDown1");
-        down2 = setup("/npc/foz/FozDown2");
-        left1 = setup("/npc/foz/FozLeft1");
-        left2 = setup("/npc/foz/FozLeft2");
-        right1 = setup("/npc/foz/FozRight1");
-        right2 = setup("/npc/foz/FozRight2");
+        up1 = setup("/npc/foz/FozUp1", gp.tileSize, gp.tileSize);
+        up2 = setup("/npc/foz/FozUp2", gp.tileSize, gp.tileSize);
+        down1 = setup("/npc/foz/FozDown1", gp.tileSize, gp.tileSize);
+        down2 = setup("/npc/foz/FozDown2", gp.tileSize, gp.tileSize);
+        left1 = setup("/npc/foz/FozLeft1", gp.tileSize, gp.tileSize);
+        left2 = setup("/npc/foz/FozLeft2", gp.tileSize, gp.tileSize);
+        right1 = setup("/npc/foz/FozRight1", gp.tileSize, gp.tileSize);
+        right2 = setup("/npc/foz/FozRight2", gp.tileSize, gp.tileSize);
 
     }
 
