@@ -47,9 +47,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     //Entity and Object
     public Player player = new Player(this, keyH);
-    public Entity obj[] = new Entity[30];
-    public Entity npc[] = new Entity[10];
-    public Entity monster[] = new Entity[20];
+    public Entity[] obj = new Entity[30];
+    public Entity[] npc = new Entity[10];
+    public Entity[] monster = new Entity[20];
     public ArrayList<Entity> projectileList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
@@ -238,18 +238,16 @@ public class GamePanel extends JPanel implements Runnable {
                 int y = 400;
                 int lineHeight = 20;
 
-                // Show hitbox
+                // Show hitboxes
                 g2.setColor(Color.red);
-                g2.drawImage(player.image, player.screenX, player.screenY, tileSize, tileSize, null);
-                //g2.s
                 g2.drawRect(player.screenX + player.hitbox.x, player.screenY + player.hitbox.y, player.hitbox.width, player.hitbox.height);
 
-                /*for(Entity npc: npc){
-                    g2.drawImage(npc.image, npc.worldX, npc.worldY, tileSize, tileSize, null);
-                    g2.setColor(Color.red);
-                    //g2.s
-                    g2.drawRect(npc.worldX + npc.hitbox.x, npc.worldY + npc.hitbox.y, npc.hitbox.width, npc.hitbox.height);
-                }*/
+                for (Entity entity : npc) {
+                    if (entity != null) {
+                        g2.setColor(entity.entityColor);
+                        g2.drawRect(entity.screenX + entity.hitbox.x, entity.screenY + entity.hitbox.y, entity.hitbox.width, entity.hitbox.height);
+                    }
+                }
 
                 g2.setColor(Color.white);
                 g2.drawString("WorldX: " + player.worldX, x, y); y += lineHeight;

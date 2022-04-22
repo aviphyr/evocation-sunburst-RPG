@@ -13,6 +13,7 @@ public class NPC_Foz extends Entity
     {
         super(gp);
 
+        name = "Foz";
         direction = "down";
         speed = 1;
 

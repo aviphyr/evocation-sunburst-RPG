@@ -17,6 +17,9 @@ public class Entity
     String[] dialogues = new String[20];
     public boolean collision = false;
 
+    public int screenX;
+    public int screenY;
+
     // Image loading
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
     public BufferedImage attackUp1, attackUp2, attackDown1, attackDown2, attackLeft1, attackLeft2, attackRight1, attackRight2;
@@ -188,8 +191,8 @@ public class Entity
     {
         BufferedImage image = null;
 
-        int screenX = worldX - gp.player.worldX + gp.player.screenX;
-        int screenY = worldY - gp.player.worldY + gp.player.screenY;
+        screenX = worldX - gp.player.worldX + gp.player.screenX;
+        screenY = worldY - gp.player.worldY + gp.player.screenY;
 
         if (worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
                 worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
