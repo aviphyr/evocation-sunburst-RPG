@@ -244,7 +244,13 @@ public class GamePanel extends JPanel implements Runnable {
 
                 for (Entity entity : npc) {
                     if (entity != null) {
-                        g2.setColor(entity.entityColor);
+                        //g2.setColor(entity.entityColor);
+                        g2.drawRect(entity.screenX + entity.hitbox.x, entity.screenY + entity.hitbox.y, entity.hitbox.width, entity.hitbox.height);
+                    }
+                }
+
+                for (Entity entity : obj) {
+                    if (entity != null) {
                         g2.drawRect(entity.screenX + entity.hitbox.x, entity.screenY + entity.hitbox.y, entity.hitbox.width, entity.hitbox.height);
                     }
                 }
