@@ -52,7 +52,7 @@ public class Entity
     public Color entityColor;
     public String name = "???";
     public int speed, maxLife, life;
-    public int level, strength, dexterity, attack, defense, exp, nextLevelExp, coin;
+    public int ammo, level, strength, dexterity, attack, defense, exp, nextLevelExp, coin;
     public int maxMana, mana;
     public Entity currentPrimary, currentSecondary;
     public Projectile projectile;

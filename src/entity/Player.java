@@ -3,10 +3,7 @@ package entity;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
-import object.OBJ_Fireball;
-import object.OBJ_Key;
-import object.OBJ_ShieldWood;
-import object.OBJ_SwordBasic;
+import object.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -62,12 +59,16 @@ public class Player extends Entity {
         // Player status
         maxLife = 6;
         life = maxLife;
+        maxMana = 4;
+        mana = maxMana;
+        ammo = 10;
         level = strength = dexterity = 1;
         exp = coin = 0;
         nextLevelExp = 5;
         currentPrimary = new OBJ_SwordBasic(gp);
         currentSecondary = new OBJ_ShieldWood(gp);
         projectile = new OBJ_Fireball(gp);
+        //projectile = new OBJ_Rock(gp);
         attack = getAttack(); // Attack value is decided by strength and weapon damage.
         defense = getDefense(); // Defense value is decided by dexterity and shield.
     }
@@ -196,8 +197,9 @@ public class Player extends Entity {
         }
 
         // set default coordinates, direction and user
-        if (gp.keyH.shotKeyPressed && !projectile.alive && shotAvailableCounter == 30){
+        if (gp.keyH.shotKeyPressed && !projectile.alive && shotAvailableCounter == 30 && projectile.haveResource(this)){
             projectile.set(worldX, worldY, direction, true, this);
+            projectile.subtractResource(this);
             gp.projectileList.add(projectile);
             shotAvailableCounter = 0;
             gp.playSE(10);
