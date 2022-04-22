@@ -18,13 +18,13 @@ public class AssetSetter
     {
         int i = 0;
 
-        gp.obj[i] = new OBJ_Key(gp);
+        gp.obj[i] = new OBJ_Heart(gp);
         gp.obj[i].worldX = gp.tileSize * 31;
         gp.obj[i].worldY = gp.tileSize * 48;
 
         i++;
 
-        gp.obj[i] = new OBJ_GarbageBag(gp);
+        gp.obj[i] = new OBJ_ManaCrystal(gp);
         gp.obj[i].worldX = gp.tileSize * 34;
         gp.obj[i].worldY = gp.tileSize * 57;
 

@@ -213,9 +213,15 @@ public class Player extends Entity {
             }
 
         }
-
         if(shotAvailableCounter < 30){
             shotAvailableCounter++;
+        }
+        if(life > maxLife){
+            life = maxLife;
+        }
+
+        if(mana > maxMana){
+            mana = maxMana;
         }
     }
 
@@ -266,18 +272,26 @@ public class Player extends Entity {
     {
         if(index != 999)
         {
-            String text;
-
-            if(inventory.size() != inventorySize)
-            {
-                inventory.add(gp.obj[index]);
-                text = "Picked up " + gp.obj[index].name + ".";
-                gp.playSE(9);
-            } else {
-                text = "Not enough space in inventory.";
+            //pickup items
+            if(gp.obj[index].type ==type_pickupOnly){
+                gp.obj[index].use(this);
+                gp.obj[index] = null;
             }
-            gp.ui.addMessage(text);
-            gp.obj[index] = null;
+            //inventory
+            else {
+                String text;
+
+                if(inventory.size() != inventorySize)
+                {
+                    inventory.add(gp.obj[index]);
+                    text = "Picked up " + gp.obj[index].name + ".";
+                    gp.playSE(9);
+                } else {
+                    text = "Not enough space in inventory.";
+                }
+                gp.ui.addMessage(text);
+                gp.obj[index] = null;
+            }
         }
     }
 
