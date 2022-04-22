@@ -6,6 +6,7 @@ import main.UtilityTool;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ShortLookupTable;
 import java.io.IOException;
 import java.nio.Buffer;
 
@@ -43,6 +44,7 @@ public class Entity
     public int spriteCounter = 0;
     public int actionLockCounter = 0;
     public int invincibleCounter = 0;
+    public int shotAvailableCounter = 0;
     int hpBarCounter = 0;
     int dyingCounter = 0;
 
@@ -51,11 +53,16 @@ public class Entity
     public String name = "???";
     public int speed, maxLife, life;
     public int level, strength, dexterity, attack, defense, exp, nextLevelExp, coin;
+    public int maxMana, mana;
     public Entity currentPrimary, currentSecondary;
+    public Projectile projectile;
 
     // Item attributes
     public int attackValue, defenseValue;
     public String description = "N/A";
+    public int useCost;
+
+    // Type
     public int type; // 0 = player, 1 = npc, 2 = monster
     public final int type_player = 0;
     public final int type_npc = 1;
@@ -237,10 +244,7 @@ public class Entity
         if (dyingCounter > i*5 && dyingCounter <= i*6) {changeAlpha(g2, 0f);}
         if (dyingCounter > i*6 && dyingCounter <= i*7) {changeAlpha(g2, 1f);}
         if (dyingCounter > i*7 && dyingCounter <= i*8) {changeAlpha(g2, 0f);}
-        if (dyingCounter > i*8) {
-            dying = false;
-            alive = false;
-        }
+        if (dyingCounter > i*8) {alive = false;}
     }
 
     public void changeAlpha(Graphics2D g2, float alphaValue){
