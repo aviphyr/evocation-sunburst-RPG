@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.Array;
 import java.util.ArrayList;
 
+@SuppressWarnings("ALL")
 public class Player extends Entity {
 
     KeyHandler keyH;
