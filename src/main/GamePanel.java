@@ -235,6 +235,20 @@ public class GamePanel extends JPanel implements Runnable {
                 int y = 400;
                 int lineHeight = 20;
 
+                // Show hitbox
+                g2.setColor(Color.red);
+                g2.drawImage(player.image, player.screenX, player.screenY, tileSize, tileSize, null);
+                //g2.s
+                g2.drawRect(player.screenX + player.hitbox.x, player.screenY + player.hitbox.y, player.hitbox.width, player.hitbox.height);
+
+                /*for(Entity npc: npc){
+                    g2.drawImage(npc.image, npc.worldX, npc.worldY, tileSize, tileSize, null);
+                    g2.setColor(Color.red);
+                    //g2.s
+                    g2.drawRect(npc.worldX + npc.hitbox.x, npc.worldY + npc.hitbox.y, npc.hitbox.width, npc.hitbox.height);
+                }*/
+
+                g2.setColor(Color.white);
                 g2.drawString("WorldX: " + player.worldX, x, y); y += lineHeight;
                 g2.drawString("WorldX: " + player.worldY, x, y); y += lineHeight;
                 g2.drawString("Col: " + (player.worldX + player.hitbox.x)/tileSize, x, y); y += lineHeight;

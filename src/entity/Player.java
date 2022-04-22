@@ -370,6 +370,7 @@ public class Player extends Entity {
             gp.playSE(8);
             gp.gameState = gp.dialogueState;
             gp.ui.currentDialogue = "You are level " + level + " now!\n";
+            mana = maxMana;
         }
     }
 
@@ -453,11 +454,6 @@ public class Player extends Entity {
         g2.drawImage(image, tempScreenX, tempScreenY , null);
         // reset alpha
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
-
-        // debug
-        //g2.setFont(new Font("Arial", Font.PLAIN, 26));
-        //g2.setColor(Color.white);
-        //g2.drawString("Invincible: " +invincibleCounter, 10, 400);
 
     }
 }
