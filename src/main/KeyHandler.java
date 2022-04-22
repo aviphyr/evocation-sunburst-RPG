@@ -51,8 +51,9 @@ public class KeyHandler implements KeyListener {
 
     }
 
-    public void titleState(int code){
-        System.out.println("Yo");
+    public void titleState(int code)
+    {
+
         if(code == KeyEvent.VK_UP)
         {
             gp.ui.commandNum--;

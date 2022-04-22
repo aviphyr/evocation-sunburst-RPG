@@ -31,6 +31,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     int FPS = 60; // so that the game doesn't update a million times a second
 
+    //Audio
+    boolean isMusicPlaying = false;
+
     //System
     TileManager tileM = new TileManager(this);
     public KeyHandler keyH = new KeyHandler(this);
@@ -265,6 +268,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void playMusic(int i)
     {
+        if(isMusicPlaying)
+            stopMusic();
         music.setFile(i);
         music.play();
         music.loop();
