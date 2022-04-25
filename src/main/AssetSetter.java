@@ -2,7 +2,8 @@ package main;
 
 import entity.NPC_Froog;
 import entity.NPC_Foz;
-import monster.MON_GreenSlime;
+import entity.NPC_Frung;
+import monster.MON_Slime;
 import object.*;
 
 public class AssetSetter
@@ -42,7 +43,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new OBJ_ShieldBlue(gp);
+        gp.obj[i] = new OBJ_TrashcanLidGold(gp);
         gp.obj[i].worldX = gp.tileSize * 41;
         gp.obj[i].worldY = gp.tileSize * 51;
 
@@ -67,24 +68,31 @@ public class AssetSetter
         gp.npc[i] = new NPC_Foz(gp);
         gp.npc[i].worldX = gp.tileSize * 34;
         gp.npc[i].worldY = gp.tileSize * 49;
+
+
+        i++;
+
+        gp.npc[i] = new NPC_Frung(gp);
+        gp.npc[i].worldX = gp.tileSize * 52;
+        gp.npc[i].worldY = gp.tileSize * 57;
     }
 
     public void setMonster(){
         int i = 0;
 
-        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i] = new MON_Slime(gp);
         gp.monster[i].worldX = gp.tileSize * 41;
         gp.monster[i].worldY = gp.tileSize * 25;
 
         i++;
 
-        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i] = new MON_Slime(gp);
         gp.monster[i].worldX = gp.tileSize * 36;
         gp.monster[i].worldY = gp.tileSize * 27;
 
         i++;
 
-        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i] = new MON_Slime(gp);
         gp.monster[i].worldX = gp.tileSize * 40;
         gp.monster[i].worldY = gp.tileSize * 18;
     }
