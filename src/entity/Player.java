@@ -100,10 +100,10 @@ public class Player extends Entity {
     }
     public void getPlayerAttackImage(){
         if(currentPrimary.type == type_sword){
-            attackUp1 = setup("/player/boy_attack_up_1", gp.tileSize, gp.tileSize*2);
-            attackUp2 = setup("/player/boy_attack_up_2", gp.tileSize, gp.tileSize*2);
-            attackDown1 = setup("/player/boy_attack_down_1", gp.tileSize, gp.tileSize*2);
-            attackDown2 = setup("/player/boy_attack_down_2", gp.tileSize, gp.tileSize*2);
+            attackUp1 = setup("/player/RaccAttackUp1", gp.tileSize, gp.tileSize*2);
+            attackUp2 = setup("/player/RaccAttackUp2", gp.tileSize, gp.tileSize*2);
+            attackDown1 = setup("/player/RaccAttackDown1", gp.tileSize, gp.tileSize*2);
+            attackDown2 = setup("/player/RaccAttackDown2", gp.tileSize, gp.tileSize*2);
             attackLeft1 = setup("/player/RaccAttackLeft1", gp.tileSize*2, gp.tileSize);
             attackLeft2 = setup("/player/RaccAttackLeft2", gp.tileSize*2, gp.tileSize);
             attackRight1 = setup("/player/RaccAttackRight1", gp.tileSize*2, gp.tileSize);
