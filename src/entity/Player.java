@@ -2,14 +2,10 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-import main.UtilityTool;
 import object.*;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
@@ -66,8 +62,8 @@ public class Player extends Entity {
         level = strength = dexterity = 1;
         exp = coin = 0;
         nextLevelExp = 5;
-        currentPrimary = new OBJ_SwordBasic(gp);
-        currentSecondary = new OBJ_ShieldWood(gp);
+        currentPrimary = new OBJ_Staff(gp);
+        currentSecondary = new OBJ_TrashcanLid(gp);
         projectile = new OBJ_Fireball(gp);
         //projectile = new OBJ_Rock(gp);
         attack = getAttack(); // Attack value is decided by strength and weapon damage.

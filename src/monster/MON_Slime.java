@@ -9,9 +9,9 @@ import object.OBJ_Rock;
 
 import java.util.Random;
 
-public class MON_GreenSlime extends Entity {
+public class MON_Slime extends Entity {
     GamePanel gp;
-    public MON_GreenSlime(GamePanel gp){
+    public MON_Slime(GamePanel gp){
 
         super(gp);
         this.gp = gp;
@@ -37,14 +37,14 @@ public class MON_GreenSlime extends Entity {
     }
 
     public void getImage(){
-        up1 = setup("/monster/greenslime_down_1", gp.tileSize, gp.tileSize);
-        up2 = setup("/monster/greenslime_down_2", gp.tileSize, gp.tileSize);
-        down1 = setup("/monster/greenslime_down_1", gp.tileSize, gp.tileSize);
-        down2 = setup("/monster/greenslime_down_2", gp.tileSize, gp.tileSize);
-        left1 = setup("/monster/greenslime_down_1", gp.tileSize, gp.tileSize);
-        left2 = setup("/monster/greenslime_down_2", gp.tileSize, gp.tileSize);
-        right1 = setup("/monster/greenslime_down_1", gp.tileSize, gp.tileSize);
-        right2 = setup("/monster/greenslime_down_2", gp.tileSize, gp.tileSize);
+        up1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
+        up2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
+        down1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
+        down2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
+        left1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
+        left2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
+        right1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
+        right2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
     }
 
     public void setAction() // sorry Foz...
