@@ -48,8 +48,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues(){
-        worldX = gp.tileSize * 40;
-        worldY = gp.tileSize * 50;
+        worldX = gp.tileSize * 30;
+        worldY = gp.tileSize * 55;
         speed = 4;
         direction = "down";
 
@@ -270,7 +270,7 @@ public class Player extends Entity {
         if(index != 999)
         {
             //pickup items
-            if(gp.obj[index].type ==type_pickupOnly){
+            if(gp.obj[index].type == type_pickupOnly){
                 gp.obj[index].use(this);
                 gp.obj[index] = null;
             }

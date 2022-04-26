@@ -19,25 +19,23 @@ public class AssetSetter
     {
         int i = 0;
 
-        gp.obj[i] = new OBJ_Heart(gp);
+        /*gp.obj[i] = new OBJ_Heart(gp);
         gp.obj[i].worldX = gp.tileSize * 31;
         gp.obj[i].worldY = gp.tileSize * 48;
-
         i++;
 
         gp.obj[i] = new OBJ_ManaCrystal(gp);
         gp.obj[i].worldX = gp.tileSize * 34;
         gp.obj[i].worldY = gp.tileSize * 57;
-
         i++;
 
         gp.obj[i] = new OBJ_CrumpledPaper(gp);
         gp.obj[i].worldX = gp.tileSize * 35;
         gp.obj[i].worldY = gp.tileSize * 60;
-
         i++;
+        */
 
-        gp.obj[i] = new OBJ_Axe(gp);
+        gp.obj[i] = new OBJ_Scythe(gp);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 51;
 
@@ -53,6 +51,26 @@ public class AssetSetter
         gp.obj[i].worldX = gp.tileSize * 35;
         gp.obj[i].worldY = gp.tileSize * 48;
 
+        i++;
+
+        // Houses have coordinates built-in parameters
+        // Type = house (1) or roof (2)
+        // Style = color of roof or house
+        gp.obj[i] = new OBJ_House(gp,36, 48, 1, 1);
+        gp.obj[i+1] = new OBJ_House(gp,36, 47, 2, 1);
+
+        gp.obj[i+2] = new OBJ_House(gp,38, 50, 1, 1);
+        gp.obj[i+3] = new OBJ_House(gp,41, 50, 1, 1);
+        gp.obj[i+4] = new OBJ_House(gp,35, 63, 1, 1);
+        gp.obj[i+5] = new OBJ_House(gp,35, 61, 1, 1);
+        gp.obj[i+6] = new OBJ_House(gp,32, 60, 1, 1);
+        gp.obj[i+7] = new OBJ_House(gp,34, 59, 1, 1);
+        gp.obj[i+8] = new OBJ_House(gp,28, 56, 1, 1);
+        gp.obj[i+9] = new OBJ_House(gp,32, 55, 1, 1);
+        gp.obj[i+10] = new OBJ_House(gp,28, 52, 1, 1);
+        gp.obj[i+11] = new OBJ_House(gp,25, 49, 1, 1);
+
+
     }
 
     public void setNPC()
@@ -60,21 +78,18 @@ public class AssetSetter
         int i = 0;
 
         gp.npc[i] = new NPC_Froog(gp);
-        gp.npc[i].worldX = gp.tileSize * 31;
-        gp.npc[i].worldY = gp.tileSize * 48;
-
+        gp.npc[i].worldX = gp.tileSize * 39;
+        gp.npc[i].worldY = gp.tileSize * 49;
         i++;
 
         gp.npc[i] = new NPC_Foz(gp);
-        gp.npc[i].worldX = gp.tileSize * 34;
-        gp.npc[i].worldY = gp.tileSize * 49;
-
-
+        gp.npc[i].worldX = gp.tileSize * 29;
+        gp.npc[i].worldY = gp.tileSize * 47;
         i++;
 
         gp.npc[i] = new NPC_Frung(gp);
-        gp.npc[i].worldX = gp.tileSize * 52;
-        gp.npc[i].worldY = gp.tileSize * 57;
+        gp.npc[i].worldX = gp.tileSize * 39;
+        gp.npc[i].worldY = gp.tileSize * 91;
     }
 
     public void setMonster(){
