@@ -3,7 +3,7 @@ package main;
 import entity.Entity;
 import entity.Player;
 import object.OBJ_Heart;
-import object.OBJ_ManaCrystal;
+import object.OBJ_Trash;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -49,7 +49,7 @@ public class UI
         heart_full = heart.image;
         heart_half = heart.image2;
         heart_blank = heart.image3;
-        Entity crystal = new OBJ_ManaCrystal(gp);
+        Entity crystal = new OBJ_Trash(gp);
         crystal_full = crystal.image;
         crystal_blank = crystal.image2;
     }

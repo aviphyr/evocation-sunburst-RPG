@@ -4,7 +4,7 @@ import entity.Entity;
 import main.GamePanel;
 import object.OBJ_CoinBronze;
 import object.OBJ_Heart;
-import object.OBJ_ManaCrystal;
+import object.OBJ_Trash;
 import object.OBJ_Rock;
 
 import java.util.Random;
@@ -98,7 +98,7 @@ public class MON_Slime extends Entity {
             dropItem(new OBJ_Heart(gp));
         }
         if(i >= 75 && i < 100){
-            dropItem(new OBJ_ManaCrystal(gp));
+            dropItem(new OBJ_Trash(gp));
         }
     }
 
