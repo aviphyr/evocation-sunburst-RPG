@@ -227,7 +227,7 @@ public class UI
         //Raccoon Image
         x = 20;
         y += gp.tileSize * 2;
-        g2.drawImage(gp.player.idle, x, y, gp.tileSize * 6, gp.tileSize * 6, null);
+        g2.drawImage(gp.player.idleFront, x, y, gp.tileSize * 6, gp.tileSize * 6, null);
 
         //Menu
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 36F));

@@ -16,7 +16,9 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
-    public BufferedImage idle;
+    public BufferedImage idleFront, idleBack, idleRight, idleLeft;
+    int standingCounter = 0;
+    boolean idle = true;
 
     static int whichNPC = 0;
     public ArrayList<Entity> inventory = new ArrayList<>();
@@ -92,7 +94,10 @@ public class Player extends Entity {
         left2 = setup("/player/RaccoonWalkLeft2", gp.tileSize, gp.tileSize);
         right1 = setup("/player/RaccoonWalkRight1", gp.tileSize, gp.tileSize);
         right2 = setup("/player/RaccoonWalkRight2", gp.tileSize, gp.tileSize);
-        idle = setup("/player/RaccoonIdleFront", gp.tileSize, gp.tileSize);
+        idleFront = setup("/player/RaccoonIdleFront", gp.tileSize, gp.tileSize);
+        idleBack = setup("/player/RaccoonIdleBack", gp.tileSize, gp.tileSize);
+        idleRight = setup("/player/RaccoonIdleRight", gp.tileSize, gp.tileSize);
+        idleLeft = setup("/player/RaccoonIdleLeft", gp.tileSize, gp.tileSize);
     }
     public void getPlayerAttackImage(){
         if(currentPrimary.type == type_sword){
@@ -179,6 +184,7 @@ public class Player extends Entity {
                 }
             }
 
+            idle = false;
             // animation (walk cycle)
             spriteCounter++;
             if(spriteCounter > 10)
@@ -190,6 +196,13 @@ public class Player extends Entity {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
+            }
+        } else {
+            standingCounter++;
+
+            if (standingCounter == 20) {
+                idle = true;
+                standingCounter = 0;
             }
         }
 
@@ -401,7 +414,8 @@ public class Player extends Entity {
 
         switch (direction) {
             case "up":
-                if (!attacking){
+                if (idle){image = idleBack;}
+                else if (!attacking){
                     if (spriteNum == 1) image = up1;
                     if (spriteNum == 2) image = up2;
                 }
@@ -412,7 +426,8 @@ public class Player extends Entity {
                 }
                 break;
             case "down":
-                if (!attacking){
+                if (idle){image = idleFront;}
+                else if (!attacking){
                     if (spriteNum == 1) image = down1;
                     if (spriteNum == 2) image = down2;
                 }
@@ -422,7 +437,8 @@ public class Player extends Entity {
                 }
                 break;
             case "left":
-                if (!attacking){
+                if (idle){image = idleLeft;}
+                else if (!attacking){
                     if (spriteNum == 1) image = left1;
                     if (spriteNum == 2) image = left2;
                 }
@@ -433,7 +449,8 @@ public class Player extends Entity {
                 }
                 break;
             case "right":
-                if (!attacking){
+                if (idle){image = idleRight;}
+                else if (!attacking){
                     if(spriteNum == 1) image = right1;
                     if(spriteNum == 2) image = right2;
                 }
