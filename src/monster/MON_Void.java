@@ -9,22 +9,21 @@ import object.OBJ_Rock;
 
 import java.util.Random;
 
-public class MON_Slime extends Entity {
+public class MON_Void extends Entity {
     GamePanel gp;
-    public MON_Slime(GamePanel gp){
+    public MON_Void(GamePanel gp){
 
         super(gp);
         this.gp = gp;
 
         type = type_monster;
-        name = "Slime";
-        speed = 1;
-        maxLife = 4;
+        name = "Void";
+        speed = 3;
+        maxLife = 6;
         life = maxLife;
-        attack = 5;
+        attack = 6;
         defense = 0;
-        exp = 2;
-        projectile = new OBJ_Rock(gp);
+        exp = 5;
 
         hitbox.x = 3;
         hitbox.y = 18;
@@ -37,17 +36,17 @@ public class MON_Slime extends Entity {
     }
 
     public void getImage(){
-        up1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
-        up2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
-        down1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
-        down2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
-        left1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
-        left2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
-        right1 = setup("/monster/slime_down", gp.tileSize, gp.tileSize);
-        right2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
+        up1 = setup("/monster/void", gp.tileSize, gp.tileSize);
+        up2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
+        down1 = setup("/monster/void", gp.tileSize, gp.tileSize);
+        down2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
+        left1 = setup("/monster/void", gp.tileSize, gp.tileSize);
+        left2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
+        right1 = setup("/monster/void", gp.tileSize, gp.tileSize);
+        right2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
     }
 
-    public void setAction() // sorry Foz...
+    public void setAction()
     {
         actionLockCounter++;
 
@@ -76,12 +75,12 @@ public class MON_Slime extends Entity {
             actionLockCounter = 0;
         }
 
-        int i = new Random().nextInt(100)+1;
+        /*int i = new Random().nextInt(100)+1;
         if(i > 99 && !projectile.alive && shotAvailableCounter == 30){
             projectile.set(worldX, worldY, direction, true, this);
             gp.projectileList.add(projectile);
             shotAvailableCounter = 0;
-        }
+        }*/
     }
 
     public void damageReaction(){
@@ -92,7 +91,7 @@ public class MON_Slime extends Entity {
     public void checkDrop(){
         int i = new Random().nextInt(100)+1;
         if(i < 50){
-            dropItem(new OBJ_Coin(gp));
+            dropItem(new OBJ_Heart(gp));
         }
         if(i >= 50 && i < 75){
             dropItem(new OBJ_Heart(gp));

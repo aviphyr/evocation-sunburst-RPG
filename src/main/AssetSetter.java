@@ -4,6 +4,7 @@ import entity.NPC_Froog;
 import entity.NPC_Foz;
 import entity.NPC_Frung;
 import monster.MON_Slime;
+import monster.MON_Void;
 import object.*;
 
 public class AssetSetter
@@ -108,6 +109,12 @@ public class AssetSetter
         gp.monster[i] = new MON_Slime(gp);
         gp.monster[i].worldX = gp.tileSize * 40;
         gp.monster[i].worldY = gp.tileSize * 18;
+
+        i++;
+
+        gp.monster[i] = new MON_Void(gp);
+        gp.monster[i].worldX = gp.tileSize * 71;
+        gp.monster[i].worldY = gp.tileSize * 84;
     }
 
 }
