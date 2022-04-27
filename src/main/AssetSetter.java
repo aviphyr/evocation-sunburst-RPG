@@ -54,21 +54,19 @@ public class AssetSetter
         i++;
 
         // Houses have coordinates built-in parameters
-        // Type = house (1) or roof (2)
-        // Style = color of roof or house
-        gp.obj[i] = new OBJ_House(gp,36, 48, 1, 1);
-        gp.obj[i+1] = new OBJ_House(gp,36, 47, 2, 1);
-
-        gp.obj[i+2] = new OBJ_House(gp,38, 50, 1, 1);
-        gp.obj[i+3] = new OBJ_House(gp,41, 50, 1, 1);
-        gp.obj[i+4] = new OBJ_House(gp,35, 63, 1, 1);
-        gp.obj[i+5] = new OBJ_House(gp,35, 61, 1, 1);
-        gp.obj[i+6] = new OBJ_House(gp,32, 60, 1, 1);
-        gp.obj[i+7] = new OBJ_House(gp,34, 59, 1, 1);
-        gp.obj[i+8] = new OBJ_House(gp,28, 56, 1, 1);
-        gp.obj[i+9] = new OBJ_House(gp,32, 55, 1, 1);
-        gp.obj[i+10] = new OBJ_House(gp,28, 52, 1, 1);
-        gp.obj[i+11] = new OBJ_House(gp,25, 49, 1, 1);
+        // Type = color
+        gp.obj[i] = new OBJ_House(gp,36, 48, 1);
+        gp.obj[i+1] = new OBJ_House(gp,36, 43, 2);
+        gp.obj[i+2] = new OBJ_House(gp,38, 50, 1);
+        gp.obj[i+3] = new OBJ_House(gp,41, 50, 5);
+        gp.obj[i+4] = new OBJ_House(gp,35, 63, 3);
+        gp.obj[i+5] = new OBJ_House(gp,35, 61, 4);
+        gp.obj[i+6] = new OBJ_House(gp,32, 60, 4);
+        gp.obj[i+7] = new OBJ_House(gp,34, 59, 6);
+        gp.obj[i+8] = new OBJ_House(gp,28, 56, 1);
+        gp.obj[i+9] = new OBJ_House(gp,32, 55, 6);
+        gp.obj[i+10] = new OBJ_House(gp,28, 52,1);
+        gp.obj[i+11] = new OBJ_House(gp,25, 49, 4);
 
 
     }
