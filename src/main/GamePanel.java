@@ -23,8 +23,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow;
 
     // the world...settings
-    public final int maxWorldCol = 100;
-    public final int maxWorldRow = 100;
+    public final int maxWorldCol = 111;
+    public final int maxWorldRow = 110;
 
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
@@ -211,8 +211,7 @@ public class GamePanel extends JPanel implements Runnable {
             Collections.sort(entityList, new Comparator<Entity>() {
                 @Override
                 public int compare(Entity e1, Entity e2) {
-                    int result = Integer.compare(e1.worldY, e2.worldY);
-                    return result;
+                    return Integer.compare(e1.worldY, e2.worldY);
                 }
             });
 

@@ -37,37 +37,37 @@ public class AssetSetter
         */
 
         gp.obj[i] = new OBJ_Scythe(gp);
+        gp.obj[i].worldX = gp.tileSize * 41;
+        gp.obj[i].worldY = gp.tileSize * 54;
+
+        i++;
+
+        gp.obj[i] = new OBJ_TrashcanLidGold(gp);
+        gp.obj[i].worldX = gp.tileSize * 44;
+        gp.obj[i].worldY = gp.tileSize * 54;
+
+        i++;
+
+        gp.obj[i] = new OBJ_WaterPotion(gp);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 51;
 
         i++;
 
-        gp.obj[i] = new OBJ_TrashcanLidGold(gp);
-        gp.obj[i].worldX = gp.tileSize * 41;
-        gp.obj[i].worldY = gp.tileSize * 51;
-
-        i++;
-
-        gp.obj[i] = new OBJ_WaterPotion(gp);
-        gp.obj[i].worldX = gp.tileSize * 35;
-        gp.obj[i].worldY = gp.tileSize * 48;
-
-        i++;
-
         // Houses have coordinates built-in parameters
         // Type = color
-        gp.obj[i] = new OBJ_House(gp,36, 48, 1);
-        gp.obj[i+1] = new OBJ_House(gp,36, 43, 2);
-        gp.obj[i+2] = new OBJ_House(gp,38, 50, 1);
-        gp.obj[i+3] = new OBJ_House(gp,41, 50, 5);
-        gp.obj[i+4] = new OBJ_House(gp,35, 63, 3);
-        gp.obj[i+5] = new OBJ_House(gp,35, 61, 4);
-        gp.obj[i+6] = new OBJ_House(gp,32, 60, 4);
-        gp.obj[i+7] = new OBJ_House(gp,34, 59, 6);
-        gp.obj[i+8] = new OBJ_House(gp,28, 56, 1);
-        gp.obj[i+9] = new OBJ_House(gp,32, 55, 6);
-        gp.obj[i+10] = new OBJ_House(gp,28, 52,1);
-        gp.obj[i+11] = new OBJ_House(gp,25, 49, 4);
+        gp.obj[i] = new OBJ_House(gp,39, 51, 1);
+        gp.obj[i+1] = new OBJ_House(gp,39, 46, 2);
+        gp.obj[i+2] = new OBJ_House(gp,41, 53, 1);
+        gp.obj[i+3] = new OBJ_House(gp,44, 53, 5);
+        gp.obj[i+4] = new OBJ_House(gp,38, 66, 3);
+        gp.obj[i+5] = new OBJ_House(gp,38, 64, 4);
+        gp.obj[i+6] = new OBJ_House(gp,35, 63, 4);
+        gp.obj[i+7] = new OBJ_House(gp,37, 52, 6);
+        gp.obj[i+8] = new OBJ_House(gp,31, 59, 1);
+        gp.obj[i+9] = new OBJ_House(gp,35, 58, 6);
+        gp.obj[i+10] = new OBJ_House(gp,31, 55,1);
+        gp.obj[i+11] = new OBJ_House(gp,28, 52, 4);
 
 
     }
@@ -77,44 +77,44 @@ public class AssetSetter
         int i = 0;
 
         gp.npc[i] = new NPC_Froog(gp);
-        gp.npc[i].worldX = gp.tileSize * 39;
-        gp.npc[i].worldY = gp.tileSize * 49;
+        gp.npc[i].worldX = gp.tileSize * 42;
+        gp.npc[i].worldY = gp.tileSize * 52;
         i++;
 
         gp.npc[i] = new NPC_Foz(gp);
-        gp.npc[i].worldX = gp.tileSize * 29;
-        gp.npc[i].worldY = gp.tileSize * 47;
+        gp.npc[i].worldX = gp.tileSize * 42;
+        gp.npc[i].worldY = gp.tileSize * 50;
         i++;
 
         gp.npc[i] = new NPC_Frung(gp);
-        gp.npc[i].worldX = gp.tileSize * 39;
-        gp.npc[i].worldY = gp.tileSize * 91;
+        gp.npc[i].worldX = gp.tileSize * 42;
+        gp.npc[i].worldY = gp.tileSize * 94;
     }
 
     public void setMonster(){
         int i = 0;
 
         gp.monster[i] = new MON_Slime(gp);
-        gp.monster[i].worldX = gp.tileSize * 41;
-        gp.monster[i].worldY = gp.tileSize * 25;
+        gp.monster[i].worldX = gp.tileSize * 44;
+        gp.monster[i].worldY = gp.tileSize * 28;
 
         i++;
 
         gp.monster[i] = new MON_Slime(gp);
-        gp.monster[i].worldX = gp.tileSize * 36;
-        gp.monster[i].worldY = gp.tileSize * 27;
+        gp.monster[i].worldX = gp.tileSize * 39;
+        gp.monster[i].worldY = gp.tileSize * 30;
 
         i++;
 
         gp.monster[i] = new MON_Slime(gp);
-        gp.monster[i].worldX = gp.tileSize * 40;
-        gp.monster[i].worldY = gp.tileSize * 18;
+        gp.monster[i].worldX = gp.tileSize * 43;
+        gp.monster[i].worldY = gp.tileSize * 21;
 
         i++;
 
         gp.monster[i] = new MON_Void(gp);
-        gp.monster[i].worldX = gp.tileSize * 71;
-        gp.monster[i].worldY = gp.tileSize * 84;
+        gp.monster[i].worldX = gp.tileSize * 74;
+        gp.monster[i].worldY = gp.tileSize * 87;
     }
 
 }

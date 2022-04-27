@@ -16,7 +16,7 @@ public class MON_Void extends Entity {
         type = type_monster;
         name = "Void";
         speed = 3;
-        maxLife = 6;
+        maxLife = 10;
         life = maxLife;
         attack = 6;
         defense = 0;
