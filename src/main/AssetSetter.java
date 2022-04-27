@@ -47,7 +47,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new OBJ_PotionRed(gp);
+        gp.obj[i] = new OBJ_WaterPotion(gp);
         gp.obj[i].worldX = gp.tileSize * 35;
         gp.obj[i].worldY = gp.tileSize * 48;
 

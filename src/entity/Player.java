@@ -126,6 +126,10 @@ public class Player extends Entity {
     public void update(){
 
         // if attacking then attacking, yes. don't ask me why it's like this.
+        if (life < 0){
+            System.exit(0);
+        }
+
         if (keyH.interact){
             attacking = true;
         }

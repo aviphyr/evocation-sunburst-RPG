@@ -2,7 +2,7 @@ package monster;
 
 import entity.Entity;
 import main.GamePanel;
-import object.OBJ_CoinBronze;
+import object.OBJ_Coin;
 import object.OBJ_Heart;
 import object.OBJ_Trash;
 import object.OBJ_Rock;
@@ -92,7 +92,7 @@ public class MON_Slime extends Entity {
     public void checkDrop(){
         int i = new Random().nextInt(100)+1;
         if(i < 50){
-            dropItem(new OBJ_CoinBronze(gp));
+            dropItem(new OBJ_Coin(gp));
         }
         if(i >= 50 && i < 75){
             dropItem(new OBJ_Heart(gp));
