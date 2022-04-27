@@ -222,11 +222,11 @@ public class Entity
             }
             //monster hp bar
             if (type == 2 && hpBarOn){
-                double oneScale = (double) gp.tileSize/maxLife;
+                double oneScale = (double) hitbox.width/maxLife;
                 double hpBarValue = oneScale*life;
 
                 g2.setColor(new Color(66, 58, 59));
-                g2.fillRect(screenX - 1, screenY - 16, gp.tileSize+2, 12);
+                g2.fillRect(screenX - 1, screenY - 16, hitbox.width+2, 12);
 
                 g2.setColor(new Color(179, 32, 53));
                 g2.fillRect(screenX, screenY - 15, (int)hpBarValue, 10);

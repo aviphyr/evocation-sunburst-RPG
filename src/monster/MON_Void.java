@@ -2,10 +2,7 @@ package monster;
 
 import entity.Entity;
 import main.GamePanel;
-import object.OBJ_Coin;
-import object.OBJ_Heart;
-import object.OBJ_Trash;
-import object.OBJ_Rock;
+import object.*;
 
 import java.util.Random;
 
@@ -27,8 +24,8 @@ public class MON_Void extends Entity {
 
         hitbox.x = 3;
         hitbox.y = 18;
-        hitbox.width = 42;
-        hitbox.height = 30;
+        hitbox.width = 42*2;
+        hitbox.height = 30*2;
         hitboxDefaultX = hitbox.x;
         hitboxDefaultY = hitbox.y;
 
@@ -36,14 +33,14 @@ public class MON_Void extends Entity {
     }
 
     public void getImage(){
-        up1 = setup("/monster/void", gp.tileSize, gp.tileSize);
-        up2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
-        down1 = setup("/monster/void", gp.tileSize, gp.tileSize);
-        down2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
-        left1 = setup("/monster/void", gp.tileSize, gp.tileSize);
-        left2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
-        right1 = setup("/monster/void", gp.tileSize, gp.tileSize);
-        right2 = setup("/monster/void1", gp.tileSize, gp.tileSize);
+        up1 = setup("/monster/void", gp.tileSize*2, gp.tileSize*2);
+        up2 = setup("/monster/void1", gp.tileSize*2, gp.tileSize*2);
+        down1 = setup("/monster/void", gp.tileSize*2, gp.tileSize*2);
+        down2 = setup("/monster/void1", gp.tileSize*2, gp.tileSize*2);
+        left1 = setup("/monster/void", gp.tileSize*2, gp.tileSize*2);
+        left2 = setup("/monster/void1", gp.tileSize*2, gp.tileSize*2);
+        right1 = setup("/monster/void", gp.tileSize*2, gp.tileSize*2);
+        right2 = setup("/monster/void1", gp.tileSize*2, gp.tileSize*2);
     }
 
     public void setAction()
@@ -85,20 +82,18 @@ public class MON_Void extends Entity {
 
     public void damageReaction(){
         actionLockCounter = 0;
-        direction = gp.player.direction;
+        switch (gp.player.direction){
+            case "up": this.direction = "down";
+            case "down": this.direction = "up";
+            case "left": this.direction = "right";
+            case "right": this.direction = "left";
+        }
     }
 
     public void checkDrop(){
-        int i = new Random().nextInt(100)+1;
-        if(i < 50){
-            dropItem(new OBJ_Heart(gp));
-        }
-        if(i >= 50 && i < 75){
-            dropItem(new OBJ_Heart(gp));
-        }
-        if(i >= 75 && i < 100){
-            dropItem(new OBJ_Trash(gp));
-        }
+        dropItem(new OBJ_Heart(gp));
+        dropItem(new OBJ_Heart(gp));
+        dropItem(new OBJ_Key(gp));
     }
 
 }
