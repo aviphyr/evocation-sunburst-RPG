@@ -17,4 +17,7 @@ Please note that you need at least Java 8 SE installed to run this game.
 
 # Acknowledged Issues 
 The Sound is really loud at the moment. Probably best to turn down your volume!
-- Push test
+
+# Credits and Acknowledgements
+This game would not be possible without the [series of tutorials](https://www.youtube.com/c/RyiSnow) by RyiSnow. 
+Also, thank you to Ms. Cuddy, our Computer Science teacher!
