@@ -17,7 +17,7 @@ public class NPC_Foz extends Entity
         direction = "down";
         speed = 1;
 
-        entityColor = new Color(245, 133, 0);
+        entityColor = new Color(223, 130, 0);
         //entityColor = new Color(255, 255, 255);
 
         getImage();
@@ -40,10 +40,10 @@ public class NPC_Foz extends Entity
 
     public void setDialogue()
     {
-        dialogues[0] = "Hello Racc. You may refer to\nme as Foz";
-        dialogues[1] = "I wonder where my house is?";
-        dialogues[2] = "I use some old player textures.\nThey're temporary.";
-        dialogues[3] = "My full model is still in the\nworks so this is all you get\nfor now.";
+        dialogues[0] = "Oh? You name is Racc?\nIt's wonderful to meet you.\nYou may refer to me as Foz";
+        dialogues[1] = "It's good to see that there is\nanother wizard in town.\nThe other one is getting a bit\ntoo moody if you ask me.";
+        dialogues[2] = "I used to were a monocle.\nI don't know where it could\nhave went.";
+        dialogues[3] = "I wonder where my house is?";
     }
 
     public void setAction()
