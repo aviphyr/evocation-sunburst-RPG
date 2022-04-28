@@ -3,6 +3,8 @@ package object;
 import entity.Entity;
 import main.GamePanel;
 
+import java.awt.*;
+
 public class OBJ_House extends Entity {
     //GamePanel gp;
     public OBJ_House(GamePanel gp, int worldX, int worldY, int type) {
@@ -14,8 +16,8 @@ public class OBJ_House extends Entity {
 
         name = "House";
         description = "How did you\n pick this up?";
-        hitbox.width = 0;
-        hitbox.height = 0;
+
+        hitboxDefaultY = 40;
 
         switch (type){
             case 1: down1 = setup("/objects/housing/HouseBrown", gp.tileSize, gp.tileSize*2); break;
@@ -31,5 +33,6 @@ public class OBJ_House extends Entity {
                 case 2: down1 = setup("/objects/housing/RoofYellow", gp.tileSize, gp.tileSize); break;
             }
         }*/
+        collision = true;
     }
 }

@@ -291,6 +291,10 @@ public class Player extends Entity {
                 gp.obj[index].use(this);
                 gp.obj[index] = null;
             }
+            if(gp.obj[index].type == type_noPickup)
+            {
+
+            }
             //inventory
             else {
                 String text;
