@@ -130,7 +130,10 @@ public class KeyHandler implements KeyListener {
                 showDebug = true;
         }
 
-        if(code == KeyEvent.VK_F2){
+        if(code == KeyEvent.VK_1){
+            gp.tileM.loadMap("/maps/world.txt");
+        }
+        if(code == KeyEvent.VK_2){
             gp.tileM.loadMap("/maps/world2.txt");
         }
     }
