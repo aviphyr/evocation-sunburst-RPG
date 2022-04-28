@@ -76,6 +76,7 @@ public class Entity
     public final int type_shield= 5;
     public final int type_consumable = 6;
     public final int type_pickupOnly = 7;
+
     public final int type_noPickup = 8;
 
 

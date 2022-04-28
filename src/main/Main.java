@@ -1,8 +1,5 @@
 package main;
 
-import saving_loading.Load;
-import saving_loading.Save;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +9,7 @@ import java.net.URL;
 
 public class Main
 {
-    Save saving = new Save();
-    Load loading = new Load();
+
 
     public static void main(String [] args)
     {
