@@ -19,6 +19,7 @@ public class Player extends Entity {
     public BufferedImage idleFront, idleBack, idleRight, idleLeft;
     int standingCounter = 0;
     boolean idle = true;
+    boolean hatless = false;
 
     static int whichNPC = 0;
     public ArrayList<Entity> inventory = new ArrayList<>();

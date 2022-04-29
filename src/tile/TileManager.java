@@ -19,7 +19,7 @@ public class TileManager {
     public TileManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[80];
+        tile = new Tile[120];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -113,6 +113,8 @@ public class TileManager {
 
         setup(73, "Tree1", true);
         setup(74, "Tree2", true);
+
+
     }
 
     public void setup(int index, String image, boolean collision)
