@@ -1,12 +1,9 @@
 package main;
 
-import entity.NPC_Froog;
-import entity.NPC_Foz;
-import entity.NPC_Frung;
+import entity.*;
 import monster.MON_Slime;
 import monster.MON_Void;
 import object.*;
-import entity.EVN_Event;
 
 public class AssetSetter
 {
@@ -67,7 +64,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 3, 0, 0);
+        gp.obj[i] = new EVN_Event(gp, 3, 50, 50);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 50;
 
@@ -108,6 +105,16 @@ public class AssetSetter
         gp.npc[i] = new NPC_Frung(gp);
         gp.npc[i].worldX = gp.tileSize * 42;
         gp.npc[i].worldY = gp.tileSize * 94;
+        i++;
+
+        gp.npc[i] = new NPC_grampyTod(gp);
+        gp.npc[i].worldX = gp.tileSize * 32;
+        gp.npc[i].worldY = gp.tileSize * 49;
+        i++;
+
+        gp.npc[i] = new NPC_creature(gp);
+        gp.npc[i].worldX = gp.tileSize * 17;
+        gp.npc[i].worldY = gp.tileSize * 33;
     }
 
     public void setMonster(){
