@@ -6,6 +6,7 @@ import entity.NPC_Frung;
 import monster.MON_Slime;
 import monster.MON_Void;
 import object.*;
+import entity.EVN_Event;
 
 public class AssetSetter
 {
@@ -51,6 +52,12 @@ public class AssetSetter
         gp.obj[i] = new OBJ_WaterPotion(gp);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 51;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 1);
+        gp.obj[i].worldX = gp.tileSize * 36;
+        gp.obj[i].worldY = gp.tileSize * 50;
 
         i++;
 

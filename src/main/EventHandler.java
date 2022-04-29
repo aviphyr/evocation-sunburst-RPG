@@ -18,8 +18,8 @@ public class EventHandler {
         while (col < gp.maxWorldCol && row < gp.maxWorldRow){
             eventRect[col][row] = new EventRect();
             eventRect[col][row].y = 48;
-            eventRect[col][row].width = 2;
-            eventRect[col][row].height = 2;
+            eventRect[col][row].width = 16;
+            eventRect[col][row].height = 16;
             eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
             eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
             col++;
@@ -40,9 +40,9 @@ public class EventHandler {
             canTouchEvent = true;
         }
         if (canTouchEvent){
-            if (hit(34, 43, "any")) {damagePit(34, 43, gp.dialogueState);}
-            if (hit(50, 52, "any")) {healthRestore(50, 52, gp.dialogueState);}
-            if (hit(24, 32, "any")) {teleport(24, 32, gp.dialogueState, 44, 86);}
+            //if (hit(34, 43, "any")) {damagePit(34, 43, gp.dialogueState);}
+            //if (hit(50, 52, "any")) {healthRestore(50, 52, gp.dialogueState);}
+            //if (hit(24, 32, "any")) {teleport(24, 32, gp.dialogueState, 44, 86);}
         }
 
     }

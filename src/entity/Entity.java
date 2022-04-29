@@ -41,6 +41,7 @@ public class Entity
     public boolean invincible = false;
     public boolean alive = true;
     public boolean dying = false;
+    public boolean canContact = false;
 
 
     // Counter
@@ -76,8 +77,8 @@ public class Entity
     public final int type_shield= 5;
     public final int type_consumable = 6;
     public final int type_pickupOnly = 7;
-
     public final int type_noPickup = 8;
+    public final int type_event = 9;
 
 
     public Entity(GamePanel gp)

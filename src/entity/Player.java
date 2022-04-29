@@ -287,13 +287,16 @@ public class Player extends Entity {
         if(index != 999)
         {
             //pickup items
-            if(gp.obj[index].type == type_pickupOnly){
+            if (gp.obj[index].type == type_event){
+                gp.obj[index].use(this);
+            }
+            else if(gp.obj[index].type == type_pickupOnly){
                 gp.obj[index].use(this);
                 gp.obj[index] = null;
             }
             else if(gp.obj[index].type == type_noPickup)
             {
-
+                //Empty
             }
             //inventory
             else {
