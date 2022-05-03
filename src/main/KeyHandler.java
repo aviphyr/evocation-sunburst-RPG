@@ -90,22 +90,22 @@ public class KeyHandler implements KeyListener {
     }
 
     public void playState(int code){
-        if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+        if(code == KeyEvent.VK_UP){
             upPressed = true;
         }
-        if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+        if(code == KeyEvent.VK_DOWN){
             downPressed = true;
         }
-        if(code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){
+        if(code == KeyEvent.VK_LEFT){
             leftPressed = true;
         }
-        if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
+        if(code == KeyEvent.VK_RIGHT){
             rightPressed = true;
         }
         if(code == KeyEvent.VK_ENTER){
             enterPressed = true;
         }
-        if(code == KeyEvent.VK_E){
+        if(code == KeyEvent.VK_A){
             interact = true;
         }
 
@@ -118,7 +118,7 @@ public class KeyHandler implements KeyListener {
         {
             gp.gameState = gp.pauseState;
         }
-        if(code == KeyEvent.VK_C){
+        if(code == KeyEvent.VK_E){
             gp.gameState = gp.characterState;
         }
 
@@ -139,43 +139,43 @@ public class KeyHandler implements KeyListener {
     }
 
     public void pauseState(int code){
-        if(code == KeyEvent.VK_ESCAPE)
+        if(code == KeyEvent.VK_P)
         {
             gp.gameState = gp.playState;
         }
     }
 
     public void dialogueState(int code){
-        if(code == KeyEvent.VK_ESCAPE)
+        if(code == KeyEvent.VK_ENTER)
         {
             gp.gameState = gp.playState;
         }
     }
 
     public void characterState(int code){
-        if(code == KeyEvent.VK_C)
+        if(code == KeyEvent.VK_E)
         {
             gp.gameState = gp.playState;
         }
-        if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+        if(code == KeyEvent.VK_UP){
             if (gp.ui.slotRow != 0){
                 gp.ui.slotRow--;
                 gp.playSE(9);
             }
         }
-        if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+        if(code == KeyEvent.VK_DOWN){
             if(gp.ui.slotRow != 3){
                 gp.ui.slotRow++;
                 gp.playSE(9);
             }
         }
-        if(code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){
+        if(code == KeyEvent.VK_LEFT){
             if(gp.ui.slotCol != 0){
                 gp.ui.slotCol--;
                 gp.playSE(9);
             }
         }
-        if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
+        if(code == KeyEvent.VK_RIGHT){
             if(gp.ui.slotCol != 4){
                 gp.ui.slotCol++;
                 gp.playSE(9);
@@ -191,22 +191,22 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
-        if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+        if(code == KeyEvent.VK_UP){
             upPressed = false;
         }
-        if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+        if(code == KeyEvent.VK_DOWN){
             downPressed = false;
         }
-        if(code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){
+        if(code == KeyEvent.VK_LEFT){
             leftPressed = false;
         }
-        if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
+        if(code == KeyEvent.VK_RIGHT){
             rightPressed = false;
         }
         if(code == KeyEvent.VK_ENTER){
             enterPressed = false;
         }
-        if(code == KeyEvent.VK_E){
+        if(code == KeyEvent.VK_A){
             interact = false;
         }
 
