@@ -70,7 +70,7 @@ public class KeyHandler implements KeyListener {
                 gp.ui.commandNum = 0;
             }
         }
-        if(code == KeyEvent.VK_ENTER)
+        if(code == KeyEvent.VK_SPACE)
         {
             if(gp.ui.commandNum == 0)
             {
@@ -102,7 +102,7 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_RIGHT){
             rightPressed = true;
         }
-        if(code == KeyEvent.VK_ENTER){
+        if(code == KeyEvent.VK_SPACE){
             enterPressed = true;
         }
         if(code == KeyEvent.VK_A){
@@ -146,7 +146,7 @@ public class KeyHandler implements KeyListener {
     }
 
     public void dialogueState(int code){
-        if(code == KeyEvent.VK_ENTER)
+        if(code == KeyEvent.VK_SPACE)
         {
             gp.gameState = gp.playState;
         }
@@ -181,7 +181,7 @@ public class KeyHandler implements KeyListener {
                 gp.playSE(9);
             }
         }
-        if(code == KeyEvent.VK_ENTER){
+        if(code == KeyEvent.VK_SPACE){
             gp.player.selectItem();
         }
     }
@@ -203,7 +203,7 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_RIGHT){
             rightPressed = false;
         }
-        if(code == KeyEvent.VK_ENTER){
+        if(code == KeyEvent.VK_SPACE){
             enterPressed = false;
         }
         if(code == KeyEvent.VK_A){
