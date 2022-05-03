@@ -40,9 +40,9 @@ public class NPC_Foz extends Entity
 
     public void setDialogue()
     {
-        dialogues[0] = "Oh? You name is Racc?\nIt's wonderful to meet you.\nYou may refer to me as Foz";
+        dialogues[0] = "Oh? Your name is Racc?\nIt's wonderful to meet you.\nYou may refer to me as Foz";
         dialogues[1] = "It's good to see that there is\nanother wizard in town.\nThe other one is getting a bit\ntoo moody if you ask me.";
-        dialogues[2] = "I used to were a monocle.\nI don't know where it could\nhave went.";
+        dialogues[2] = "Oh, me! I purchased a monocle\nthat let you see peoples inner\ndesires and he desired that\ndidn't pay him.";
         dialogues[3] = "I wonder where my house is?";
     }
 
