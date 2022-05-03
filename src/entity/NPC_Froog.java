@@ -41,9 +41,9 @@ public class NPC_Froog extends Entity
     public void setDialogue()
     {
         dialogues[0] = "Hello Racc! Me is Froog.";
-        dialogues[1] = "How did-... C-can you see me!?";
-        dialogues[2] = "They had to put transparent\npixels in my top right corner\nfor my sprites to load correctly";
-        dialogues[3] = "I'm a full Frog now.";
+        dialogues[1] = "Hello again!";
+        dialogues[2] = "Hehehehehe.";
+        dialogues[3] = "They had to put transparent\npixels in my top right corner\nfor my sprites to load correctly";
     }
 
     public void setAction()

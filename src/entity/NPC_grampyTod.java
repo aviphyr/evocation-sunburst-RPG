@@ -39,10 +39,10 @@ public class NPC_grampyTod extends Entity
 
     public void setDialogue()
     {
-        dialogues[0] = "I'm Grampy Tod.";
+        dialogues[0] = "Names Tod.";
         dialogues[1] = "So what brings you to\nthis town?";
         dialogues[2] = "NullPointerException.\nHaha, got you.";
-        dialogues[3] = "Aaaaaah.";
+        dialogues[3] = "You best not hurt young\nMs. Froog. Cause I make no\npromises of what will happen\nto you if you do.";
     }
 
     public void setAction()

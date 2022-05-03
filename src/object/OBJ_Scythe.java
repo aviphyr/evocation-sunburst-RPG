@@ -13,7 +13,7 @@ public class OBJ_Scythe extends Entity
         name = "Scythe";
         attackValue = 1;
         down1 = setup("/objects/scythe", gp.tileSize, gp.tileSize);
-        description = "[" + name + "]" + "\nSharp. Ouch.";
+        description = "[" + name + "]" + "\nMade to cut\ngrass, but\nSharp... Ouch...";
         attackHitbox.width = attackHitbox.height = 30;
     }
 }

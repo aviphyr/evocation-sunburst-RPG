@@ -47,7 +47,7 @@ public class MON_Slime extends Entity {
         right2 = setup("/monster/slime_up", gp.tileSize, gp.tileSize);
     }
 
-    public void setAction() // sorry Foz...
+    public void setAction()
     {
         actionLockCounter++;
 
