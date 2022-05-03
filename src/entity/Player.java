@@ -102,24 +102,24 @@ public class Player extends Entity {
     }
     public void getPlayerAttackImage(){
         if(currentPrimary.type == type_sword){
-            attackUp1 = setup("/player/RaccAttackUp1", gp.tileSize, gp.tileSize*2);
-            attackUp2 = setup("/player/RaccAttackUp2", gp.tileSize, gp.tileSize*2);
-            attackDown1 = setup("/player/RaccAttackDown1", gp.tileSize, gp.tileSize*2);
-            attackDown2 = setup("/player/RaccAttackDown2", gp.tileSize, gp.tileSize*2);
-            attackLeft1 = setup("/player/RaccAttackLeft1", gp.tileSize*2, gp.tileSize);
-            attackLeft2 = setup("/player/RaccAttackLeft2", gp.tileSize*2, gp.tileSize);
-            attackRight1 = setup("/player/RaccAttackRight1", gp.tileSize*2, gp.tileSize);
-            attackRight2 = setup("/player/RaccAttackRight2", gp.tileSize*2, gp.tileSize);
+            attackUp1 = setup("/player/attacks/RaccAttackUp1", gp.tileSize, gp.tileSize*2);
+            attackUp2 = setup("/player/attacks/RaccAttackUp2", gp.tileSize, gp.tileSize*2);
+            attackDown1 = setup("/player/attacks/RaccAttackDown1", gp.tileSize, gp.tileSize*2);
+            attackDown2 = setup("/player/attacks/RaccAttackDown2", gp.tileSize, gp.tileSize*2);
+            attackLeft1 = setup("/player/attacks/RaccAttackLeft1", gp.tileSize*2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/RaccAttackLeft2", gp.tileSize*2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/RaccAttackRight1", gp.tileSize*2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/RaccAttackRight2", gp.tileSize*2, gp.tileSize);
         }
         if(currentPrimary.type == type_axe){
-            attackUp1 = setup("/player/boy_axe_up_1", gp.tileSize, gp.tileSize*2);
-            attackUp2 = setup("/player/boy_axe_up_2", gp.tileSize, gp.tileSize*2);
-            attackDown1 = setup("/player/boy_axe_down_1", gp.tileSize, gp.tileSize*2);
-            attackDown2 = setup("/player/boy_axe_down_2", gp.tileSize, gp.tileSize*2);
-            attackLeft1 = setup("/player/boy_axe_left_1", gp.tileSize*2, gp.tileSize);
-            attackLeft2 = setup("/player/boy_axe_left_2", gp.tileSize*2, gp.tileSize);
-            attackRight1 = setup("/player/boy_axe_right_1", gp.tileSize*2, gp.tileSize);
-            attackRight2 = setup("/player/boy_axe_right_2", gp.tileSize*2, gp.tileSize);
+            attackUp1 = setup("/player/attacks/RaccScytheUp1", gp.tileSize, gp.tileSize*2);
+            attackUp2 = setup("/player/attacks/RaccScytheUp2", gp.tileSize, gp.tileSize*2);
+            attackDown1 = setup("/player/attacks/RaccScytheDown1", gp.tileSize, gp.tileSize*2);
+            attackDown2 = setup("/player/attacks/RaccScytheDown2", gp.tileSize, gp.tileSize*2);
+            attackLeft1 = setup("/player/attacks/RaccScytheLeft1", gp.tileSize*2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/RaccScytheLeft2", gp.tileSize*2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/RaccScytheRight1", gp.tileSize*2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/RaccScytheRight2", gp.tileSize*2, gp.tileSize);
         }
 
     }
