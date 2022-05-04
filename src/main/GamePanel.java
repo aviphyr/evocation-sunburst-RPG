@@ -1,5 +1,6 @@
 package main;
 
+import cutscenes.CutScene;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
@@ -23,7 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow;
 
     // the world...settings
-    public final int maxWorldCol = 170;
+    public final int maxWorldCol = 111;
     public final int maxWorldRow = 110;
 
     public final int worldWidth = tileSize * maxWorldCol;
@@ -53,6 +54,10 @@ public class GamePanel extends JPanel implements Runnable {
     public ArrayList<Entity> projectileList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
+    //CutScenes
+    int counter;
+    CutScene scenes = new CutScene(this);
+
     //Game State
     public int gameState;
     public final int titleState = 0;
@@ -60,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int dialogueState = 3;
     public final int characterState = 4;
+    public final int cutSceneState = 5;
 
     public GamePanel(){
 
@@ -117,6 +123,8 @@ public class GamePanel extends JPanel implements Runnable {
     {
         if(gameState == playState)
         {
+            scenes.actionNum = 0;
+
             //Player
             player.update();
 
@@ -155,6 +163,12 @@ public class GamePanel extends JPanel implements Runnable {
         {
             //nothing
 
+        }
+
+        if(gameState == cutSceneState)
+        {
+            player.update();
+            //scenes.moveX(player, "left", 1);
         }
 
     }

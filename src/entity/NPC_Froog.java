@@ -48,32 +48,32 @@ public class NPC_Froog extends Entity
 
     public void setAction()
     {
-        actionLockCounter++;
-
-        if(actionLockCounter == 120)
+        if(gp.gameState == gp.playState)
         {
-            Random random = new Random();
-            int i = random.nextInt(100); //Pick up a Number from 1 to 100
+            actionLockCounter++;
 
-            if(i < 25)
+            if (actionLockCounter == 120)
             {
-                direction = "up";
-            }
-            if(i >= 25 && i < 50)
-            {
-                direction = "down";
-            }
-            if(i >= 50 && i < 75)
-            {
-                direction = "left";
-            }
-            if(i > 70)
-            {
-                direction = "right";
-            }
+                Random random = new Random();
+                int i = random.nextInt(100); //Pick up a Number from 1 to 100
 
-            actionLockCounter = 0;
+                if (i < 25) {
+                    direction = "up";
+                }
+                if (i >= 25 && i < 50) {
+                    direction = "down";
+                }
+                if (i >= 50 && i < 75) {
+                    direction = "left";
+                }
+                if (i > 70) {
+                    direction = "right";
+                }
+
+                actionLockCounter = 0;
+            }
         }
+
     }
 
     public void speak()

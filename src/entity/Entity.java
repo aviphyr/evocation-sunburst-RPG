@@ -1,6 +1,7 @@
 package entity;
 
 import main.GamePanel;
+import main.KeyHandler;
 import main.UtilityTool;
 
 import javax.imageio.ImageIO;
@@ -16,6 +17,8 @@ public class Entity
     GamePanel gp;
     String[] dialogues = new String[20];
     public boolean collision = false;
+
+    public KeyHandler keyH;
 
     public int screenX;
     public int screenY;
@@ -176,6 +179,8 @@ public class Entity
         if(shotAvailableCounter < 30){
             shotAvailableCounter++;
         }
+
+
     }
 
     public void damagePlayer(int attack){

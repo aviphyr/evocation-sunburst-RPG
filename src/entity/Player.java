@@ -11,8 +11,6 @@ import java.util.ArrayList;
 @SuppressWarnings("ALL")
 public class Player extends Entity {
 
-    KeyHandler keyH;
-
     public final int screenX;
     public final int screenY;
 

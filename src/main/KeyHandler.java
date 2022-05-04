@@ -49,6 +49,11 @@ public class KeyHandler implements KeyListener {
             characterState(code);
         }
 
+        //Cutscene state
+        else if (gp.gameState == gp.cutSceneState){
+            cutSceneState(code);
+        }
+
     }
 
     public void titleState(int code)
@@ -90,6 +95,10 @@ public class KeyHandler implements KeyListener {
     }
 
     public void playState(int code){
+
+        if(code == KeyEvent.VK_I){
+            gp.gameState = gp.cutSceneState;
+        }
         if(code == KeyEvent.VK_UP){
             upPressed = true;
         }
@@ -114,7 +123,7 @@ public class KeyHandler implements KeyListener {
         }
 
         // Game state switch
-        if(code == KeyEvent.VK_P)
+        if(code == KeyEvent.VK_ESCAPE)
         {
             gp.gameState = gp.pauseState;
         }
@@ -139,7 +148,7 @@ public class KeyHandler implements KeyListener {
     }
 
     public void pauseState(int code){
-        if(code == KeyEvent.VK_P)
+        if(code == KeyEvent.VK_ESCAPE)
         {
             gp.gameState = gp.playState;
         }
@@ -183,6 +192,21 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_SPACE){
             gp.player.selectItem();
+        }
+    }
+
+    public void cutSceneState(int code)
+    {
+        if(code == KeyEvent.VK_I)
+        {
+            gp.gameState = gp.playState;
+        }
+        if(code == KeyEvent.VK_ENTER)
+        {
+            gp.scenes.moveX(gp.player, "right", 1.85, 1);
+            gp.scenes.moveX(gp.player, "right", 1.5, 3);
+            gp.scenes.moveY(gp.player, "down", 2.5, 2);
+            gp.scenes.moveY(gp.player, "down", 1.5, 4);
         }
     }
 
