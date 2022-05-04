@@ -120,7 +120,7 @@ public class TileManager {
         setup(78, "minimaps/CeilingLTO", true);
         setup(79, "minimaps/CeilingRTO", true);
         setup(80, "minimaps/CeilingLBI", true);
-        setup(81, "minimaps/CeilingRBO", true);
+        setup(81, "minimaps/CeilingRBI", true);
         setup(82, "minimaps/CeilingLTI", true);
         setup(83, "minimaps/CeilingRTI", true);
         setup(84, "minimaps/CeilingL1", true);
