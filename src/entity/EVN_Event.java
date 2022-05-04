@@ -71,7 +71,7 @@ public class EVN_Event extends Entity {
                 case 3: // tp
                     gp.gameState = gp.dialogueState;
                     gp.ui.currentDialogue = "Whooosh!";
-                    gp.player.worldX = gp.tileSize*150;
+                    gp.player.worldX = gp.tileSize*130;
                     gp.player.worldY = gp.tileSize*18;
                     break;
                 case 4: // dialogue
