@@ -8,13 +8,15 @@ public class EVN_Event extends Entity {
     int previousEventX, previousEventY;
     int eventType;
     int x, y;
-    public EVN_Event(GamePanel gp, int eventType, int x, int y) {
+    boolean doesRepeat;
+    public EVN_Event(GamePanel gp, int eventType, int x, int y, boolean doesRepeat) {
         super(gp);
         this.gp = gp;
 
         type = type_event;
         name = "Default Event";
         collision = false;
+        this.doesRepeat = doesRepeat;
 
         this.eventType = eventType;
         this.x = x;
@@ -22,13 +24,14 @@ public class EVN_Event extends Entity {
 
     }
     public void use(Entity player){
+        if (doesRepeat){
+            int xDistance = Math.abs(gp.player.worldX - previousEventX);
+            int yDistance = Math.abs(gp.player.worldY - previousEventY);
 
-        int xDistance = Math.abs(gp.player.worldX - previousEventX);
-        int yDistance = Math.abs(gp.player.worldY - previousEventY);
-
-        int distance = Math.max(xDistance, yDistance);
-        if (distance > gp.tileSize){
-            canContact = true;
+            int distance = Math.max(xDistance, yDistance);
+            if (distance > gp.tileSize){
+                canContact = true;
+            }
         }
 
         if (canContact){

@@ -52,19 +52,19 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 1, 0, 0);
+        gp.obj[i] = new EVN_Event(gp, 1, 0, 0, false);
         gp.obj[i].worldX = gp.tileSize * 36;
         gp.obj[i].worldY = gp.tileSize * 50;
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 2, 0, 0);
+        gp.obj[i] = new EVN_Event(gp, 2, 0, 0, true);
         gp.obj[i].worldX = gp.tileSize * 37;
         gp.obj[i].worldY = gp.tileSize * 50;
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 3, 50, 50);
+        gp.obj[i] = new EVN_Event(gp, 3, 50, 50, true);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 50;
 
