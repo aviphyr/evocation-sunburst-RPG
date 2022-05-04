@@ -114,6 +114,39 @@ public class TileManager {
         setup(73, "Tree1", true);
         setup(74, "Tree2", true);
 
+        setup(75, "minimaps/Void", false);
+        setup(76, "minimaps/CeilingRBO", true);
+        setup(77, "minimaps/CeilingLBO", true);
+        setup(78, "minimaps/CeilingLTO", true);
+        setup(79, "minimaps/CeilingRTO", true);
+        setup(80, "minimaps/CeilingLBI", true);
+        setup(81, "minimaps/CeilingRBO", true);
+        setup(82, "minimaps/CeilingLTI", true);
+        setup(83, "minimaps/CeilingRTI", true);
+        setup(84, "minimaps/CeilingL1", true);
+        setup(85, "minimaps/CeilingL2", true);
+        setup(86, "minimaps/CeilingR1", true);
+        setup(87, "minimaps/CeilingR2", true);
+        setup(88, "minimaps/CeilingB1", true);
+        setup(89, "minimaps/CeilingB2", true);
+        setup(90, "minimaps/CeilingT1", true);
+        setup(91, "minimaps/CeilingT2", true);
+        setup(92, "minimaps/WT1", true);
+        setup(93, "minimaps/WT2", true);
+        setup(94, "minimaps/WB1", true);
+        setup(95, "minimaps/WB2", true);
+        setup(96, "minimaps/FTE1", false);
+        setup(97, "minimaps/FTE2", false);
+        setup(98, "minimaps/FBE1", false);
+        setup(99, "minimaps/FBE2", false);
+        setup(100, "minimaps/FLE1", false);
+        setup(101, "minimaps/FLE2", false);
+        setup(102, "minimaps/FRE1", false);
+        setup(103, "minimaps/FRE2", false);
+        setup(104, "minimaps/FS", false);
+        setup(105, "minimaps/SW1", true);
+        setup(106, "minimaps/SW2", true);
+        setup(107, "minimaps/SW3", true);
 
     }
 

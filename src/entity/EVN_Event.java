@@ -48,8 +48,8 @@ public class EVN_Event extends Entity {
                     break;
                 case 3:
                     gp.ui.currentDialogue = "Whooosh!";
-                    gp.player.worldX = gp.tileSize*x;
-                    gp.player.worldY = gp.tileSize*y;
+                    gp.player.worldX = gp.tileSize*150;
+                    gp.player.worldY = gp.tileSize*18;
                     break;
             }
         }
