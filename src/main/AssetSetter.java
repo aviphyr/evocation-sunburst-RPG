@@ -1,18 +1,18 @@
 package main;
 
+import com.sun.applet2.AppletParameters;
 import entity.*;
 import monster.MON_Slime;
 import monster.MON_Void;
 import object.*;
 
+import java.util.HashMap;
+
 public class AssetSetter
 {
     GamePanel gp;
 
-    public AssetSetter(GamePanel gp)
-    {
-        this.gp = gp;
-    }
+    public AssetSetter(GamePanel gp) {this.gp = gp;}
 
     public void setObject()
     {
@@ -37,37 +37,45 @@ public class AssetSetter
         gp.obj[i] = new OBJ_Scythe(gp);
         gp.obj[i].worldX = gp.tileSize * 41;
         gp.obj[i].worldY = gp.tileSize * 54;
-
         i++;
 
         gp.obj[i] = new OBJ_TrashcanLidGold(gp);
         gp.obj[i].worldX = gp.tileSize * 44;
         gp.obj[i].worldY = gp.tileSize * 54;
-
         i++;
 
         gp.obj[i] = new OBJ_WaterPotion(gp);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 51;
-
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 1, 0, 0);
+        // Events
+
+        gp.obj[i] = new EVN_Event(gp, 1, false);
         gp.obj[i].worldX = gp.tileSize * 36;
         gp.obj[i].worldY = gp.tileSize * 50;
-
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 2, 0, 0);
+        gp.obj[i] = new EVN_Event(gp, 2, true);
         gp.obj[i].worldX = gp.tileSize * 37;
         gp.obj[i].worldY = gp.tileSize * 50;
-
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 3, 50, 50);
+        gp.obj[i] = new EVN_Event(gp, 3,true, 50, 50);
         gp.obj[i].worldX = gp.tileSize * 38;
         gp.obj[i].worldY = gp.tileSize * 50;
 
+        i++;
+
+        HashMap<String, String> dialogues = new HashMap<String, String>();
+        dialogues.put("England", "London");
+        dialogues.put("Germany", "Berlin");
+        dialogues.put("Norway", "Oslo");
+        dialogues.put("USA", "Washington DC");
+
+        gp.obj[i] = new EVN_Event(gp, 4, false, dialogues);
+        gp.obj[i].worldX = gp.tileSize * 27;
+        gp.obj[i].worldY = gp.tileSize * 56;
         i++;
 
         // Houses have coordinates built-in parameters
