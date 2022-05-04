@@ -100,4 +100,27 @@ public class CutScene
         }
 
     }
+
+    public void leaveScene(int actionNum)
+    {
+        if(!active && actionNum == this.actionNum + 1)
+        {
+
+            gp.gameState = gp.playState;
+        }
+        else
+        {
+            Timer t = new java.util.Timer();
+            t.schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            leaveScene(actionNum);
+                            t.cancel();
+                        }
+                    },
+                    Math.round(20));
+        }
+
+    }
 }
