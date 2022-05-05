@@ -68,10 +68,10 @@ public class AssetSetter
         i++;
 
         HashMap<String, String> dialogues = new HashMap<String, String>();
-        dialogues.put("England", "London");
-        dialogues.put("Germany", "Berlin");
-        dialogues.put("Norway", "Oslo");
-        dialogues.put("USA", "Washington DC");
+        dialogues.put("NPC", "Text 1");
+        dialogues.put("NPC2", "Text 2");
+        dialogues.put("PLayer", "Text 3");
+        dialogues.put("Player2", "Text 4");
 
         gp.obj[i] = new EVN_Event(gp, 4, false, dialogues);
         gp.obj[i].worldX = gp.tileSize * 27;

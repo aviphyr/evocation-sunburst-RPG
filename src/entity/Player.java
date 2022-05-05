@@ -71,7 +71,20 @@ public class Player extends Entity {
         defense = getDefense(); // Defense value is decided by dexterity and shield.
     }
 
+    public void setDefaultPositions(){
+        worldX = gp.tileSize * 30;
+        worldY = gp.tileSize * 55;
+        direction = "down";
+    }
+
+    public void restoreLifeAndMana(){
+        life = maxLife;
+        mana = maxMana;
+        invincible = false;
+    }
+
     public void setItems(){
+        inventory.clear();
         inventory.add(currentPrimary);
         inventory.add(currentSecondary);
         inventory.add(new OBJ_Key(gp));
@@ -125,10 +138,6 @@ public class Player extends Entity {
     public void update(){
 
         // if attacking then attacking, yes. don't ask me why it's like this.
-        if (life < 0){
-            System.exit(0);
-        }
-
         if (keyH.interact){
             attacking = true;
         }
@@ -235,6 +244,10 @@ public class Player extends Entity {
 
         if(mana > maxMana){
             mana = maxMana;
+        }
+
+        if (life < 0){
+            gp.gameState = gp.gameOverState;
         }
     }
 

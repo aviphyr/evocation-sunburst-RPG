@@ -99,6 +99,11 @@ public class UI
             drawCharacterScreen();
             drawInventory();
         }
+
+        // game over state
+        if(gp.gameState == gp.gameOverState){
+            drawGameOverScreen();
+        }
     }
 
     public void drawPlayerLife(){
@@ -445,6 +450,46 @@ public class UI
         g2.drawImage(gp.player.currentPrimary.down1, tailX - gp.tileSize, textY - 16, null);
         textY += gp.tileSize;
         g2.drawImage(gp.player.currentSecondary.down1, tailX - gp.tileSize, textY - 16, null);
+    }
+
+    public void drawGameOverScreen(){
+        g2.setColor(new Color(0,0,0,150));
+        g2.fillRect(0,0,gp.screenWidth, gp.screenHeight);
+
+        int x, y;
+        String text;
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,100f));
+        text = "Game Over";
+        // shadow text
+        g2.setColor(Color.black);
+        x = getXforCenteredText(text);
+        y = gp.tileSize * 4;
+        g2.drawString(text, x, y);
+
+        // main
+        g2.setColor(Color.white);
+        g2.drawString(text, x-4, y-4);
+
+        // retry
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,60f));
+        text = "Retry";
+        g2.setColor(Color.white);
+        x = getXforCenteredText(text);
+        y += gp.tileSize * 4;
+        g2.drawString(text, x, y);
+        if (commandNum == 0){
+            g2.drawString(">", x-40, y);
+        }
+        // quit
+        text = "Give up";
+        x = getXforCenteredText(text);
+        y += gp.tileSize * 2;
+        g2.drawString(text, x, y);
+        if (commandNum == 1){
+            g2.drawString(">", x-40, y);
+        }
+
+
     }
 
     public void drawSubWindow(int x, int y, int width, int height, Color entity)
