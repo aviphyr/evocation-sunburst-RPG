@@ -35,35 +35,40 @@ public class AssetSetter
         */
 
         gp.obj[i] = new OBJ_Scythe(gp);
-        gp.obj[i].worldX = gp.tileSize * 41;
-        gp.obj[i].worldY = gp.tileSize * 54;
+        gp.obj[i].worldX = gp.tileSize * 18;
+        gp.obj[i].worldY = gp.tileSize * 57;
         i++;
 
         gp.obj[i] = new OBJ_TrashcanLidGold(gp);
-        gp.obj[i].worldX = gp.tileSize * 44;
-        gp.obj[i].worldY = gp.tileSize * 54;
+        gp.obj[i].worldX = gp.tileSize * 33;
+        gp.obj[i].worldY = gp.tileSize * 19;
         i++;
 
         gp.obj[i] = new OBJ_WaterPotion(gp);
-        gp.obj[i].worldX = gp.tileSize * 38;
-        gp.obj[i].worldY = gp.tileSize * 51;
+        gp.obj[i].worldX = gp.tileSize * 61;
+        gp.obj[i].worldY = gp.tileSize * 25;
+        i++;
+
+        gp.obj[i] = new OBJ_WaterPotion(gp);
+        gp.obj[i].worldX = gp.tileSize * 35;
+        gp.obj[i].worldY = gp.tileSize * 97;
         i++;
 
         // Events
 
-        gp.obj[i] = new EVN_Event(gp, 1, false);
-        gp.obj[i].worldX = gp.tileSize * 36;
-        gp.obj[i].worldY = gp.tileSize * 50;
+        gp.obj[i] = new EVN_Event(gp, 1, true);
+        gp.obj[i].worldX = gp.tileSize * 30;
+        gp.obj[i].worldY = gp.tileSize * 32;
         i++;
 
         gp.obj[i] = new EVN_Event(gp, 2, true);
-        gp.obj[i].worldX = gp.tileSize * 37;
-        gp.obj[i].worldY = gp.tileSize * 50;
+        gp.obj[i].worldX = gp.tileSize * 53;
+        gp.obj[i].worldY = gp.tileSize * 56;
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 3,true, 50, 50);
-        gp.obj[i].worldX = gp.tileSize * 38;
-        gp.obj[i].worldY = gp.tileSize * 50;
+        gp.obj[i] = new EVN_Event(gp, 3,true, 22, 61);
+        gp.obj[i].worldX = gp.tileSize * 125;
+        gp.obj[i].worldY = gp.tileSize * 9;
 
         i++;
 
@@ -74,8 +79,8 @@ public class AssetSetter
         dialogues.put("Player2", "Text 4");
 
         gp.obj[i] = new EVN_Event(gp, 4, false, dialogues);
-        gp.obj[i].worldX = gp.tileSize * 27;
-        gp.obj[i].worldY = gp.tileSize * 56;
+        gp.obj[i].worldX = gp.tileSize * 22;
+        gp.obj[i].worldY = gp.tileSize * 62;
         i++;
 
         // Houses have coordinates built-in parameters

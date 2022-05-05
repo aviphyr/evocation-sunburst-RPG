@@ -71,8 +71,8 @@ public class EVN_Event extends Entity {
                 case 3: // tp
                     gp.gameState = gp.dialogueState;
                     gp.ui.currentDialogue = "Whooosh!";
-                    gp.player.worldX = gp.tileSize*130;
-                    gp.player.worldY = gp.tileSize*18;
+                    gp.player.worldX = gp.tileSize*x;
+                    gp.player.worldY = gp.tileSize*y;
                     break;
                 case 4: // dialogue
                     // This case creates a complex dialogue state. (It's just an array of dialogues)
