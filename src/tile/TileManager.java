@@ -114,7 +114,7 @@ public class TileManager {
         setup(73, "Tree1", true);
         setup(74, "Tree2", true);
 
-        setup(75, "minimaps/Void", false);
+        setup(75, "minimaps/Void", true);
         setup(76, "minimaps/CeilingRBO", true);
         setup(77, "minimaps/CeilingLBO", true);
         setup(78, "minimaps/CeilingLTO", true);
