@@ -19,7 +19,7 @@ public class TileManager {
     public TileManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[120];
+        tile = new Tile[130];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -143,10 +143,26 @@ public class TileManager {
         setup(101, "minimaps/FLE2", false);
         setup(102, "minimaps/FRE1", false);
         setup(103, "minimaps/FRE2", false);
-        setup(104, "minimaps/FS", false);
-        setup(105, "minimaps/SW1", true);
-        setup(106, "minimaps/SW2", true);
-        setup(107, "minimaps/SW3", true);
+        setup(104, "minimaps/FLEE1", false);
+        setup(105, "minimaps/FLEE2", false);
+        setup(106, "minimaps/FREE1", false);
+        setup(107, "minimaps/FREE2", false);
+        setup(108, "minimaps/FLTE", false);
+        setup(109, "minimaps/FLBE", false);
+        setup(110, "minimaps/FRTE", false);
+        setup(111, "minimaps/FRBE", false);
+
+        setup(112, "minimaps/FS", false);
+        setup(113, "minimaps/FSLE", false);
+        setup(114, "minimaps/FSRE", false);
+        setup(115, "minimaps/FSEE", false);
+
+        setup(116, "minimaps/SW1", true);
+        setup(117, "minimaps/SW2", true);
+        setup(118, "minimaps/SW3", true);
+        setup(119, "minimaps/GrateS", false);
+        setup(120, "minimaps/WallToWater", true);
+        setup(121, "minimaps/GratePipe", false);
 
     }
 
