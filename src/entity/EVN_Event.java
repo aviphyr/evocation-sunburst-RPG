@@ -70,7 +70,7 @@ public class EVN_Event extends Entity {
                     break;
                 case 3: // tp
                     gp.gameState = gp.dialogueState;
-                    gp.ui.currentDialogue = "Whooosh!";
+                    gp.ui.currentDialogue = "OH that's a cool ha-\n\nWHA! WHERE AM I!!?";
                     gp.player.worldX = gp.tileSize*x;
                     gp.player.worldY = gp.tileSize*y;
                     break;

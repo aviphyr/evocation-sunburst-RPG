@@ -17,7 +17,7 @@ public class Player extends Entity {
     public BufferedImage idleFront, idleBack, idleRight, idleLeft;
     int standingCounter = 0;
     boolean idle = true;
-    boolean hatless = false;
+    /*static*/ boolean hatless = false;
 
     static int whichNPC = 0;
     public ArrayList<Entity> inventory = new ArrayList<>();
@@ -35,12 +35,12 @@ public class Player extends Entity {
         screenY = gp.screenHeight/2- (gp.tileSize/2);
 
         hitbox = new Rectangle();
-        hitbox.x = 16;
-        hitbox.y = 16;
+        hitbox.x = 11;
+        hitbox.y = 14;
         hitboxDefaultX = hitbox.x;
         hitboxDefaultY = hitbox.y;
-        hitbox.width = 22;
-        hitbox.height = 22;
+        hitbox.width = 24;
+        hitbox.height = 28;
 
         setDefaultValues();
         getPlayerImage();
@@ -98,39 +98,55 @@ public class Player extends Entity {
     //Walking Sprites
     public void getPlayerImage()
     {
-        up1 = setup("/player/RaccoonWalkBack1", gp.tileSize, gp.tileSize);
-        up2 = setup("/player/RaccoonWalkBack2", gp.tileSize, gp.tileSize);
-        down1 = setup("/player/RaccoonWalkForward1", gp.tileSize, gp.tileSize);
-        down2 = setup("/player/RaccoonWalkForward2", gp.tileSize, gp.tileSize);
-        left1 = setup("/player/RaccoonWalkLeft1", gp.tileSize, gp.tileSize);
-        left2 = setup("/player/RaccoonWalkLeft2", gp.tileSize, gp.tileSize);
-        right1 = setup("/player/RaccoonWalkRight1", gp.tileSize, gp.tileSize);
-        right2 = setup("/player/RaccoonWalkRight2", gp.tileSize, gp.tileSize);
-        idleFront = setup("/player/RaccoonIdleFront", gp.tileSize, gp.tileSize);
-        idleBack = setup("/player/RaccoonIdleBack", gp.tileSize, gp.tileSize);
-        idleRight = setup("/player/RaccoonIdleRight", gp.tileSize, gp.tileSize);
-        idleLeft = setup("/player/RaccoonIdleLeft", gp.tileSize, gp.tileSize);
-    }
-    public void getPlayerAttackImage(){
-        if(currentPrimary.type == type_sword){
-            attackUp1 = setup("/player/attacks/RaccAttackUp1", gp.tileSize, gp.tileSize*2);
-            attackUp2 = setup("/player/attacks/RaccAttackUp2", gp.tileSize, gp.tileSize*2);
-            attackDown1 = setup("/player/attacks/RaccAttackDown1", gp.tileSize, gp.tileSize*2);
-            attackDown2 = setup("/player/attacks/RaccAttackDown2", gp.tileSize, gp.tileSize*2);
-            attackLeft1 = setup("/player/attacks/RaccAttackLeft1", gp.tileSize*2, gp.tileSize);
-            attackLeft2 = setup("/player/attacks/RaccAttackLeft2", gp.tileSize*2, gp.tileSize);
-            attackRight1 = setup("/player/attacks/RaccAttackRight1", gp.tileSize*2, gp.tileSize);
-            attackRight2 = setup("/player/attacks/RaccAttackRight2", gp.tileSize*2, gp.tileSize);
+        if(hatless){
+            up1 = setup("/player/hatless/HatlessRaccWalkUp1", gp.tileSize, gp.tileSize);
+            up2 = setup("/player/hatless/HatlessRaccWalkUp2", gp.tileSize, gp.tileSize);
+            down1 = setup("/player/hatless/HatlessRaccWalkDown1", gp.tileSize, gp.tileSize);
+            down2 = setup("/player/hatless/HatlessRaccWalkDown2", gp.tileSize, gp.tileSize);
+            left1 = setup("/player/hatless/HatlessRaccWalkLeft1", gp.tileSize, gp.tileSize);
+            left2 = setup("/player/hatless/HatlessRaccWalkLeft2", gp.tileSize, gp.tileSize);
+            right1 = setup("/player/hatless/HatlessRaccWalkRight1", gp.tileSize, gp.tileSize);
+            right2 = setup("/player/hatless/HatlessRaccWalkRight2", gp.tileSize, gp.tileSize);
+            idleFront = setup("/player/hatless/HatlessRaccIdleFront", gp.tileSize, gp.tileSize);
+            idleBack = setup("/player/hatless/HatlessRaccIdleBack", gp.tileSize, gp.tileSize);
+            idleRight = setup("/player/hatless/HatlessRaccIdleRight", gp.tileSize, gp.tileSize);
+            idleLeft = setup("/player/hatless/HatlessRaccIdleLeft", gp.tileSize, gp.tileSize);
         }
-        if(currentPrimary.type == type_axe){
-            attackUp1 = setup("/player/attacks/RaccScytheUp1", gp.tileSize, gp.tileSize*2);
-            attackUp2 = setup("/player/attacks/RaccScytheUp2", gp.tileSize, gp.tileSize*2);
-            attackDown1 = setup("/player/attacks/RaccScytheDown1", gp.tileSize, gp.tileSize*2);
-            attackDown2 = setup("/player/attacks/RaccScytheDown2", gp.tileSize, gp.tileSize*2);
-            attackLeft1 = setup("/player/attacks/RaccScytheLeft1", gp.tileSize*2, gp.tileSize);
-            attackLeft2 = setup("/player/attacks/RaccScytheLeft2", gp.tileSize*2, gp.tileSize);
-            attackRight1 = setup("/player/attacks/RaccScytheRight1", gp.tileSize*2, gp.tileSize);
-            attackRight2 = setup("/player/attacks/RaccScytheRight2", gp.tileSize*2, gp.tileSize);
+        else {
+            up1 = setup("/player/RaccoonWalkBack1", gp.tileSize, gp.tileSize);
+            up2 = setup("/player/RaccoonWalkBack2", gp.tileSize, gp.tileSize);
+            down1 = setup("/player/RaccoonWalkForward1", gp.tileSize, gp.tileSize);
+            down2 = setup("/player/RaccoonWalkForward2", gp.tileSize, gp.tileSize);
+            left1 = setup("/player/RaccoonWalkLeft1", gp.tileSize, gp.tileSize);
+            left2 = setup("/player/RaccoonWalkLeft2", gp.tileSize, gp.tileSize);
+            right1 = setup("/player/RaccoonWalkRight1", gp.tileSize, gp.tileSize);
+            right2 = setup("/player/RaccoonWalkRight2", gp.tileSize, gp.tileSize);
+            idleFront = setup("/player/RaccoonIdleFront", gp.tileSize, gp.tileSize);
+            idleBack = setup("/player/RaccoonIdleBack", gp.tileSize, gp.tileSize);
+            idleRight = setup("/player/RaccoonIdleRight", gp.tileSize, gp.tileSize);
+            idleLeft = setup("/player/RaccoonIdleLeft", gp.tileSize, gp.tileSize);
+        }
+    }
+    public void getPlayerAttackImage() {
+        if (currentPrimary.type == type_sword) {
+            attackUp1 = setup("/player/attacks/RaccAttackUp1", gp.tileSize, gp.tileSize * 2);
+            attackUp2 = setup("/player/attacks/RaccAttackUp2", gp.tileSize, gp.tileSize * 2);
+            attackDown1 = setup("/player/attacks/RaccAttackDown1", gp.tileSize, gp.tileSize * 2);
+            attackDown2 = setup("/player/attacks/RaccAttackDown2", gp.tileSize, gp.tileSize * 2);
+            attackLeft1 = setup("/player/attacks/RaccAttackLeft1", gp.tileSize * 2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/RaccAttackLeft2", gp.tileSize * 2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/RaccAttackRight1", gp.tileSize * 2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/RaccAttackRight2", gp.tileSize * 2, gp.tileSize);
+        }
+        if (currentPrimary.type == type_axe) {
+            attackUp1 = setup("/player/attacks/RaccScytheUp1", gp.tileSize, gp.tileSize * 2);
+            attackUp2 = setup("/player/attacks/RaccScytheUp2", gp.tileSize, gp.tileSize * 2);
+            attackDown1 = setup("/player/attacks/RaccScytheDown1", gp.tileSize, gp.tileSize * 2);
+            attackDown2 = setup("/player/attacks/RaccScytheDown2", gp.tileSize, gp.tileSize * 2);
+            attackLeft1 = setup("/player/attacks/RaccScytheLeft1", gp.tileSize * 2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/RaccScytheLeft2", gp.tileSize * 2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/RaccScytheRight1", gp.tileSize * 2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/RaccScytheRight2", gp.tileSize * 2, gp.tileSize);
         }
 
     }
@@ -249,6 +265,10 @@ public class Player extends Entity {
         if (life < 0){
             gp.gameState = gp.gameOverState;
         }
+    }
+
+    public void getHat(){
+        hatless = false;
     }
 
     public void attacking(){

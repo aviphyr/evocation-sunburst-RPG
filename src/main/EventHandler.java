@@ -81,9 +81,10 @@ public class EventHandler {
 
     public void teleport(int col, int row, int gameState, int x, int y){
         gp.gameState = gameState;
-        gp.ui.currentDialogue = "Wooosh!";
+        gp.ui.currentDialogue = "OH that's a cool ha-, WHA! WHERE AM I!!?";
         gp.player.worldX = gp.tileSize*130;
         gp.player.worldY = gp.tileSize*18;
+        //entity.Player.getHat();
 
     }
 
