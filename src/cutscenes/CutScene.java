@@ -152,7 +152,7 @@ public class CutScene
                             t.cancel();
                         }
                     },
-                    Math.round(20));
+                    Math.round(1));
         }
     }
 }
