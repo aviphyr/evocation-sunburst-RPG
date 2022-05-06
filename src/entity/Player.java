@@ -188,19 +188,16 @@ public class Player extends Entity {
                 collisionOn = false;
                 gp.cChecker.checkTile(this);
 
-                //Check Object Collision
-                int objIndex = gp.cChecker.checkObject(this, true);
-                pickUpObject(objIndex);
-
-
                 // check monster collision
                 int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
                 contactMonster(monsterIndex);
+
+                //Check Object Collision
+                int objIndex = gp.cChecker.checkObject(this, true);
+                pickUpObject(objIndex);
             }
-            if(gp.gameState == gp.dialogueState)
-            {
-                switch(gp.player.direction)
-                {
+            if(gp.gameState == gp.dialogueState) {
+                switch (gp.player.direction) {
                     case "up":
                         gp.player.keyH.upPressed = false;
                     case "down":
@@ -211,6 +208,7 @@ public class Player extends Entity {
                         gp.player.keyH.rightPressed = false;
                 }
             }
+
 
             //Check NPC Collision
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);

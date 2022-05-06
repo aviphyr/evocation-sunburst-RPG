@@ -12,6 +12,7 @@ public class EVN_Event extends Entity {
     int eventType;
     boolean doesRepeat;
     HashMap<String, String> dialogues = new HashMap<String, String>();
+    int sceneNum;
 
     private EVN_Event(String name, GamePanel gp, int eventType, boolean doesRepeat){ // default constructor
         super(gp);
@@ -37,6 +38,11 @@ public class EVN_Event extends Entity {
     public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, HashMap<String, String> dialogues) { // dialogue
         this("Dialogue Event", gp, eventType, doesRepeat);
         this.dialogues = dialogues;
+    }
+    public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, int sceneNum)
+    {
+        this("CutScene Event", gp, eventType, doesRepeat);
+        this.sceneNum = sceneNum;
     }
 
     public void use(Entity player){
@@ -91,9 +97,10 @@ public class EVN_Event extends Entity {
                         gp.ui.currentDialogue = dialogues.get(x);
                         System.out.println("Current dialogue: " + x);
                     }
-
-
                     break;
+                case 5: //Cutscenes
+                    gp.gameState = gp.cutSceneState;
+                    gp.scenePacks.runScene(sceneNum);
             }
         }
     }

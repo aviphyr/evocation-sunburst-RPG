@@ -68,11 +68,17 @@ public class AssetSetter
 
         gp.obj[i] = new EVN_Event(gp, 3,true, 22, 61);
         gp.obj[i].worldX = gp.tileSize * 125;
-        gp.obj[i].worldY = gp.tileSize * 9;
+        gp.obj[i].worldY = gp.tileSize * 11;
 
         i++;
 
-        HashMap<String, String> dialogues = new HashMap<String, String>();
+        gp.obj[i] = new EVN_Event(gp, 5,true, 0);
+        gp.obj[i].worldX = gp.tileSize * 125;
+        gp.obj[i].worldY = gp.tileSize * 13;
+
+        i++;
+
+        /*HashMap<String, String> dialogues = new HashMap<String, String>();
         dialogues.put("NPC", "Text 1");
         dialogues.put("NPC2", "Text 2");
         dialogues.put("PLayer", "Text 3");
@@ -82,6 +88,8 @@ public class AssetSetter
         gp.obj[i].worldX = gp.tileSize * 22;
         gp.obj[i].worldY = gp.tileSize * 62;
         i++;
+
+         */
 
         // Houses have coordinates built-in parameters
         // Type = color

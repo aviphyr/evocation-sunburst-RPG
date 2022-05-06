@@ -208,11 +208,13 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_ENTER)
         {
-            gp.scenes.moveX(gp.player, "right", 1.85, 1);
-            gp.scenes.moveX(gp.player, "right", 1.5, 3);
-            gp.scenes.moveY(gp.player, "down", 2.5, 2);
-            gp.scenes.moveY(gp.player, "down", 1.5, 4);
-            gp.scenes.leaveScene(5);
+            //gp.scenes.moveX(gp.player, "right", 1.85, 2, 1);
+            //gp.scenes.moveX(gp.player, "right", 1.5, 2,3);
+            gp.scenes.moveY(gp.player, "up", 2.5, 2,1);
+            gp.scenes.moveY(gp.player, "down", 1.5, 2,2);
+            gp.scenes.moveBit(3);
+            gp.scenes.leaveScene(4);
+
         }
     }
 

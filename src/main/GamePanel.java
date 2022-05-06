@@ -1,6 +1,7 @@
 package main;
 
 import cutscenes.CutScene;
+import cutscenes.CutSceneSetter;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
@@ -55,8 +56,8 @@ public class GamePanel extends JPanel implements Runnable {
     ArrayList<Entity> entityList = new ArrayList<>();
 
     //CutScenes
-    int counter;
-    CutScene scenes = new CutScene(this);
+    public CutScene scenes = new CutScene(this);
+    public CutSceneSetter scenePacks = new CutSceneSetter(this);
 
     //Game State
     public int gameState;

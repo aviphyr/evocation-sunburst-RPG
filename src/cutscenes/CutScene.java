@@ -18,10 +18,11 @@ public class CutScene
         this.gp = gp;
     }
 
-    public void moveX(Entity e, String direction, double duration, int actionNum)
+    public void moveX(Entity e, String direction, double duration, int speed, int actionNum)
     {
         if(!active && actionNum == this.actionNum + 1)
         {
+            e.speed = speed;
             active = true;
             this.actionNum = actionNum;
             if (direction.equals("left")) {
@@ -52,7 +53,7 @@ public class CutScene
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
-                            moveX(e, direction, duration, actionNum);
+                            moveX(e, direction, duration, speed, actionNum);
                             t.cancel();
                         }
                     },
@@ -60,10 +61,11 @@ public class CutScene
         }
     }
 
-    public void moveY(Entity e, String direction, double duration, int actionNum)
+    public void moveY(Entity e, String direction, double duration, int speed, int actionNum)
     {
         if(!active && actionNum == this.actionNum + 1)
         {
+            e.speed = speed;
             active = true;
             this.actionNum = actionNum;
             if (direction == "up")
@@ -92,7 +94,7 @@ public class CutScene
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
-                            moveY(e, direction, duration, actionNum);
+                            moveY(e, direction, duration, speed, actionNum);
                             t.cancel();
                         }
                     },
@@ -105,7 +107,6 @@ public class CutScene
     {
         if(!active && actionNum == this.actionNum + 1)
         {
-
             gp.gameState = gp.playState;
         }
         else
@@ -122,5 +123,36 @@ public class CutScene
                     Math.round(20));
         }
 
+    }
+    public void moveBit(int actionNum)
+    {
+        if(!active && actionNum == this.actionNum + 1)
+        {
+            gp.gameState = gp.playState;
+            switch(gp.player.direction)
+            {
+                case "up":
+                    gp.player.keyH.upPressed = true;
+                case "down":
+                    gp.player.keyH.downPressed = true;
+                case "left":
+                    gp.player.keyH.leftPressed = true;
+                case "right":
+                    gp.player.keyH.rightPressed = true;
+            }
+        }
+        else
+        {
+            Timer t = new java.util.Timer();
+            t.schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            moveBit(actionNum);
+                            t.cancel();
+                        }
+                    },
+                    Math.round(20));
+        }
     }
 }
