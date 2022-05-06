@@ -18,7 +18,7 @@ public class CutSceneSetter
         {
             //gp.scenes.moveY(gp.player, "up", 0.5, 2,1);
             //gp.scenes.moveBit(1);
-            gp.scenes.moveY(gp.player, "up", 0.25, 2,1);
+            gp.scenes.moveY(gp.player, "up", 0.5, 2,1);
             gp.scenes.moveY(gp.player, "up", 1.90, 2,2);
             System.out.println("Yo");
             gp.scenes.moveY(gp.player, "down", 0.75, 2,3);
