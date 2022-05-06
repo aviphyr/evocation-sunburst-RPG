@@ -248,29 +248,33 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
-        int code = e.getKeyCode();
+        if(gp.gameState != gp.cutSceneState)
+        {
+            int code = e.getKeyCode();
 
-        if(code == KeyEvent.VK_UP){
-            upPressed = false;
-        }
-        if(code == KeyEvent.VK_DOWN){
-            downPressed = false;
-        }
-        if(code == KeyEvent.VK_LEFT){
-            leftPressed = false;
-        }
-        if(code == KeyEvent.VK_RIGHT){
-            rightPressed = false;
-        }
-        if(code == KeyEvent.VK_SPACE){
-            enterPressed = false;
-        }
-        if(code == KeyEvent.VK_A){
-            interact = false;
+            if(code == KeyEvent.VK_UP){
+                upPressed = false;
+            }
+            if(code == KeyEvent.VK_DOWN){
+                downPressed = false;
+            }
+            if(code == KeyEvent.VK_LEFT){
+                leftPressed = false;
+            }
+            if(code == KeyEvent.VK_RIGHT){
+                rightPressed = false;
+            }
+            if(code == KeyEvent.VK_SPACE){
+                enterPressed = false;
+            }
+            if(code == KeyEvent.VK_A){
+                interact = false;
+            }
+
+            if(code == KeyEvent.VK_F){
+                shotKeyPressed = false;
+            }
         }
 
-        if(code == KeyEvent.VK_F){
-            shotKeyPressed = false;
-        }
     }
 }
