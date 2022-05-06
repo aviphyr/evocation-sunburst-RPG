@@ -49,8 +49,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues(){
-        worldX = gp.tileSize * 138;
-        worldY = gp.tileSize * 27;
+        worldX = gp.tileSize * 125;
+        worldY = gp.tileSize * 14;
         speed = 4;
         direction = "down";
 
@@ -182,22 +182,39 @@ public class Player extends Entity {
                 direction = "right";
             }
 
-            //Check Tile Collision
-            collisionOn = false;
-            gp.cChecker.checkTile(this);
+            if(gp.gameState == gp.playState)
+            {
+                //Check Tile Collision
+                collisionOn = false;
+                gp.cChecker.checkTile(this);
 
-            //Check Object Collision
-            int objIndex = gp.cChecker.checkObject(this, true);
-            pickUpObject(objIndex);
+                //Check Object Collision
+                int objIndex = gp.cChecker.checkObject(this, true);
+                pickUpObject(objIndex);
+
+
+                // check monster collision
+                int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+                contactMonster(monsterIndex);
+            }
+            if(gp.gameState == gp.dialogueState)
+            {
+                switch(gp.player.direction)
+                {
+                    case "up":
+                        gp.player.keyH.upPressed = false;
+                    case "down":
+                        gp.player.keyH.downPressed = false;
+                    case "left":
+                        gp.player.keyH.leftPressed = false;
+                    case "right":
+                        gp.player.keyH.rightPressed = false;
+                }
+            }
 
             //Check NPC Collision
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNPC(npcIndex);
-
-            // check monster collision
-            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
-            contactMonster(monsterIndex);
-
 
             //  check event
             gp.eHandler.checkEvent();
@@ -264,6 +281,11 @@ public class Player extends Entity {
 
         if (life < 0){
             gp.gameState = gp.gameOverState;
+        }
+
+        if(gp.playState == gp.gameState)
+        {
+            speed = 4;
         }
     }
 
