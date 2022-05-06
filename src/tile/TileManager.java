@@ -161,13 +161,15 @@ public class TileManager {
         setup(117, "minimaps/SW2", true);
         setup(118, "minimaps/SW3", true);
         setup(119, "minimaps/GrateS", false);
-        setup(120, "minimaps/WallToWater", true);
+        setup(120, "minimaps/Pipe", true);
         setup(121, "minimaps/GratePipe", false);
-        setup(122, "minimaps/MovementGraphittiT", true);
-        setup(123, "minimaps/MovementGraphittiL", true);
-        setup(124, "minimaps/MovementGraphittiR", true);
-        setup(125, "minimaps/EGraphittiT", true);
-        setup(126, "minimaps/EGraphittiB", true);
+        setup(122, "minimaps/WallToWater", true);
+
+        setup(123, "minimaps/MovementGraphittiT", true);
+        setup(124, "minimaps/MovementGraphittiL", true);
+        setup(125, "minimaps/MovementGraphittiR", true);
+        setup(126, "minimaps/EGraphittiT", true);
+        setup(127, "minimaps/EGraphittiB", true);
 
     }
 
