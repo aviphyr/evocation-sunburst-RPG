@@ -68,7 +68,7 @@ public class AssetSetter
 
         gp.obj[i] = new EVN_Event(gp, 3,true, 22, 61);
         gp.obj[i].worldX = gp.tileSize * 125;
-        gp.obj[i].worldY = gp.tileSize * 11;
+        gp.obj[i].worldY = gp.tileSize * 10;
 
         i++;
 
