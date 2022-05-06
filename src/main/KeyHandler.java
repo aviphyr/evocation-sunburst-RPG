@@ -240,6 +240,8 @@ public class KeyHandler implements KeyListener {
             }
             else if(gp.ui.commandNum == 1){
                 gp.gameState = gp.titleState;
+                gp.stopMusic();
+                gp.playMusic(0);
                 gp.restart();
             }
         }
