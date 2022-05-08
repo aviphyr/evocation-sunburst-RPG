@@ -1,6 +1,7 @@
 package main;
 
 import entity.Entity;
+import object.OBJ_Key;
 
 public class CollisionChecker {
     GamePanel gp;
@@ -85,11 +86,11 @@ public class CollisionChecker {
 
                 if(entity.hitbox.intersects(gp.obj[i].hitbox))
                 {
-                    if(gp.obj[i].collision == true)
+                    if(gp.obj[i].collision)
                     {
                         entity.collisionOn = true;
                     }
-                    if(player == true)
+                    if(player)
                     {
                         index = i;
                     }

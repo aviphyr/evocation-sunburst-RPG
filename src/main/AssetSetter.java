@@ -18,24 +18,49 @@ public class AssetSetter
     {
         int i = 0;
 
-        /*gp.obj[i] = new OBJ_Heart(gp);
-        gp.obj[i].worldX = gp.tileSize * 31;
-        gp.obj[i].worldY = gp.tileSize * 48;
+        gp.obj[i] = new OBJ_Key(gp);
+        gp.obj[i].worldX = gp.tileSize * 141;
+        gp.obj[i].worldY = gp.tileSize * 61;
+
         i++;
 
-        gp.obj[i] = new OBJ_ManaCrystal(gp);
-        gp.obj[i].worldX = gp.tileSize * 34;
-        gp.obj[i].worldY = gp.tileSize * 57;
+        gp.obj[i] = new OBJ_Key(gp);
+        gp.obj[i].worldX = gp.tileSize * 157;
+        gp.obj[i].worldY = gp.tileSize * 11;
+
         i++;
 
-        gp.obj[i] = new OBJ_CrumpledPaper(gp);
-        gp.obj[i].worldX = gp.tileSize * 35;
-        gp.obj[i].worldY = gp.tileSize * 60;
+        gp.obj[i] = new OBJ_Key(gp);
+        gp.obj[i].worldX = gp.tileSize * 138;
+        gp.obj[i].worldY = gp.tileSize * 11;
+
         i++;
-        */
+
+        gp.obj[i] = new OBJ_Gate(gp);
+        gp.obj[i].worldX = gp.tileSize * 130;
+        gp.obj[i].worldY = gp.tileSize * 28;
+
+        i++;
+
+        gp.obj[i] = new OBJ_Gate(gp);
+        gp.obj[i].worldX = gp.tileSize * 122;
+        gp.obj[i].worldY = gp.tileSize * 39;
+
+        i++;
+
+        gp.obj[i] = new OBJ_Gate(gp);
+        gp.obj[i].worldX = gp.tileSize * 125;
+        gp.obj[i].worldY = gp.tileSize * 14;
+
+        i++;
 
         gp.obj[i] = new OBJ_Scythe(gp);
         gp.obj[i].worldX = gp.tileSize * 18;
+        gp.obj[i].worldY = gp.tileSize * 57;
+        i++;
+
+        gp.obj[i] = new OBJ_CurseBreakerStaff(gp);
+        gp.obj[i].worldX = gp.tileSize * 16;
         gp.obj[i].worldY = gp.tileSize * 57;
         i++;
 

@@ -9,7 +9,7 @@ public class OBJ_Scythe extends Entity
     public OBJ_Scythe(GamePanel gp)
     {
         super(gp);
-        type = type_axe;
+        type = type_scythe;
         name = "Scythe";
         attackValue = 1;
         down1 = setup("/objects/scythe", gp.tileSize, gp.tileSize);
