@@ -11,7 +11,8 @@ public class EVN_Event extends Entity {
     int previousEventX, previousEventY, x, y;; // for distance calculation
     int eventType;
     boolean doesRepeat;
-    HashMap<String, String> dialogues = new HashMap<String, String>();
+    //HashMap<String, String> dialogues = new HashMap<String, String>();
+    String dialogue;
     int sceneNum;
     int teleportDialouge;
 
@@ -37,9 +38,9 @@ public class EVN_Event extends Entity {
         this.teleportDialouge = tpDialouge;
     }
 
-    public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, HashMap<String, String> dialogues) { // dialogue
+    public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, String dialogue) { // dialogue
         this("Dialogue Event", gp, eventType, doesRepeat);
-        this.dialogues = dialogues;
+        this.dialogue = dialogue;
     }
     public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, int sceneNum)
     {
@@ -99,19 +100,21 @@ public class EVN_Event extends Entity {
                     // This case creates a complex dialogue state. (It's just an array of dialogues)
 
                     // Debug
-                    System.out.println("Dialogues:");
+                    /*System.out.println("Dialogues:");
                     for (String x : dialogues.keySet()) {
                         System.out.println(x + ": \"" + dialogues.get(x) + "\"");
                     }
-                    System.out.println();
+                    System.out.println();*/
+                    gp.gameState = gp.dialogueState;
+                    gp.ui.currentDialogue = dialogue;
 
                     // Dialogue list
-                    for (String x : dialogues.keySet()) {
-                    //    entityColor = new Color(119, 192, 119);
+                    /*for (String x : dialogues.keySet()) {
+                        // entityColor = new Color(119, 192, 119);
                         gp.gameState = gp.dialogueState;
                         gp.ui.currentDialogue = dialogues.get(x);
                         System.out.println("Current dialogue: " + x);
-                    }
+                    }*/
                     break;
                 case 5: //Cutscenes
                     gp.gameState = gp.cutSceneState;
