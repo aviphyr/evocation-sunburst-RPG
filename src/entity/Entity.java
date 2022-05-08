@@ -82,6 +82,7 @@ public class Entity
     public final int type_pickupOnly = 7;
     public final int type_noPickup = 8;
     public final int type_event = 9;
+    public final int type_keyReq = 10;
 
 
     public Entity(GamePanel gp)

@@ -347,6 +347,17 @@ public class Player extends Entity {
                 gp.obj[index].use(this);
                 gp.obj[index] = null;
             }
+            else if(gp.obj[index].type == type_keyReq)
+            {
+                Entity test = new OBJ_Key(gp);
+                for(Entity x: inventory){
+                    //System.out.println(x);
+                    if(x.name.equals(test.name)){
+                        //inventory.remove(x);
+                        gp.obj[index] = null;
+                   }
+                }
+            }
             else if(gp.obj[index].type == type_noPickup)
             {
                 //Empty

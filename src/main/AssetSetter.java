@@ -54,6 +54,12 @@ public class AssetSetter
         gp.obj[i].worldY = gp.tileSize * 97;
         i++;
 
+        gp.obj[i] = new OBJ_Gate(gp);
+        gp.obj[i].worldX = gp.tileSize * 130;
+        gp.obj[i].worldY = gp.tileSize * 28;
+        i++;
+
+
         // Events
 
         gp.obj[i] = new EVN_Event(gp, 1, true);
@@ -84,7 +90,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 4,false, "Ahh... the sewers.");
+        gp.obj[i] = new EVN_Event(gp, 4,false, "Ahh... the sewers.\nI've fallen down again and all\nI have is a stick and trashcan\nlid. Greeaat.");
         gp.obj[i].worldX = gp.tileSize * 138;
         gp.obj[i].worldY = gp.tileSize * 28;
 
