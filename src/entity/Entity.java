@@ -75,14 +75,17 @@ public class Entity
     public final int type_player = 0;
     public final int type_npc = 1;
     public final int type_monster = 2;
-    public final int type_sword= 3;
-    public final int type_axe = 4;
+    public final int type_bStaff= 3;
+    public final int type_scythe = 4;
     public final int type_shield= 5;
     public final int type_consumable = 6;
     public final int type_pickupOnly = 7;
     public final int type_noPickup = 8;
     public final int type_event = 9;
     public final int type_keyReq = 10;
+    public final int type_vStaff = 11;
+    public final int type_cbStaff = 12;
+    public final int type_pail = 13;
 
 
     public Entity(GamePanel gp)

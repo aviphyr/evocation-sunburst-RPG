@@ -19,7 +19,7 @@ public class MON_Slime extends Entity {
         type = type_monster;
         name = "Slime";
         speed = 1;
-        maxLife = 4;
+        maxLife = 6;
         life = maxLife;
         attack = 5;
         defense = 0;

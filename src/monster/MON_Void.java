@@ -4,7 +4,6 @@ import entity.Entity;
 import main.GamePanel;
 import object.*;
 
-import javax.swing.tree.DefaultTreeCellEditor;
 import java.util.Random;
 
 public class MON_Void extends Entity {
@@ -120,7 +119,7 @@ public class MON_Void extends Entity {
     public void checkDrop(){
         dropItem(new OBJ_Heart(gp));
         dropItem(new OBJ_Heart(gp));
-        dropItem(new OBJ_Key(gp));
+        dropItem(new OBJ_EchoingVoidStaff(gp));
     }
 
 }

@@ -61,19 +61,21 @@ public class Player extends Entity {
         mana = maxMana;
         ammo = 10;
         level = strength = dexterity = 1;
+        level = 1;
         exp = coin = 0;
         nextLevelExp = 5;
-        currentPrimary = new OBJ_Staff(gp);
+        currentPrimary = new OBJ_BasicStaff(gp);
         currentSecondary = new OBJ_TrashcanLid(gp);
         projectile = new OBJ_Fireball(gp);
         //projectile = new OBJ_Rock(gp);
         attack = getAttack(); // Attack value is decided by strength and weapon damage.
         defense = getDefense(); // Defense value is decided by dexterity and shield.
+        checkLevelUp();
     }
 
     public void setDefaultPositions(){
-        worldX = gp.tileSize * 125;
-        worldY = gp.tileSize * 14;
+        worldX = gp.tileSize * 149;
+        worldY = gp.tileSize * 91;
         direction = "down";
     }
 
@@ -90,7 +92,7 @@ public class Player extends Entity {
         inventory.add(new OBJ_Key(gp));
     }
 
-    public int getAttack(){attackHitbox = currentPrimary.attackHitbox;return strength * currentPrimary.attackValue;}
+    public int getAttack(){attackHitbox = currentPrimary.attackHitbox;return strength + currentPrimary.attackValue;}
     public int getDefense(){
         return dexterity * currentSecondary.defenseValue;
     }
@@ -128,7 +130,7 @@ public class Player extends Entity {
         }
     }
     public void getPlayerAttackImage() {
-        if (currentPrimary.type == type_sword) {
+        if (currentPrimary.type == type_bStaff) {
             attackUp1 = setup("/player/attacks/RaccAttackUp1", gp.tileSize, gp.tileSize * 2);
             attackUp2 = setup("/player/attacks/RaccAttackUp2", gp.tileSize, gp.tileSize * 2);
             attackDown1 = setup("/player/attacks/RaccAttackDown1", gp.tileSize, gp.tileSize * 2);
@@ -138,7 +140,28 @@ public class Player extends Entity {
             attackRight1 = setup("/player/attacks/RaccAttackRight1", gp.tileSize * 2, gp.tileSize);
             attackRight2 = setup("/player/attacks/RaccAttackRight2", gp.tileSize * 2, gp.tileSize);
         }
-        if (currentPrimary.type == type_axe) {
+        if (currentPrimary.type == type_vStaff) {
+            attackUp1 = setup("/player/attacks/EchoingVoidUp1", gp.tileSize, gp.tileSize * 2);
+            attackUp2 = setup("/player/attacks/EchoingVoidUp2", gp.tileSize, gp.tileSize * 2);
+            attackDown1 = setup("/player/attacks/EchoingVoidDown1", gp.tileSize, gp.tileSize * 2);
+            attackDown2 = setup("/player/attacks/EchoingVoidDown2", gp.tileSize, gp.tileSize * 2);
+            attackLeft1 = setup("/player/attacks/EchoingVoidLeft1", gp.tileSize * 2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/EchoingVoidLeft2", gp.tileSize * 2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/EchoingVoidRight1", gp.tileSize * 2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/EchoingVoidRight2", gp.tileSize * 2, gp.tileSize);
+        }
+        if (currentPrimary.type == type_cbStaff) {
+            attackUp1 = setup("/player/attacks/CurseBreakerUp1", gp.tileSize, gp.tileSize * 2);
+            attackUp2 = setup("/player/attacks/CurseBreakerUp2", gp.tileSize, gp.tileSize * 2);
+            attackDown1 = setup("/player/attacks/CurseBreakerDown1", gp.tileSize, gp.tileSize * 2);
+            attackDown2 = setup("/player/attacks/CurseBreakerDown2", gp.tileSize, gp.tileSize * 2);
+            attackLeft1 = setup("/player/attacks/CurseBreakerLeft1", gp.tileSize * 2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/CurseBreakerLeft2", gp.tileSize * 2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/CurseBreakerRight1", gp.tileSize * 2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/CurseBreakerRight2", gp.tileSize * 2, gp.tileSize);
+        }
+
+        if (currentPrimary.type == type_scythe) {
             attackUp1 = setup("/player/attacks/RaccScytheUp1", gp.tileSize, gp.tileSize * 2);
             attackUp2 = setup("/player/attacks/RaccScytheUp2", gp.tileSize, gp.tileSize * 2);
             attackDown1 = setup("/player/attacks/RaccScytheDown1", gp.tileSize, gp.tileSize * 2);
@@ -458,6 +481,7 @@ public class Player extends Entity {
             dexterity++;
             attack = getAttack();
             defense = getDefense();
+            projectile.attack = 1 + this.level;
             gp.playSE(8);
             gp.gameState = gp.dialogueState;
             gp.ui.currentDialogue = "You are level " + level + " now!\n";
@@ -469,7 +493,7 @@ public class Player extends Entity {
         int itemIndex = gp.ui.getItemIndexOnSlot();
         if (itemIndex < inventory.size()){
             Entity selectedItem = inventory.get(itemIndex);
-            if(selectedItem.type == type_sword || selectedItem.type == type_axe){
+            if(selectedItem.type == type_bStaff || selectedItem.type == type_vStaff || selectedItem.type == type_cbStaff ||selectedItem.type == type_scythe){
                 currentPrimary = selectedItem;
                 attack = getAttack();
                 getPlayerAttackImage();
