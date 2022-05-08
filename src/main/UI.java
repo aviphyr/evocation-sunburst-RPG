@@ -186,6 +186,7 @@ public class UI
 
     public void drawTitleScreen()
     {
+
         int x, y;
         String text;
 
@@ -232,7 +233,9 @@ public class UI
         //Raccoon Image
         x = 20;
         y += gp.tileSize * 2;
+        gp.player.setHat(true);
         g2.drawImage(gp.player.idleFront, x, y, gp.tileSize * 6, gp.tileSize * 6, null);
+        gp.player.setHat(false);
 
         //Menu
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 36F));
@@ -333,8 +336,7 @@ public class UI
     }
 
     public int getItemIndexOnSlot(){
-        int itemIndex = slotCol + (slotRow*5);
-        return itemIndex;
+        return slotCol + (slotRow*5); //itemIndex
     }
 
     public void drawPauseScreen()
@@ -512,8 +514,7 @@ public class UI
     public int getXforAlignRightText(String text, int tailX)
     {
         int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        int x = tailX - length;
-        return x;
+        return tailX - length; //x
     }
 
 

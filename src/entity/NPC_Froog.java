@@ -8,6 +8,7 @@ import java.util.Random;
 public class NPC_Froog extends Entity
 {
 
+    private int turn; //movement control
 
     public NPC_Froog(GamePanel gp)
     {
@@ -16,6 +17,7 @@ public class NPC_Froog extends Entity
         name = "Froog";
         direction = "down";
         speed = 1;
+        turn = 1;
 
         entityColor = new Color(11, 218, 12);
         //entityColor = new Color(255, 255, 255);
@@ -52,25 +54,32 @@ public class NPC_Froog extends Entity
         {
             actionLockCounter++;
 
-            if (actionLockCounter == 120)
+            if (actionLockCounter == 45)
             {
-                Random random = new Random();
-                int i = random.nextInt(100); //Pick up a Number from 1 to 100
 
-                if (i < 25) {
-                    direction = "up";
-                }
-                if (i >= 25 && i < 50) {
-                    direction = "down";
-                }
-                if (i >= 50 && i < 75) {
-                    direction = "left";
-                }
-                if (i > 70) {
-                    direction = "right";
+                switch (turn){
+                    case 1:
+                        direction = "right";
+                        turn++;
+                        break;
+                    case 2:
+                        direction = "down";
+                        turn++;
+                        break;
+                    case 3:
+                        direction = "left";
+                        turn++;
+                        break;
+                    case 4:
+                        direction = "up";
+                        turn = 1;
+                        break;
+                    default:
+                        turn = 1;
                 }
 
                 actionLockCounter = 0;
+
             }
         }
 

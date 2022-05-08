@@ -66,9 +66,15 @@ public class AssetSetter
         gp.obj[i].worldY = gp.tileSize * 56;
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 3,true, 22, 61);
+        gp.obj[i] = new EVN_Event(gp, 3,true, 153, 91, 1);
         gp.obj[i].worldX = gp.tileSize * 125;
         gp.obj[i].worldY = gp.tileSize * 10;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 3,true, 31, 61, 2);
+        gp.obj[i].worldX = gp.tileSize * 153;
+        gp.obj[i].worldY = gp.tileSize * 98  ;
 
         i++;
 
@@ -77,6 +83,12 @@ public class AssetSetter
         gp.obj[i].worldY = gp.tileSize * 13;
 
         i++;
+
+        //gp.obj[i] = new EVN_Event(gp, 5,true, 1);
+        //gp.obj[i].worldX = gp.tileSize * 138;
+        //gp.obj[i].worldY = gp.tileSize * 14;
+
+        //i++;
 
         /*HashMap<String, String> dialogues = new HashMap<String, String>();
         dialogues.put("NPC", "Text 1");
@@ -114,8 +126,8 @@ public class AssetSetter
         int i = 0;
 
         gp.npc[i] = new NPC_Froog(gp);
-        gp.npc[i].worldX = gp.tileSize * 42;
-        gp.npc[i].worldY = gp.tileSize * 52;
+        gp.npc[i].worldX = gp.tileSize * 33;
+        gp.npc[i].worldY = gp.tileSize * 47;
         i++;
 
         gp.npc[i] = new NPC_Foz(gp);

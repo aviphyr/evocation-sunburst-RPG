@@ -17,7 +17,7 @@ public class Player extends Entity {
     public BufferedImage idleFront, idleBack, idleRight, idleLeft;
     int standingCounter = 0;
     boolean idle = true;
-    /*static*/ boolean hatless = false;
+    boolean hatless;
 
     static int whichNPC = 0;
     public ArrayList<Entity> inventory = new ArrayList<>();
@@ -287,8 +287,9 @@ public class Player extends Entity {
         }
     }
 
-    public void getHat(){
-        hatless = false;
+    public void setHat(boolean h) {
+        hatless = !h;
+        getPlayerImage();
     }
 
     public void attacking(){

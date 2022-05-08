@@ -4,10 +4,12 @@ import entity.Entity;
 import main.GamePanel;
 import object.*;
 
+import javax.swing.tree.DefaultTreeCellEditor;
 import java.util.Random;
 
 public class MON_Void extends Entity {
     GamePanel gp;
+    private boolean hit;
     public MON_Void(GamePanel gp){
 
         super(gp);
@@ -15,7 +17,7 @@ public class MON_Void extends Entity {
 
         type = type_monster;
         name = "Void";
-        speed = 3;
+        speed = 2;
         maxLife = 10;
         life = maxLife;
         attack = 6;
@@ -28,6 +30,8 @@ public class MON_Void extends Entity {
         hitbox.height = 30*2;
         hitboxDefaultX = hitbox.x;
         hitboxDefaultY = hitbox.y;
+
+        hit = false;
 
         getImage();
     }
@@ -47,29 +51,50 @@ public class MON_Void extends Entity {
     {
         actionLockCounter++;
 
-        if(actionLockCounter == 120)
-        {
-            Random random = new Random();
-            int i = random.nextInt(100); //Pick up a Number from 1 to 100
+        if(!hit) {
+            if (actionLockCounter == 120) {
+                Random random = new Random();
+                int i = random.nextInt(100); //Pick up a Number from 1 to 100
 
-            if(i < 25)
-            {
-                direction = "up";
+                if (i < 25) {
+                    direction = "up";
+                }
+                if (i >= 25 && i < 50) {
+                    direction = "down";
+                }
+                if (i >= 50 && i < 75) {
+                    direction = "left";
+                }
+                if (i > 70) {
+                    direction = "right";
+                }
+
+                actionLockCounter = 0;
             }
-            if(i >= 25 && i < 50)
-            {
-                direction = "down";
-            }
-            if(i >= 50 && i < 75)
-            {
-                direction = "left";
-            }
-            if(i > 70)
-            {
-                direction = "right";
+        }
+        else{
+            if(actionLockCounter <= 30){
+                if(gp.player.worldY + 16> this.worldY) {
+                    direction = "down";
+                }
+                else if(gp.player.worldY - 16 < this.worldY){
+                    direction = "up";
+                }
             }
 
-            actionLockCounter = 0;
+            else if(actionLockCounter <= 60){
+                if(gp.player.worldX - 16 < this.worldX){
+                    direction = "left";
+                }
+                if(gp.player.worldX + 16 > this.worldX){
+                    direction = "right";
+                }
+            }
+            else {
+                actionLockCounter = 0;
+            }
+
+
         }
 
         /*int i = new Random().nextInt(100)+1;
@@ -81,13 +106,15 @@ public class MON_Void extends Entity {
     }
 
     public void damageReaction(){
-        actionLockCounter = 0;
-        switch (gp.player.direction){
-            case "up": this.direction = "down";
-            case "down": this.direction = "up";
-            case "left": this.direction = "right";
-            case "right": this.direction = "left";
-        }
+        hit = true;
+        speed = 5;
+
+//        switch (gp.player.direction){
+//            case "up": this.direction = "down";
+//            case "down": this.direction = "up";
+//            case "left": this.direction = "right";
+//            case "right": this.direction = "left";
+//        }
     }
 
     public void checkDrop(){

@@ -19,7 +19,7 @@ public class TileManager {
     public TileManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[130];
+        tile = new Tile[131];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -170,6 +170,10 @@ public class TileManager {
         setup(125, "minimaps/MovementGraphittiR", true);
         setup(126, "minimaps/EGraphittiT", true);
         setup(127, "minimaps/EGraphittiB", true);
+
+        setup(128, "minimaps/Wood1", false);
+        setup(129, "minimaps/Wood2", false);
+        setup(130, "minimaps/Wood3", false);
 
     }
 

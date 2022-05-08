@@ -13,6 +13,7 @@ public class EVN_Event extends Entity {
     boolean doesRepeat;
     HashMap<String, String> dialogues = new HashMap<String, String>();
     int sceneNum;
+    int teleportDialouge;
 
     private EVN_Event(String name, GamePanel gp, int eventType, boolean doesRepeat){ // default constructor
         super(gp);
@@ -29,10 +30,11 @@ public class EVN_Event extends Entity {
         this("Simple Event", gp, eventType, doesRepeat);
     }
 
-    public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, int x, int y) { // coordinate based
+    public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, int x, int y, int tpDialouge) { // coordinate based
         this("Coordinate Event", gp, eventType, doesRepeat);
         this.x = x;
         this.y = y;
+        this.teleportDialouge = tpDialouge;
     }
 
     public EVN_Event(GamePanel gp, int eventType, boolean doesRepeat, HashMap<String, String> dialogues) { // dialogue
@@ -75,8 +77,21 @@ public class EVN_Event extends Entity {
                     gp.player.mana = gp.player.maxMana;
                     break;
                 case 3: // tp
+                    gp.player.setHat(true);
                     gp.gameState = gp.dialogueState;
-                    gp.ui.currentDialogue = "OH that's a cool ha-\n\nWHA! WHERE AM I!!?";
+                    switch(teleportDialouge){
+                        case 1:
+                            gp.ui.currentDialogue = "OH that's a cool ha-WHA!\n\nWHERE AM I!!?";
+                            break;
+                        case 2:
+                            gp.ui.currentDialogue = "Ouw, my eyes.";
+                            break;
+                        case 3:
+                            gp.ui.currentDialogue = "Oh...\nmy...\ngod. What have you done";
+                            break;
+                        default:
+                            gp.ui.currentDialogue = "Whooosh!";
+                    }
                     gp.player.worldX = gp.tileSize*x;
                     gp.player.worldY = gp.tileSize*y;
                     break;
