@@ -127,7 +127,19 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 4,false, "I should probably explore all of\n this area.");
+        gp.obj[i] = new EVN_Event(gp, 4,false, "Who left these keys\nall over the place?");
+        gp.obj[i].worldX = gp.tileSize * 157;
+        gp.obj[i].worldY = gp.tileSize * 16;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 4,false, "Huh....");
+        gp.obj[i].worldX = gp.tileSize * 31;
+        gp.obj[i].worldY = gp.tileSize * 60;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 4,false, "I should probably explore all of\nthis area.");
         gp.obj[i].worldX = gp.tileSize * 151;
         gp.obj[i].worldY = gp.tileSize * 28;
 

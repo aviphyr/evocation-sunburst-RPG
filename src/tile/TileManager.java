@@ -96,10 +96,10 @@ public class TileManager {
         setup(60, "SandRBO_G", false);
         setup(61, "SandLBO_G", false);
 
-        setup(62, "BridgeT", false);
-        setup(63, "BridgeB", false);
-        setup(64, "BridgeL", false);
-        setup(65, "BridgeR", false);
+        setup(62, "BridgeT", true);
+        setup(63, "BridgeB", true);
+        setup(64, "BridgeL", true);
+        setup(65, "BridgeR", true);
         setup(66, "BridgeS_NS", false);
         setup(67, "BridgeS_WE", false);
 
