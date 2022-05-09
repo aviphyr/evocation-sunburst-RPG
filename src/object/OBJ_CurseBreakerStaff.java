@@ -11,7 +11,7 @@ public class OBJ_CurseBreakerStaff extends Entity {
         type = type_cbStaff;
         name = "Curse Breaker";
         down1 = setup("/objects/curseBreakerStaff", gp.tileSize, gp.tileSize);
-        attackValue = 3;
+        attackValue = 4;
         description = "[" + name + "]" + "\nAn ancient magic\nstaff. Said to be\ncapable of\nbreaking any\ncurse.";
         attackHitbox.width = attackHitbox.height = 36;
     }

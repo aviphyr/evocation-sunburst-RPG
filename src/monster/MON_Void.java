@@ -17,10 +17,10 @@ public class MON_Void extends Entity {
         type = type_monster;
         name = "Void";
         speed = 2;
-        maxLife = 10;
+        maxLife = 10 * gp.player.level;
         life = maxLife;
         attack = 6;
-        defense = 0;
+        defense = 1;
         exp = 5;
 
         hitbox.x = 3;
@@ -119,7 +119,18 @@ public class MON_Void extends Entity {
     public void checkDrop(){
         dropItem(new OBJ_Heart(gp));
         dropItem(new OBJ_Heart(gp));
-        dropItem(new OBJ_EchoingVoidStaff(gp));
+
+        int hasIt = 0;
+        Entity test = new OBJ_EchoingVoidStaff(gp);
+        for(Entity x: gp.player.inventory){
+            if(x.name.equals(test.name)){
+                dropItem(new OBJ_Coin(gp));
+                hasIt++;
+            }
+        }
+        if (hasIt == 0) {
+            dropItem(new OBJ_EchoingVoidStaff(gp));
+        }
     }
 
 }

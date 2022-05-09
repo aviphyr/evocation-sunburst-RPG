@@ -93,7 +93,7 @@ public class Player extends Entity {
 
     public int getAttack(){attackHitbox = currentPrimary.attackHitbox;return strength + currentPrimary.attackValue;}
     public int getDefense(){
-        return dexterity * currentSecondary.defenseValue;
+        return dexterity + currentSecondary.defenseValue;
     }
 
     //Walking Sprites

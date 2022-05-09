@@ -19,10 +19,10 @@ public class MON_Slime extends Entity {
         type = type_monster;
         name = "Slime";
         speed = 1;
-        maxLife = 6;
+        maxLife = 4 * gp.player.level;
         life = maxLife;
-        attack = 5;
-        defense = 0;
+        attack = 2 * gp.player.level;
+        defense = 1 + gp.player.level;
         exp = 2;
         projectile = new OBJ_Rock(gp);
 
