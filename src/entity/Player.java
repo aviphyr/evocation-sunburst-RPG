@@ -89,7 +89,6 @@ public class Player extends Entity {
         inventory.clear();
         inventory.add(currentPrimary);
         inventory.add(currentSecondary);
-        inventory.add(new OBJ_Key(gp));
     }
 
     public int getAttack(){attackHitbox = currentPrimary.attackHitbox;return strength + currentPrimary.attackValue;}
@@ -383,6 +382,7 @@ public class Player extends Entity {
                 }
                 if(removal != null){
                     inventory.remove(removal);
+                    gp.ui.addMessage("Unlocked using key.");
                 }
 
             }

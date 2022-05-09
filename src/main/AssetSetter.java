@@ -79,12 +79,6 @@ public class AssetSetter
         gp.obj[i].worldY = gp.tileSize * 97;
         i++;
 
-        gp.obj[i] = new OBJ_Gate(gp);
-        gp.obj[i].worldX = gp.tileSize * 130;
-        gp.obj[i].worldY = gp.tileSize * 28;
-        i++;
-
-
         // Events
 
         gp.obj[i] = new EVN_Event(gp, 1, true);
@@ -117,6 +111,24 @@ public class AssetSetter
 
         gp.obj[i] = new EVN_Event(gp, 4,false, "Ahh... the sewers.\nI've fallen down again and all\nI have is a stick and trashcan\nlid. Greeaat.");
         gp.obj[i].worldX = gp.tileSize * 138;
+        gp.obj[i].worldY = gp.tileSize * 28;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 4,false, "Looks like this gate needs\nsome sort of key to unlock.\nHmmmmm...");
+        gp.obj[i].worldX = gp.tileSize * 132;
+        gp.obj[i].worldY = gp.tileSize * 28;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 4,false, "Huh. A key.");
+        gp.obj[i].worldX = gp.tileSize * 138;
+        gp.obj[i].worldY = gp.tileSize * 14;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 4,false, "I should probably explore all of\n this area.");
+        gp.obj[i].worldX = gp.tileSize * 151;
         gp.obj[i].worldY = gp.tileSize * 28;
 
         i++;
