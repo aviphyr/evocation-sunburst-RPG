@@ -223,6 +223,12 @@ public class AssetSetter
         gp.monster[i] = new MON_Void(gp);
         gp.monster[i].worldX = gp.tileSize * 74;
         gp.monster[i].worldY = gp.tileSize * 87;
+
+        i++;
+
+        gp.monster[i] = new MON_Void(gp);
+        gp.monster[i].worldX = gp.tileSize * 97;
+        gp.monster[i].worldY = gp.tileSize * 20;
     }
 
 }
