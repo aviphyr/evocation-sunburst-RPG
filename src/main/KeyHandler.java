@@ -54,7 +54,7 @@ public class KeyHandler implements KeyListener {
             cutSceneState(code);
         }
 
-        //Cutscene state
+        //gameOver state
         else if (gp.gameState == gp.gameOverState){
             gameOverState(code);
         }
@@ -125,6 +125,20 @@ public class KeyHandler implements KeyListener {
 
         if(code == KeyEvent.VK_F){
             shotKeyPressed = true;
+        }
+
+        //Dashing
+        if(code == KeyEvent.VK_D){
+            if(gp.player.dashActive)
+            {
+                gp.player.dashActive = false;
+                gp.ui.addMessage("Dash Deactivated");
+            }
+            else
+            {
+                gp.player.dashActive = true;
+                gp.ui.addMessage("Dash Activated");
+            }
         }
 
         // Game state switch
