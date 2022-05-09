@@ -286,6 +286,12 @@ public class GamePanel extends JPanel implements Runnable {
                     }
                 }
 
+                for (Entity entity : monster) {
+                    if (entity != null) {
+                        g2.drawRect(entity.screenX + entity.hitbox.x, entity.screenY + entity.hitbox.y, entity.hitbox.width, entity.hitbox.height);
+                    }
+                }
+
                 g2.setColor(Color.white);
                 g2.drawString("WorldX: " + player.worldX, x, y); y += lineHeight;
                 g2.drawString("WorldX: " + player.worldY, x, y); y += lineHeight;

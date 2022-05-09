@@ -132,7 +132,7 @@ public class KeyHandler implements KeyListener {
         {
             gp.gameState = gp.pauseState;
         }
-        if(code == KeyEvent.VK_E){
+        if(code == KeyEvent.VK_S){
             gp.gameState = gp.characterState;
         }
 
@@ -167,7 +167,7 @@ public class KeyHandler implements KeyListener {
     }
 
     public void characterState(int code){
-        if(code == KeyEvent.VK_E)
+        if(code == KeyEvent.VK_S)
         {
             gp.gameState = gp.playState;
         }
@@ -272,7 +272,6 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_A){
                 interact = false;
             }
-
             if(code == KeyEvent.VK_F){
                 shotKeyPressed = false;
             }
