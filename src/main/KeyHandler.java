@@ -212,7 +212,7 @@ public class KeyHandler implements KeyListener {
             //gp.scenes.moveX(gp.player, "right", 1.5, 2,3);
             gp.scenes.moveY(gp.player, "up", 2.5, 2,1);
             gp.scenes.moveY(gp.player, "down", 1.5, 2,2);
-            gp.scenes.moveBit(3);
+            gp.scenes.moveBit("down",3);
             gp.scenes.leaveScene(4);
 
         }

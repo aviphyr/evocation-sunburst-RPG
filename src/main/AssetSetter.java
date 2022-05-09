@@ -109,7 +109,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 4,false, "Ahh... the sewers.\nI've fallen down again and all\nI have is a stick and trashcan\nlid. Greeaat.");
+        gp.obj[i] = new EVN_Event(gp, 5,false, 1);
         gp.obj[i].worldX = gp.tileSize * 138;
         gp.obj[i].worldY = gp.tileSize * 28;
 
@@ -130,6 +130,18 @@ public class AssetSetter
         gp.obj[i] = new EVN_Event(gp, 4,false, "I should probably explore all of\n this area.");
         gp.obj[i].worldX = gp.tileSize * 151;
         gp.obj[i].worldY = gp.tileSize * 28;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 5,false, 2);
+        gp.obj[i].worldX = gp.tileSize * 138;
+        gp.obj[i].worldY = gp.tileSize * 26;
+
+        i++;
+
+        gp.obj[i] = new EVN_Event(gp, 5,false, 3);
+        gp.obj[i].worldX = gp.tileSize * 140;
+        gp.obj[i].worldY = gp.tileSize * 26;
 
         i++;
 

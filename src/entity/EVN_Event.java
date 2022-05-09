@@ -117,6 +117,7 @@ public class EVN_Event extends Entity {
                     }*/
                     break;
                 case 5: //Cutscenes
+
                     gp.gameState = gp.cutSceneState;
                     gp.scenePacks.runScene(sceneNum);
             }

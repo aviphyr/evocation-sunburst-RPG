@@ -19,8 +19,8 @@ public class MON_Void extends Entity {
         speed = 2;
         maxLife = 10 * gp.player.level;
         life = maxLife;
-        attack = 6;
-        defense = 1;
+        attack = 6 * gp.player.level;
+        defense = 1 * gp.player.level;
         exp = 5;
 
         hitbox.x = 3;

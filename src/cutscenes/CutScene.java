@@ -68,10 +68,11 @@ public class CutScene
             e.speed = speed;
             active = true;
             this.actionNum = actionNum;
-            if (direction == "up")
-                e.keyH.upPressed = true;
-            if (direction == "down")
+            if (direction.equals("down"))
                 e.keyH.downPressed = true;
+            if (direction.equals("up"))
+                e.keyH.upPressed = true;
+
 
             Timer t = new java.util.Timer();
             t.schedule(
@@ -124,21 +125,26 @@ public class CutScene
         }
 
     }
-    public void moveBit(int actionNum)
+    public void moveBit(String direction, int actionNum)
     {
         if(!active && actionNum == this.actionNum + 1)
         {
             gp.gameState = gp.playState;
-            switch(gp.player.direction)
+            Timer t;
+            switch(direction)
             {
                 case "up":
-                    gp.player.keyH.upPressed = true;
+                    moveY(gp.player, "up", 0.01, 4, actionNum);
+                    break;
                 case "down":
-                    gp.player.keyH.downPressed = true;
+                    moveY(gp.player, "down", 0.01, 4, actionNum);
+                    break;
                 case "left":
-                    gp.player.keyH.leftPressed = true;
+                    moveX(gp.player, "left", 0.01, 4, actionNum);
+                    break;
                 case "right":
-                    gp.player.keyH.rightPressed = true;
+                    moveX(gp.player, "right", 0.01, 4, actionNum);
+                    break;
             }
         }
         else
@@ -148,11 +154,45 @@ public class CutScene
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
-                            moveBit(actionNum);
+                            moveBit(direction, actionNum);
                             t.cancel();
                         }
                     },
                     Math.round(0));
+        }
+    }
+
+    public void speech(String dialouge, int actionNum){
+
+        if(!active && actionNum == this.actionNum + 1)
+        {
+            gp.gameState = gp.dialogueState;
+            gp.ui.currentDialogue = dialouge;
+
+            Timer t = new java.util.Timer();
+            t.schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            gp.gameState = gp.cutSceneState;
+                            active = false;
+                            t.cancel();
+                        }
+                    },
+                    Math.round(5000));
+        }
+        else
+        {
+            Timer t = new java.util.Timer();
+            t.schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            speech(dialouge, actionNum);
+                            t.cancel();
+                        }
+                    },
+                    Math.round(20));
         }
     }
 }
