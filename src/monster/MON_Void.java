@@ -9,6 +9,8 @@ import java.util.Random;
 public class MON_Void extends Entity {
     GamePanel gp;
     private boolean hit;
+    int tilDash = 0;
+    boolean dash = false;
     public MON_Void(GamePanel gp){
 
         super(gp);
@@ -79,18 +81,44 @@ public class MON_Void extends Entity {
                 else if(gp.player.worldY - 16 < this.worldY){
                     direction = "up";
                 }
+                if(!dash){
+                    tilDash++;
+                }
+                else{
+                    tilDash-=60;
+                    actionLockCounter = 31;
+                    if(tilDash <= 0){
+                        speed = 5;
+                        dash = false;
+                    }
+                }
             }
 
             else if(actionLockCounter <= 60){
                 if(gp.player.worldX - 16 < this.worldX){
                     direction = "left";
                 }
-                if(gp.player.worldX + 16 > this.worldX){
+                else if(gp.player.worldX + 16 > this.worldX){
                     direction = "right";
+                }
+                if(!dash){
+                    tilDash++;
+                }
+                else{
+                    tilDash-=60;
+                    actionLockCounter = 61;
+                    if(tilDash <= 0){
+                        speed = 5;
+                        dash = false;
+                    }
                 }
             }
             else {
                 actionLockCounter = 0;
+                if(tilDash >= 240){
+                    speed = 14;
+                    dash = true;
+                }
             }
 
 
