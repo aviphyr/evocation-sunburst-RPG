@@ -13,7 +13,7 @@ public class OBJ_Pail extends Entity
         name = "Pail of Water";
         attackValue = 0;
         down1 = setup("/objects/pail", gp.tileSize, gp.tileSize);
-        description = "[" + name + "]" + "\nIt's the pail of\ninfinitely clean\nwater I bought\nfrom the shady guy\nthat gave me\nsentience.";
+        description = "[" + name + "]" + "\nIt's the pail of\ninfinitely clean\nwater I bought\nfrom the shady\nguy that gave me\nsentience.";
         attackHitbox.width = attackHitbox.height = 30;
     }
 }

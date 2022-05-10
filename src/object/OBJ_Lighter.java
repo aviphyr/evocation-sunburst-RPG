@@ -11,7 +11,7 @@ public class OBJ_Lighter extends Entity
         super(gp);
         name = "Old Lighter";
         down1 = setup("/objects/lighter", gp.tileSize, gp.tileSize);
-        description = "[" + name + "]" + "\nWho needs magic\nwhen you can\nlight trash on fire\n and throw it";
+        description = "[" + name + "]" + "\nWho needs magic\nwhen you can\nlight trash on\nfire and throw it";
 
 
     }

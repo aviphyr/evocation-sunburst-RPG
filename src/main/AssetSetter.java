@@ -54,14 +54,14 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new OBJ_Boots(gp);
-        gp.obj[i].worldX = gp.tileSize * 140;
-        gp.obj[i].worldY = gp.tileSize * 57;
+        gp.obj[i] = new OBJ_Lighter(gp);
+        gp.obj[i].worldX = gp.tileSize * 158;
+        gp.obj[i].worldY = gp.tileSize * 58;
         i++;
 
-        gp.obj[i] = new OBJ_Lighter(gp);
-        gp.obj[i].worldX = gp.tileSize * 125;
-        gp.obj[i].worldY = gp.tileSize * 42;
+        gp.obj[i] = new OBJ_Boots(gp);
+        gp.obj[i].worldX = gp.tileSize * 129;
+        gp.obj[i].worldY = gp.tileSize * 44;
         i++;
 
         gp.obj[i] = new OBJ_Scythe(gp);
