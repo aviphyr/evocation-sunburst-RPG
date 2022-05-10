@@ -10,8 +10,8 @@ public class OBJ_Boots extends Entity
     {
         super(gp);
         name = "Boots";
-        down1 = setup("objects/boots.png", gp.tileSize, gp.tileSize);
-        description = "[" + name + "]" + "\nI says 'D\nto Dash' on the bottom\n, but I can't read";
+        down1 = setup("/objects/boots", gp.tileSize, gp.tileSize);
+        description = "[" + name + "]" + "\nIt says,\n'D to Dash'\non the bottom,\nbut I can't read";
 
 
     }

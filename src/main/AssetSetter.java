@@ -54,13 +54,28 @@ public class AssetSetter
 
         i++;
 
+        gp.obj[i] = new OBJ_Boots(gp);
+        gp.obj[i].worldX = gp.tileSize * 140;
+        gp.obj[i].worldY = gp.tileSize * 57;
+        i++;
+
+        gp.obj[i] = new OBJ_Lighter(gp);
+        gp.obj[i].worldX = gp.tileSize * 125;
+        gp.obj[i].worldY = gp.tileSize * 42;
+        i++;
+
         gp.obj[i] = new OBJ_Scythe(gp);
         gp.obj[i].worldX = gp.tileSize * 18;
         gp.obj[i].worldY = gp.tileSize * 57;
         i++;
 
+        gp.obj[i] = new OBJ_BasicStaff(gp);
+        gp.obj[i].worldX = gp.tileSize * 149;
+        gp.obj[i].worldY = gp.tileSize * 94;
+        i++;
+
         gp.obj[i] = new OBJ_CurseBreakerStaff(gp);
-        gp.obj[i].worldX = gp.tileSize * 16;
+        gp.obj[i].worldX = gp.tileSize * 86;
         gp.obj[i].worldY = gp.tileSize * 57;
         i++;
 
@@ -115,7 +130,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 4,false, "Looks like this gate needs\nsome sort of key to unlock.\nHmmmmm...");
+        gp.obj[i] = new EVN_Event(gp, 4,false, "I wonder what's back there,\nbut I need some sort of key to unlock it.\nHmmmmm...");
         gp.obj[i].worldX = gp.tileSize * 132;
         gp.obj[i].worldY = gp.tileSize * 28;
 
