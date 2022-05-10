@@ -40,10 +40,12 @@ public class NPC_creature extends Entity
     public void setDialogue()
     {
         dialogues[0] = "...";
-        dialogues[1] = "Fishe";
-        dialogues[2] = "... *unintelligible*\n... fishe.";
-        dialogues[3] = "Weeeeeeeeee\neeeeeee..";
-        dialogues[4] = "I've got strings to hold me down.\nThey make me fret, make Me frown\nI had no strings, now I'm not free\nThey got their strings on me.";
+        dialogues[1] = "...\n\n\nKeys";
+        dialogues[2] = "... *unintelligible*\n... keeheHEES.";
+        dialogues[3] = "Weeeeeeeeee\neeheHeEHeHE..\n\n Covered IN StriIIiiIings.";
+        dialogues[4] = "I've got strings to hold me down.\nThey make me fret, make Me frown\nI found no keys, so I'm not free\nThey got their strings on me.";
+        dialogues[5] = "Sometimes. I don't know weather\nhe's still in control or I can\nactually speak freely now.";
+        dialogues[6] = null;
     }
 
     public void setAction()

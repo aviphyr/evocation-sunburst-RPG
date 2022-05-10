@@ -361,7 +361,7 @@ public class UI
         drawSubWindow(x, y, width, height, e.entityColor);
 
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 28F));
-        x += gp.tileSize;
+        x += gp.tileSize-24;
         y += gp.tileSize;
 
         for(String line : currentDialogue.split("\n"))

@@ -29,23 +29,26 @@ public class NPC_Frung extends Entity
     public void getImage()
     {
 
-        up1 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        up2 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        down1 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        down2 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        left1 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        left2 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        right1 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
-        right2 = setup("/npc/frung/Frung-Attacks", gp.tileSize*2, gp.tileSize*2);
+        up1 = setup("/npc/frung/FrungUp1", gp.tileSize, gp.tileSize);
+        up2 = setup("/npc/frung/FrungUp2", gp.tileSize, gp.tileSize);
+        down1 = setup("/npc/frung/FrungDown1", gp.tileSize, gp.tileSize);
+        down2 = setup("/npc/frung/FrungDown2", gp.tileSize, gp.tileSize);
+        left1 = setup("/npc/frung/FrungLeft1", gp.tileSize, gp.tileSize);
+        left2 = setup("/npc/frung/FrungLeft2", gp.tileSize, gp.tileSize);
+        right1 = setup("/npc/frung/FrungRight1", gp.tileSize, gp.tileSize);
+        right2 = setup("/npc/frung/FrungRight2", gp.tileSize, gp.tileSize);
 
     }
 
     public void setDialogue()
     {
-        dialogues[0] = "Frung.";
-        dialogues[1] = "I'm 32x32. Unlike you.";
-        dialogues[2] = "Fruuung.";
-        dialogues[3] = "No, I'm not related to Froog.";
+        dialogues[0] = "Really, You're the new wizard";
+        dialogues[1] = "Yes, Froog is my sister.\nDon't touch her.";
+        dialogues[2] = "You don't even cast any spells.";
+        dialogues[3] = "Could you just leave me alone.";
+        dialogues[4] = "I don't really hate you.\n\nHe just wants me too.";
+        dialogues[5] = null;
+        dialogues[6] = null;
     }
 
     public void setAction()

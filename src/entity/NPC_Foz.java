@@ -44,6 +44,9 @@ public class NPC_Foz extends Entity
         dialogues[1] = "It's good to see that there is\nanother wizard in town.\nThe other one is getting a bit\ntoo moody if you ask me.";
         dialogues[2] = "Oh, me! I purchased a monocle\nthat let you see peoples inner\ndesires and he desired that\ndidn't pay him.";
         dialogues[3] = "I wonder where my house is?";
+        dialogues[4] = "This Prick keeps making me act\nlike a basic rich boy, but I am\nNot so 2-dimensional";
+        dialogues[5] = null;
+        dialogues[6] = null;
     }
 
     public void setAction()

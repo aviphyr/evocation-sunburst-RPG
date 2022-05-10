@@ -114,8 +114,16 @@ public class Entity
         {
             dialogueIndex = 0;
         }
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
-        dialogueIndex++;
+        if(dialogueIndex == 4) {
+            gp.ui.currentDialogue = dialogues[dialogueIndex];
+            dialogues[4] = dialogues[5];
+            dialogues[5] = dialogues[6];
+            dialogueIndex++;
+        }
+        else {
+            gp.ui.currentDialogue = dialogues[dialogueIndex];
+            dialogueIndex++;
+        }
 
         switch(gp.player.direction)
         {

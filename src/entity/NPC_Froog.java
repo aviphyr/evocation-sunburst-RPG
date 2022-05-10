@@ -45,7 +45,10 @@ public class NPC_Froog extends Entity
         dialogues[0] = "Hello Racc! Me is Froog.";
         dialogues[1] = "Hello again!";
         dialogues[2] = "Hehehehehe.";
-        dialogues[3] = "They had to put transparent\npixels in my top right corner\nfor my sprites to load correctly";
+        dialogues[3] = "Frung is my big brother.\nHe can cast spells.\nOne day I wanna be a wizard, just\nlike him.";
+        dialogues[4] = "I really wanna go home, but I\nknow Frung is working on it.\nHe'll get us out, I just know it.";
+        dialogues[5] = null;
+        dialogues[6] = null;
     }
 
     public void setAction()

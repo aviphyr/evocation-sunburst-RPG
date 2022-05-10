@@ -43,6 +43,9 @@ public class NPC_grampyTod extends Entity
         dialogues[1] = "So what brings you to\nthis town?";
         dialogues[2] = "Me? I went to the old hag to\nget my family back, but he had\ngotten a lot more powerful\nthan the last time we met.";
         dialogues[3] = "You best not hurt young\nMs. Froog. Cause I make no\npromises of what will happen\nto you if you do.";
+        dialogues[4] = "Son, please\nFind the Curse Breaker\nand Get us out of here.";
+        dialogues[5] = null;
+        dialogues[6] = null;
     }
 
     public void setAction()

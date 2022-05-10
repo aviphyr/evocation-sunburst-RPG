@@ -152,7 +152,7 @@ public class MON_Void extends Entity {
         Entity test = new OBJ_EchoingVoidStaff(gp);
         for(Entity x: gp.player.inventory){
             if(x.name.equals(test.name)){
-                dropItem(new OBJ_Coin(gp));
+                dropItem(new OBJ_Trash(gp));
                 hasIt++;
             }
         }
