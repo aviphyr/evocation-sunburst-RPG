@@ -7,6 +7,7 @@ import object.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Timer;
 
 @SuppressWarnings("ALL")
 public class Player extends Entity {
@@ -18,6 +19,7 @@ public class Player extends Entity {
     int standingCounter = 0;
     boolean idle = true;
     boolean hatless;
+    public boolean dashActive;
 
     static int whichNPC = 0;
     public ArrayList<Entity> inventory = new ArrayList<>();
@@ -247,7 +249,30 @@ public class Player extends Entity {
                     case "left": worldX -= speed; break;
                     case "right": worldX += speed; break;
                 }
+                if(dashActive)
+                {
+                    speed = 15;
+                    switch(direction){
+                        case "up": worldY -= speed; break;
+                        case "down": worldY += speed; break;
+                        case "left": worldX -= speed; break;
+                        case "right": worldX += speed; break;
+                    }
+                    Timer t = new java.util.Timer();
+                    t.schedule(
+                            new java.util.TimerTask() {
+                                @Override
+                                public void run() {
+                                    dashActive = false;
+                                    speed = 4;
+                                    t.cancel();
+                                }
+                            },
+                            Math.round(150));
+                }
             }
+
+
 
             idle = false;
             // animation (walk cycle)
