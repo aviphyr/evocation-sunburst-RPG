@@ -11,6 +11,7 @@ public class OBJ_Boots extends Entity
         super(gp);
         name = "Boots";
         down1 = setup("objects/boots.png", gp.tileSize, gp.tileSize);
+        description = "[" + name + "]" + "\nI says 'D\nto Dash' on the bottom\n, but I can't read";
 
 
     }

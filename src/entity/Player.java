@@ -64,7 +64,7 @@ public class Player extends Entity {
         level = 1;
         exp = coin = 0;
         nextLevelExp = 5;
-        currentPrimary = new OBJ_BasicStaff(gp);
+        currentPrimary = new OBJ_Pail(gp);
         currentSecondary = new OBJ_TrashcanLid(gp);
         projectile = new OBJ_Fireball(gp);
         //projectile = new OBJ_Rock(gp);
