@@ -173,6 +173,17 @@ public class Player extends Entity {
             attackRight2 = setup("/player/attacks/RaccScytheRight2", gp.tileSize * 2, gp.tileSize);
         }
 
+        if(currentPrimary.type == type_pail) {
+            attackUp1 = setup("/player/attacks/RaccScytheUp1", gp.tileSize, gp.tileSize * 2);
+            attackUp2 = setup("/player/attacks/RaccScytheUp2", gp.tileSize, gp.tileSize * 2);
+            attackDown1 = setup("/player/attacks/RaccScytheDown1", gp.tileSize, gp.tileSize * 2);
+            attackDown2 = setup("/player/attacks/RaccScytheDown2", gp.tileSize, gp.tileSize * 2);
+            attackLeft1 = setup("/player/attacks/RaccPailLeft1", gp.tileSize * 2, gp.tileSize);
+            attackLeft2 = setup("/player/attacks/RaccPailLeft2", gp.tileSize * 2, gp.tileSize);
+            attackRight1 = setup("/player/attacks/RaccPailRight1", gp.tileSize * 2, gp.tileSize);
+            attackRight2 = setup("/player/attacks/RaccPailRight2", gp.tileSize * 2, gp.tileSize);
+        }
+
     }
 
     public void update(){
@@ -501,6 +512,10 @@ public class Player extends Entity {
             level++;
             nextLevelExp = nextLevelExp *2;
             maxLife += 2;
+            life = maxLife;
+            if(level%2 != 0){
+                maxMana += 1;
+            }
             strength++;
             dexterity++;
             attack = getAttack();
@@ -517,7 +532,7 @@ public class Player extends Entity {
         int itemIndex = gp.ui.getItemIndexOnSlot();
         if (itemIndex < inventory.size()){
             Entity selectedItem = inventory.get(itemIndex);
-            if(selectedItem.type == type_bStaff || selectedItem.type == type_vStaff || selectedItem.type == type_cbStaff ||selectedItem.type == type_scythe){
+            if(selectedItem.type == type_bStaff || selectedItem.type == type_vStaff || selectedItem.type == type_cbStaff || selectedItem.type == type_scythe || selectedItem.type == type_pail){
                 currentPrimary = selectedItem;
                 attack = getAttack();
                 getPlayerAttackImage();

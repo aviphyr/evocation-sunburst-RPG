@@ -128,7 +128,7 @@ public class KeyHandler implements KeyListener {
         }
 
         //Dashing
-        if(code == KeyEvent.VK_D){
+        if(code == KeyEvent.VK_D && gp.player.mana > 0){
             if(gp.player.dashActive)
             {
                 gp.player.dashActive = false;
@@ -136,6 +136,7 @@ public class KeyHandler implements KeyListener {
             }
             else
             {
+                gp.player.mana -= 1;
                 gp.player.dashActive = true;
                 gp.ui.addMessage("Dash Activated");
             }
