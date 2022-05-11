@@ -1,13 +1,11 @@
 package main;
 
-import com.sun.applet2.AppletParameters;
 import entity.*;
 import monster.MON_Goop;
 import monster.MON_Slime;
 import monster.MON_Void;
+import entity.BOSS_Frung;
 import object.*;
-
-import java.util.HashMap;
 
 public class AssetSetter
 {
@@ -225,8 +223,8 @@ public class AssetSetter
         i++;
 
         gp.npc[i] = new NPC_Frung(gp);
-        gp.npc[i].worldX = gp.tileSize * 42;
-        gp.npc[i].worldY = gp.tileSize * 94;
+        gp.npc[i].worldX = gp.tileSize * 35;
+        gp.npc[i].worldY = gp.tileSize * 50;
         i++;
 
         gp.npc[i] = new NPC_grampyTod(gp);
@@ -287,6 +285,12 @@ public class AssetSetter
         gp.monster[i] = new MON_Void(gp);
         gp.monster[i].worldX = gp.tileSize * 97;
         gp.monster[i].worldY = gp.tileSize * 20;
+
+        i++;
+        gp.monster[i] = new BOSS_Frung(gp);
+        gp.monster[i].worldX = gp.tileSize * 79;
+        gp.monster[i].worldY = gp.tileSize * 53;
+
     }
 
 }
