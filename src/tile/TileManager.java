@@ -19,7 +19,7 @@ public class TileManager {
     public TileManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[131];
+        tile = new Tile[154];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -165,15 +165,38 @@ public class TileManager {
         setup(121, "minimaps/GratePipe", false);
         setup(122, "minimaps/WallToWater", true);
 
-        setup(123, "minimaps/MovementGraphittiT", true);
-        setup(124, "minimaps/MovementGraphittiL", true);
-        setup(125, "minimaps/MovementGraphittiR", true);
-        setup(126, "minimaps/EGraphittiT", true);
-        setup(127, "minimaps/EGraphittiB", true);
+        setup(123, "minimaps/LeftRT", true);
+        setup(124, "minimaps/LeftLT", true);
+        setup(125, "minimaps/LeftRB", true);
+        setup(126, "minimaps/LeftLB", true);
+        setup(127, "minimaps/UpRT", true);
+        setup(128, "minimaps/UpLT", true);
+        setup(129, "minimaps/UpRB", true);
+        setup(130, "minimaps/UpLB", true);
+        setup(131, "minimaps/RightRT", true);
+        setup(132, "minimaps/RightLT", true);
+        setup(133, "minimaps/RightRB", true);
+        setup(134, "minimaps/RightLB", true);
+        setup(135, "minimaps/DownRT", false);
+        setup(136, "minimaps/DownLT", false);
+        setup(137, "minimaps/DownRB", false);
+        setup(138, "minimaps/DownLB", false);
+        setup(139, "minimaps/SRT", true);
+        setup(140, "minimaps/SLT", true);
+        setup(141, "minimaps/SRB", true);
+        setup(142, "minimaps/SLB", true);
+        setup(143, "minimaps/FRT", true);
+        setup(144, "minimaps/FLT", true);
+        setup(145, "minimaps/FRB", true);
+        setup(146, "minimaps/FLB", true);
+        setup(147, "minimaps/ART", true);
+        setup(148, "minimaps/ALT", true);
+        setup(149, "minimaps/ARB", true);
+        setup(150, "minimaps/ALB", true);
 
-        setup(128, "minimaps/Wood1", false);
-        setup(129, "minimaps/Wood2", false);
-        setup(130, "minimaps/Wood3", false);
+        setup(151, "minimaps/Wood1", false);
+        setup(152, "minimaps/Wood2", false);
+        setup(153, "minimaps/Wood3", false);
 
     }
 
