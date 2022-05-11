@@ -1,11 +1,13 @@
 package main;
 
+import com.sun.applet2.AppletParameters;
 import entity.*;
 import monster.MON_Goop;
 import monster.MON_Slime;
 import monster.MON_Void;
-import entity.BOSS_Frung;
 import object.*;
+
+import java.util.HashMap;
 
 public class AssetSetter
 {
@@ -48,10 +50,18 @@ public class AssetSetter
         i++;
 
         gp.obj[i] = new OBJ_Gate(gp);
+        gp.obj[i].worldX = gp.tileSize * 56;
+        gp.obj[i].worldY = gp.tileSize * 53;
+
+        i++;
+
+        gp.obj[i] = new OBJ_Gate(gp);
         gp.obj[i].worldX = gp.tileSize * 125;
         gp.obj[i].worldY = gp.tileSize * 14;
 
         i++;
+
+
 
         gp.obj[i] = new OBJ_Boots(gp);
         gp.obj[i].worldX = gp.tileSize * 158;
@@ -70,7 +80,7 @@ public class AssetSetter
 
         gp.obj[i] = new OBJ_BasicStaff(gp);
         gp.obj[i].worldX = gp.tileSize * 156;
-        gp.obj[i].worldY = gp.tileSize * 102;
+        gp.obj[i].worldY = gp.tileSize * 101;
         i++;
 
         gp.obj[i] = new OBJ_CurseBreakerStaff(gp);
@@ -113,7 +123,13 @@ public class AssetSetter
 
         gp.obj[i] = new EVN_Event(gp, 3,true, 31, 61, 2);
         gp.obj[i].worldX = gp.tileSize * 156;
-        gp.obj[i].worldY = gp.tileSize * 101;
+        gp.obj[i].worldY = gp.tileSize * 102;
+
+        i++;
+
+        gp.obj[i] = new OBJ_Hat(gp);
+        gp.obj[i].worldX = gp.tileSize * 125;
+        gp.obj[i].worldY = gp.tileSize * 10;
 
         i++;
 
@@ -276,10 +292,10 @@ public class AssetSetter
         gp.monster[i].worldY = gp.tileSize * 20;
 
         i++;
-        gp.monster[i] = new BOSS_Frung(gp);
-        gp.monster[i].worldX = gp.tileSize * 79;
-        gp.monster[i].worldY = gp.tileSize * 53;
 
+        gp.monster[i] = new BOSS_Frung(gp);
+        gp.monster[i].worldX = gp.tileSize * 77;
+        gp.monster[i].worldY = gp.tileSize * 48;
     }
 
 }

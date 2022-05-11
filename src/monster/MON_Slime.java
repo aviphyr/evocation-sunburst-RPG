@@ -92,7 +92,7 @@ public class MON_Slime extends Entity {
     public void checkDrop(){
         int i = new Random().nextInt(100)+1;
         if(i < 50){
-            dropItem(new OBJ_Coin(gp));
+            dropItem(new OBJ_Trash(gp));
         }
         if(i >= 50 && i < 75){
             dropItem(new OBJ_Heart(gp));
