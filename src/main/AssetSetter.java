@@ -54,12 +54,12 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new OBJ_Lighter(gp);
+        gp.obj[i] = new OBJ_Boots(gp);
         gp.obj[i].worldX = gp.tileSize * 158;
         gp.obj[i].worldY = gp.tileSize * 58;
         i++;
 
-        gp.obj[i] = new OBJ_Boots(gp);
+        gp.obj[i] = new OBJ_Lighter(gp);
         gp.obj[i].worldX = gp.tileSize * 129;
         gp.obj[i].worldY = gp.tileSize * 44;
         i++;
@@ -70,13 +70,13 @@ public class AssetSetter
         i++;
 
         gp.obj[i] = new OBJ_BasicStaff(gp);
-        gp.obj[i].worldX = gp.tileSize * 149;
-        gp.obj[i].worldY = gp.tileSize * 94;
+        gp.obj[i].worldX = gp.tileSize * 156;
+        gp.obj[i].worldY = gp.tileSize * 102;
         i++;
 
         gp.obj[i] = new OBJ_CurseBreakerStaff(gp);
-        gp.obj[i].worldX = gp.tileSize * 86;
-        gp.obj[i].worldY = gp.tileSize * 57;
+        gp.obj[i].worldX = gp.tileSize * 94;
+        gp.obj[i].worldY = gp.tileSize * 53;
         i++;
 
         gp.obj[i] = new OBJ_TrashcanLidGold(gp);
@@ -106,15 +106,15 @@ public class AssetSetter
         gp.obj[i].worldY = gp.tileSize * 56;
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 3,true, 153, 91, 1);
+        gp.obj[i] = new EVN_Event(gp, 3,true, 156, 95, 1);
         gp.obj[i].worldX = gp.tileSize * 125;
         gp.obj[i].worldY = gp.tileSize * 10;
 
         i++;
 
         gp.obj[i] = new EVN_Event(gp, 3,true, 31, 61, 2);
-        gp.obj[i].worldX = gp.tileSize * 153;
-        gp.obj[i].worldY = gp.tileSize * 98  ;
+        gp.obj[i].worldX = gp.tileSize * 156;
+        gp.obj[i].worldY = gp.tileSize * 101;
 
         i++;
 
