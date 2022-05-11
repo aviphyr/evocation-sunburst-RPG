@@ -123,7 +123,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 5,false, 1);
+        gp.obj[i] = new EVN_Event(gp, 4,false, "Dang it, I fell into another \ndrainage pipe. Life of a Raccoon\nI tell ya. I gotta get out of \nhere.");
         gp.obj[i].worldX = gp.tileSize * 138;
         gp.obj[i].worldY = gp.tileSize * 28;
 
@@ -159,17 +159,6 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 5,false, 2);
-        gp.obj[i].worldX = gp.tileSize * 138;
-        gp.obj[i].worldY = gp.tileSize * 26;
-
-        i++;
-
-        gp.obj[i] = new EVN_Event(gp, 5,false, 3);
-        gp.obj[i].worldX = gp.tileSize * 140;
-        gp.obj[i].worldY = gp.tileSize * 26;
-
-        i++;
 
         //gp.obj[i] = new EVN_Event(gp, 5,true, 1);
         //gp.obj[i].worldX = gp.tileSize * 138;

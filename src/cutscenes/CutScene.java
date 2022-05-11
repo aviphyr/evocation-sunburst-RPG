@@ -125,6 +125,7 @@ public class CutScene
         }
 
     }
+
     public void moveBit(String direction, int actionNum)
     {
         if(!active && actionNum == this.actionNum + 1)
@@ -134,16 +135,16 @@ public class CutScene
             switch(direction)
             {
                 case "up":
-                    moveY(gp.player, "up", 0.01, 4, actionNum);
+                    moveY(gp.player, "up", 0.5, 4, actionNum);
                     break;
                 case "down":
-                    moveY(gp.player, "down", 0.01, 4, actionNum);
+                    moveY(gp.player, "down", 0.5, 4, actionNum);
                     break;
                 case "left":
-                    moveX(gp.player, "left", 0.01, 4, actionNum);
+                    moveX(gp.player, "left", 0.5, 4, actionNum);
                     break;
                 case "right":
-                    moveX(gp.player, "right", 0.01, 4, actionNum);
+                    moveX(gp.player, "right", 0.5, 4, actionNum);
                     break;
             }
         }
