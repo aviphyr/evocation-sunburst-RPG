@@ -2,6 +2,7 @@ package main;
 
 import com.sun.applet2.AppletParameters;
 import entity.*;
+import monster.MON_Goop;
 import monster.MON_Slime;
 import monster.MON_Void;
 import object.*;
@@ -130,7 +131,7 @@ public class AssetSetter
 
         i++;
 
-        gp.obj[i] = new EVN_Event(gp, 4,false, "I wonder what's back there,\nbut I need some sort of key to unlock it.\nHmmmmm...");
+        gp.obj[i] = new EVN_Event(gp, 4,false, "I wonder what's back there,\nbut I need some sort\nof key to unlock it.\nHmmmmm...");
         gp.obj[i].worldX = gp.tileSize * 132;
         gp.obj[i].worldY = gp.tileSize * 28;
 
@@ -240,6 +241,24 @@ public class AssetSetter
 
     public void setMonster(){
         int i = 0;
+
+        gp.monster[i] = new MON_Goop(gp);
+        gp.monster[i].worldX = gp.tileSize * 141;
+        gp.monster[i].worldY = gp.tileSize * 55;
+
+        i++;
+
+        gp.monster[i] = new MON_Goop(gp);
+        gp.monster[i].worldX = gp.tileSize * 155;
+        gp.monster[i].worldY = gp.tileSize * 64;
+
+        i++;
+
+        gp.monster[i] = new MON_Goop(gp);
+        gp.monster[i].worldX = gp.tileSize * 151;
+        gp.monster[i].worldY = gp.tileSize * 60;
+
+        i++;
 
         gp.monster[i] = new MON_Slime(gp);
         gp.monster[i].worldX = gp.tileSize * 44;
