@@ -1,3 +1,4 @@
+![image](https://user-images.githubusercontent.com/80072853/168190909-1975b933-51a2-4505-92ad-b001d5dcfb9b.png)
 # Evocation Sunburst
 Evocation Sunburst is a pixel-art Java RPG about a raccon named Racc discovering a hidden world in a sewer system, while also becoming a wizard in the process. But things aren't exactly what they seem when Racc enters this world... Help Racc make friends, fight, survive and discover the secrets of this hidden world!
 
