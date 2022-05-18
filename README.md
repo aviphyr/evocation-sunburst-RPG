@@ -2,6 +2,15 @@
 # Evocation Sunburst
 Evocation Sunburst is a pixel-art Java RPG about a raccon named Racc discovering a hidden world in a sewer system, while also becoming a wizard in the process. But things aren't exactly what they seem when Racc enters this world... Help Racc make friends, fight, survive and discover the secrets of this hidden world!
 
+# Controls
+Sorry, there's very little explaination for controls in the game. Here's a cheatsheet:
+- arrows keys: moving around
+- space: select
+- a: attack
+- s: inventory
+- d: dash
+- f: fire trash
+
 # Gameplay features
 - Inventory system
 - Combat and leveling up system
