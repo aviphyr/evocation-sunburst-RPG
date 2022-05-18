@@ -23,4 +23,10 @@ The Sound is really loud at the moment. Probably best to turn down your volume!
 
 # Credits and Acknowledgements
 This game would not be possible without the series of tutorials by [RyiSnow](https://www.youtube.com/c/RyiSnow).
-Also, thank you to Ms. Cuddy, our Computer Science teacher!
+## Dev team
+- sivisenthil: engine, cutscene design, sound design
+- aviphyr: level design, engine, pixel art, cover art
+- EksentricElectrik: pixel art, level design, story design
+
+
+Special thank you to Ms. Cuddy, our Computer Science teacher!
